@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29409.12
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuzzerConsole", "BuzzerConsole\BuzzerConsole.csproj", "{DB0D517B-37A9-4688-9972-5D343789FDB2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{F18821E0-0D36-4D41-AF2B-2F9261CFE904}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB0D517B-37A9-4688-9972-5D343789FDB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB0D517B-37A9-4688-9972-5D343789FDB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB0D517B-37A9-4688-9972-5D343789FDB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB0D517B-37A9-4688-9972-5D343789FDB2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F18821E0-0D36-4D41-AF2B-2F9261CFE904}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F18821E0-0D36-4D41-AF2B-2F9261CFE904}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F18821E0-0D36-4D41-AF2B-2F9261CFE904}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F18821E0-0D36-4D41-AF2B-2F9261CFE904}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
