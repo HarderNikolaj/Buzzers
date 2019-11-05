@@ -45,10 +45,10 @@
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Haircolor.cs" />
     <Compile Include="Enums\UserType.cs" />
-    <Compile Include="Hivemember\Bee.cs" />
-    <Compile Include="Hivemember\Beekeeper.cs" />
-    <Compile Include="Hivemember\Hivemember.cs" />
-    <Compile Include="Hivemember\Honeypot.cs" />
+    <Compile Include="Users\Bee.cs" />
+    <Compile Include="Users\Beekeeper.cs" />
+    <Compile Include="Users\Hivemember.cs" />
+    <Compile Include="Users\Honeypot.cs" />
     <Compile Include="Preferences.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

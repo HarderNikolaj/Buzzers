@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Hivemember
+namespace Domain.Users
 {
-    public class Beekeeper
+    class Honeypot : Hivemember
     {
-        public int Id { get; set; }
+        public string JobTitle { get; set; }
     }
 }
