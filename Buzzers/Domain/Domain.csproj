@@ -41,7 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Eyecolor.cs" />
+    <Compile Include="Enums\Gender.cs" />
+    <Compile Include="Enums\Haircolor.cs" />
+    <Compile Include="Enums\UserType.cs" />
+    <Compile Include="Hivemember\Bee.cs" />
+    <Compile Include="Hivemember\Beekeeper.cs" />
+    <Compile Include="Hivemember\Hivemember.cs" />
+    <Compile Include="Hivemember\Honeypot.cs" />
+    <Compile Include="Preferences.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

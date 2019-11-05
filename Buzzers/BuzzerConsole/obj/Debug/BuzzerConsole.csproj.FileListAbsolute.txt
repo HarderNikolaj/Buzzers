@@ -1,0 +1,6 @@
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\BuzzerConsole.exe.config
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\BuzzerConsole.exe
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\BuzzerConsole.pdb
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole.csprojAssemblyReference.cache
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole.exe
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole.pdb
