@@ -13,10 +13,10 @@ namespace Application
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class connectionString : DbContext
+    public partial class buzzerbaseEntities : DbContext
     {
-        public connectionString()
-            : base("name=connectionString")
+        public buzzerbaseEntities()
+            : base("name=buzzerbaseEntities")
         {
         }
     

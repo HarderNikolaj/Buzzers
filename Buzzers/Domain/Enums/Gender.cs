@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 namespace Domain.Enums
 {
     public enum Gender
-    {
-        Male,
-        Female
+    {       
+        Female = 1,
+        Male = 2
     }
 }

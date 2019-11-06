@@ -8,10 +8,10 @@ namespace Domain.Enums
 {
     public enum Haircolor
     {
-        Other,
-        Blonde,
-        Brunette,
-        Black,
-        Red
+        Other = 1,
+        Blonde = 2,
+        Brunette = 3,
+        Black = 4,
+        Red = 5
     }
 }

@@ -3,15 +3,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Application.DbCommunicator;
 using Domain.Users;
 
 namespace Application
 {
     public class AccountManager : IAccountManager
     {
-        public bool CreateUser(Hivemember hivemember)
+        private IDbCommunicator _db;
+        public AccountManager(IDbCommunicator db)
         {
-            throw new NotImplementedException();
+            _db = db;
+        }
+
+        public bool CreateUser(Hivemember member)
+        {
+            //validate
+
+            if (member is Bee)
+            {
+                _db.CreateBee((Bee)member);
+            }
+            return true;
         }
 
         public bool DeleteUser(int id)

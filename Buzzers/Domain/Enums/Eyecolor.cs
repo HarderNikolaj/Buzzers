@@ -8,10 +8,10 @@ namespace Domain.Enums
 {
     public enum Eyecolor
     {
-        Other,
-        Blue,
-        Green,
-        Brown,
-        Gray
+        Other = 1,
+        Blue = 2,
+        Green = 3,
+        Brown = 4,
+        Gray = 5
     }
 }

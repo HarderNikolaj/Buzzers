@@ -49,6 +49,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="preferenceid" Type="int" />
     <Property Name="usertypeid" Type="int" />
+    <Property Name="genderid" Type="int" />
     <Property Name="firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="nick" Type="nvarchar" MaxLength="50" />
@@ -122,7 +123,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="typename" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__beetails__eyecol__3F466844">
+  <Association Name="FK__beetails__eyecol__403A8C7D">
     <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -134,7 +135,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__beetails__gender__403A8C7D">
+  <Association Name="FK__beetails__gender__412EB0B6">
     <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -146,7 +147,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__beetails__hairco__3E52440B">
+  <Association Name="FK__beetails__hairco__3F466844">
     <End Role="haircolor" Type="Self.haircolor" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -158,7 +159,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__beetails__hiveme__3D5E1FD2">
+  <Association Name="FK__beetails__hiveme__3E52440B">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -170,7 +171,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__buzz__buzzeeid__440B1D61">
+  <Association Name="FK__buzz__buzzeeid__44FF419A">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="buzz" Type="Self.buzz" Multiplicity="*" />
     <ReferentialConstraint>
@@ -182,7 +183,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__buzz__buzzerid__4316F928">
+  <Association Name="FK__buzz__buzzerid__440B1D61">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="buzz" Type="Self.buzz" Multiplicity="*" />
     <ReferentialConstraint>
@@ -194,7 +195,19 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hivemembe__prefe__33D4B598">
+  <Association Name="FK__hivemembe__gende__38996AB5">
+    <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+    <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="hivemember">
+        <PropertyRef Name="genderid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__hivemembe__prefe__36B12243">
     <End Role="preferences" Type="Self.preferences" Multiplicity="0..1" />
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
     <ReferentialConstraint>
@@ -206,7 +219,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hivemembe__usert__34C8D9D1">
+  <Association Name="FK__hivemembe__usert__37A5467C">
     <End Role="usertype" Type="Self.usertype" Multiplicity="0..1" />
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
     <ReferentialConstraint>
@@ -218,7 +231,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__image__hivemembe__534D60F1">
+  <Association Name="FK__image__hivemembe__5441852A">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="image" Type="Self.image" Multiplicity="*" />
     <ReferentialConstraint>
@@ -230,7 +243,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__match__firstbuzz__47DBAE45">
+  <Association Name="FK__match__firstbuzz__48CFD27E">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="match" Type="Self.match" Multiplicity="*" />
     <ReferentialConstraint>
@@ -242,7 +255,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__match__lastbuzze__48CFD27E">
+  <Association Name="FK__match__lastbuzze__49C3F6B7">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="match" Type="Self.match" Multiplicity="*" />
     <ReferentialConstraint>
@@ -254,7 +267,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__message__recieve__4D94879B">
+  <Association Name="FK__message__recieve__4E88ABD4">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="message" Type="Self.message" Multiplicity="*" />
     <ReferentialConstraint>
@@ -266,7 +279,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__message__senderi__4CA06362">
+  <Association Name="FK__message__senderi__4D94879B">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="message" Type="Self.message" Multiplicity="*" />
     <ReferentialConstraint>
@@ -302,7 +315,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__userlogin__useri__37A5467C">
+  <Association Name="FK__userlogin__useri__3B75D760">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="userlogin" Type="Self.userlogin" Multiplicity="*" />
     <ReferentialConstraint>
@@ -328,55 +341,59 @@
     <EntitySet Name="preferences" EntityType="Self.preferences" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usertype" EntityType="Self.usertype" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__beetails__eyecol__3F466844" Association="Self.FK__beetails__eyecol__3F466844">
+    <AssociationSet Name="FK__beetails__eyecol__403A8C7D" Association="Self.FK__beetails__eyecol__403A8C7D">
       <End Role="eyecolor" EntitySet="eyecolor" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__beetails__gender__403A8C7D" Association="Self.FK__beetails__gender__403A8C7D">
+    <AssociationSet Name="FK__beetails__gender__412EB0B6" Association="Self.FK__beetails__gender__412EB0B6">
       <End Role="gender" EntitySet="gender" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__beetails__hairco__3E52440B" Association="Self.FK__beetails__hairco__3E52440B">
+    <AssociationSet Name="FK__beetails__hairco__3F466844" Association="Self.FK__beetails__hairco__3F466844">
       <End Role="haircolor" EntitySet="haircolor" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__beetails__hiveme__3D5E1FD2" Association="Self.FK__beetails__hiveme__3D5E1FD2">
+    <AssociationSet Name="FK__beetails__hiveme__3E52440B" Association="Self.FK__beetails__hiveme__3E52440B">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__buzz__buzzeeid__440B1D61" Association="Self.FK__buzz__buzzeeid__440B1D61">
+    <AssociationSet Name="FK__buzz__buzzeeid__44FF419A" Association="Self.FK__buzz__buzzeeid__44FF419A">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="buzz" EntitySet="buzz" />
     </AssociationSet>
-    <AssociationSet Name="FK__buzz__buzzerid__4316F928" Association="Self.FK__buzz__buzzerid__4316F928">
+    <AssociationSet Name="FK__buzz__buzzerid__440B1D61" Association="Self.FK__buzz__buzzerid__440B1D61">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="buzz" EntitySet="buzz" />
     </AssociationSet>
-    <AssociationSet Name="FK__hivemembe__prefe__33D4B598" Association="Self.FK__hivemembe__prefe__33D4B598">
+    <AssociationSet Name="FK__hivemembe__gende__38996AB5" Association="Self.FK__hivemembe__gende__38996AB5">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="hivemember" EntitySet="hivemember" />
+    </AssociationSet>
+    <AssociationSet Name="FK__hivemembe__prefe__36B12243" Association="Self.FK__hivemembe__prefe__36B12243">
       <End Role="preferences" EntitySet="preferences" />
       <End Role="hivemember" EntitySet="hivemember" />
     </AssociationSet>
-    <AssociationSet Name="FK__hivemembe__usert__34C8D9D1" Association="Self.FK__hivemembe__usert__34C8D9D1">
+    <AssociationSet Name="FK__hivemembe__usert__37A5467C" Association="Self.FK__hivemembe__usert__37A5467C">
       <End Role="usertype" EntitySet="usertype" />
       <End Role="hivemember" EntitySet="hivemember" />
     </AssociationSet>
-    <AssociationSet Name="FK__image__hivemembe__534D60F1" Association="Self.FK__image__hivemembe__534D60F1">
+    <AssociationSet Name="FK__image__hivemembe__5441852A" Association="Self.FK__image__hivemembe__5441852A">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="image" EntitySet="image" />
     </AssociationSet>
-    <AssociationSet Name="FK__match__firstbuzz__47DBAE45" Association="Self.FK__match__firstbuzz__47DBAE45">
+    <AssociationSet Name="FK__match__firstbuzz__48CFD27E" Association="Self.FK__match__firstbuzz__48CFD27E">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="match" EntitySet="match" />
     </AssociationSet>
-    <AssociationSet Name="FK__match__lastbuzze__48CFD27E" Association="Self.FK__match__lastbuzze__48CFD27E">
+    <AssociationSet Name="FK__match__lastbuzze__49C3F6B7" Association="Self.FK__match__lastbuzze__49C3F6B7">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="match" EntitySet="match" />
     </AssociationSet>
-    <AssociationSet Name="FK__message__recieve__4D94879B" Association="Self.FK__message__recieve__4D94879B">
+    <AssociationSet Name="FK__message__recieve__4E88ABD4" Association="Self.FK__message__recieve__4E88ABD4">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="message" EntitySet="message" />
     </AssociationSet>
-    <AssociationSet Name="FK__message__senderi__4CA06362" Association="Self.FK__message__senderi__4CA06362">
+    <AssociationSet Name="FK__message__senderi__4D94879B" Association="Self.FK__message__senderi__4D94879B">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="message" EntitySet="message" />
     </AssociationSet>
@@ -388,7 +405,7 @@
       <End Role="haircolor" EntitySet="haircolor" />
       <End Role="preferences" EntitySet="preferences" />
     </AssociationSet>
-    <AssociationSet Name="FK__userlogin__useri__37A5467C" Association="Self.FK__userlogin__useri__37A5467C">
+    <AssociationSet Name="FK__userlogin__useri__3B75D760" Association="Self.FK__userlogin__useri__3B75D760">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="userlogin" EntitySet="userlogin" />
     </AssociationSet>

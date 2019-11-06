@@ -1,4 +1,5 @@
 ﻿using Application;
+using Application.DbCommunicator;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -17,6 +18,9 @@ namespace BuzzerConsole.Startup
             container.Register(Component.For<IAccountManager>()
                 .ImplementedBy<AccountManager>()
                 .LifestyleTransient());
+
+            container.Register(Component.For<IDbCommunicator>()
+                .ImplementedBy<DbCommunicator>());
         }
     }
 }
