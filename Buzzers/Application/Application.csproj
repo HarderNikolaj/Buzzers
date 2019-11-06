@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AccountManager\AccountManager.cs" />
     <Compile Include="AccountManager\IAccountManager.cs" />
+    <Compile Include="DAL\DataContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -63,9 +64,7 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="DAL\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
