@@ -1,0 +1,995 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="buzzerbaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="beetails">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hivememberid" Type="int" />
+          <Property Name="haircolorid" Type="int" />
+          <Property Name="eyecolorid" Type="int" />
+          <Property Name="height" Type="int" />
+          <Property Name="weight" Type="int" />
+          <Property Name="genderid" Type="int" />
+        </EntityType>
+        <EntityType Name="buzz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="buzzerid" Type="int" />
+          <Property Name="buzzeeid" Type="int" />
+          <Property Name="timestamp" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="eyecolor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="gender" Type="char" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="haircolor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="hivemember">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="preferenceid" Type="int" />
+          <Property Name="usertypeid" Type="int" />
+          <Property Name="firstname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="lastname" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="nick" Type="nvarchar" MaxLength="50" />
+          <Property Name="email" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="birthdate" Type="date" Nullable="false" />
+          <Property Name="bio" Type="nvarchar" MaxLength="1000" />
+          <Property Name="jobtitle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="hivememberid" Type="int" />
+          <Property Name="imagename" Type="nvarchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="match">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="firstbuzzerid" Type="int" />
+          <Property Name="lastbuzzerid" Type="int" />
+          <Property Name="timeofcreation" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="memberstory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="story" Type="varchar" MaxLength="500" Nullable="false" />
+          <Property Name="imagepath" Type="varchar" MaxLength="255" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="senderid" Type="int" />
+          <Property Name="recieverid" Type="int" />
+          <Property Name="timestamp" Type="datetime" Nullable="false" />
+          <Property Name="text" Type="nvarchar" MaxLength="500" Nullable="false" />
+          <Property Name="isread" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="preferences">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="haircolorid" Type="int" />
+          <Property Name="eyecolorid" Type="int" />
+          <Property Name="heightmin" Type="int" />
+          <Property Name="heightmax" Type="int" />
+          <Property Name="weightmin" Type="int" />
+          <Property Name="weightmax" Type="int" />
+          <Property Name="attractionmale" Type="bit" Nullable="false" />
+          <Property Name="attractionfemale" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="userid" Type="int" />
+          <Property Name="pass" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="typename" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__beetails__eyecol__3F466844">
+          <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eyecolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="eyecolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beetails__gender__403A8C7D">
+          <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beetails__hairco__3E52440B">
+          <End Role="haircolor" Type="Self.haircolor" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="haircolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="haircolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beetails__hiveme__3D5E1FD2">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="hivememberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__buzz__buzzeeid__440B1D61">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="buzz" Type="Self.buzz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="buzz">
+              <PropertyRef Name="buzzeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__buzz__buzzerid__4316F928">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="buzz" Type="Self.buzz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="buzz">
+              <PropertyRef Name="buzzerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hivemembe__prefe__33D4B598">
+          <End Role="preferences" Type="Self.preferences" Multiplicity="0..1" />
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="preferences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hivemember">
+              <PropertyRef Name="preferenceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hivemembe__usert__34C8D9D1">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="0..1" />
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hivemember">
+              <PropertyRef Name="usertypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__image__hivemembe__534D60F1">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="image" Type="Self.image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="image">
+              <PropertyRef Name="hivememberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__match__firstbuzz__47DBAE45">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="match" Type="Self.match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="match">
+              <PropertyRef Name="firstbuzzerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__match__lastbuzze__48CFD27E">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="match" Type="Self.match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="match">
+              <PropertyRef Name="lastbuzzerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__recieve__4D94879B">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="recieverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__senderi__4CA06362">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="senderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__preferenc__eyeco__2E1BDC42">
+          <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
+          <End Role="preferences" Type="Self.preferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eyecolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="preferences">
+              <PropertyRef Name="eyecolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__preferenc__hairc__2D27B809">
+          <End Role="haircolor" Type="Self.haircolor" Multiplicity="0..1" />
+          <End Role="preferences" Type="Self.preferences" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="haircolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="preferences">
+              <PropertyRef Name="haircolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userlogin__useri__37A5467C">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="userlogin" Type="Self.userlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="userlogin">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="buzzerbaseModelStoreContainer">
+          <EntitySet Name="beetails" EntityType="Self.beetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="buzz" EntityType="Self.buzz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="eyecolor" EntityType="Self.eyecolor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="gender" EntityType="Self.gender" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="haircolor" EntityType="Self.haircolor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="hivemember" EntityType="Self.hivemember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="image" EntityType="Self.image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="match" EntityType="Self.match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="memberstory" EntityType="Self.memberstory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="message" EntityType="Self.message" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="preferences" EntityType="Self.preferences" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="usertype" EntityType="Self.usertype" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__beetails__eyecol__3F466844" Association="Self.FK__beetails__eyecol__3F466844">
+            <End Role="eyecolor" EntitySet="eyecolor" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beetails__gender__403A8C7D" Association="Self.FK__beetails__gender__403A8C7D">
+            <End Role="gender" EntitySet="gender" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beetails__hairco__3E52440B" Association="Self.FK__beetails__hairco__3E52440B">
+            <End Role="haircolor" EntitySet="haircolor" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beetails__hiveme__3D5E1FD2" Association="Self.FK__beetails__hiveme__3D5E1FD2">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__buzz__buzzeeid__440B1D61" Association="Self.FK__buzz__buzzeeid__440B1D61">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="buzz" EntitySet="buzz" />
+          </AssociationSet>
+          <AssociationSet Name="FK__buzz__buzzerid__4316F928" Association="Self.FK__buzz__buzzerid__4316F928">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="buzz" EntitySet="buzz" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hivemembe__prefe__33D4B598" Association="Self.FK__hivemembe__prefe__33D4B598">
+            <End Role="preferences" EntitySet="preferences" />
+            <End Role="hivemember" EntitySet="hivemember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hivemembe__usert__34C8D9D1" Association="Self.FK__hivemembe__usert__34C8D9D1">
+            <End Role="usertype" EntitySet="usertype" />
+            <End Role="hivemember" EntitySet="hivemember" />
+          </AssociationSet>
+          <AssociationSet Name="FK__image__hivemembe__534D60F1" Association="Self.FK__image__hivemembe__534D60F1">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="image" EntitySet="image" />
+          </AssociationSet>
+          <AssociationSet Name="FK__match__firstbuzz__47DBAE45" Association="Self.FK__match__firstbuzz__47DBAE45">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="match" EntitySet="match" />
+          </AssociationSet>
+          <AssociationSet Name="FK__match__lastbuzze__48CFD27E" Association="Self.FK__match__lastbuzze__48CFD27E">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="match" EntitySet="match" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__recieve__4D94879B" Association="Self.FK__message__recieve__4D94879B">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__senderi__4CA06362" Association="Self.FK__message__senderi__4CA06362">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="message" EntitySet="message" />
+          </AssociationSet>
+          <AssociationSet Name="FK__preferenc__eyeco__2E1BDC42" Association="Self.FK__preferenc__eyeco__2E1BDC42">
+            <End Role="eyecolor" EntitySet="eyecolor" />
+            <End Role="preferences" EntitySet="preferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__preferenc__hairc__2D27B809" Association="Self.FK__preferenc__hairc__2D27B809">
+            <End Role="haircolor" EntitySet="haircolor" />
+            <End Role="preferences" EntitySet="preferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userlogin__useri__37A5467C" Association="Self.FK__userlogin__useri__37A5467C">
+            <End Role="hivemember" EntitySet="hivemember" />
+            <End Role="userlogin" EntitySet="userlogin" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="buzzerbaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="beetail">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hivememberid" Type="Int32" />
+          <Property Name="haircolorid" Type="Int32" />
+          <Property Name="eyecolorid" Type="Int32" />
+          <Property Name="height" Type="Int32" />
+          <Property Name="weight" Type="Int32" />
+          <Property Name="genderid" Type="Int32" />
+          <NavigationProperty Name="eyecolor" Relationship="Self.FK__beetails__eyecol__3F466844" FromRole="beetails" ToRole="eyecolor" />
+          <NavigationProperty Name="gender" Relationship="Self.FK__beetails__gender__403A8C7D" FromRole="beetails" ToRole="gender" />
+          <NavigationProperty Name="haircolor" Relationship="Self.FK__beetails__hairco__3E52440B" FromRole="beetails" ToRole="haircolor" />
+          <NavigationProperty Name="hivemember" Relationship="Self.FK__beetails__hiveme__3D5E1FD2" FromRole="beetails" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="buzz">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="buzzerid" Type="Int32" />
+          <Property Name="buzzeeid" Type="Int32" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="hivemember" Relationship="Self.FK__buzz__buzzeeid__440B1D61" FromRole="buzz" ToRole="hivemember" />
+          <NavigationProperty Name="hivemember1" Relationship="Self.FK__buzz__buzzerid__4316F928" FromRole="buzz" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="eyecolor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="beetails" Relationship="Self.FK__beetails__eyecol__3F466844" FromRole="eyecolor" ToRole="beetails" />
+          <NavigationProperty Name="preferences" Relationship="Self.FK__preferenc__eyeco__2E1BDC42" FromRole="eyecolor" ToRole="preferences" />
+        </EntityType>
+        <EntityType Name="gender">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="gender1" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="beetails" Relationship="Self.FK__beetails__gender__403A8C7D" FromRole="gender" ToRole="beetails" />
+        </EntityType>
+        <EntityType Name="haircolor">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="beetails" Relationship="Self.FK__beetails__hairco__3E52440B" FromRole="haircolor" ToRole="beetails" />
+          <NavigationProperty Name="preferences" Relationship="Self.FK__preferenc__hairc__2D27B809" FromRole="haircolor" ToRole="preferences" />
+        </EntityType>
+        <EntityType Name="hivemember">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="preferenceid" Type="Int32" />
+          <Property Name="usertypeid" Type="Int32" />
+          <Property Name="firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="birthdate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="bio" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+          <Property Name="jobtitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="beetails" Relationship="Self.FK__beetails__hiveme__3D5E1FD2" FromRole="hivemember" ToRole="beetails" />
+          <NavigationProperty Name="buzzs" Relationship="Self.FK__buzz__buzzeeid__440B1D61" FromRole="hivemember" ToRole="buzz" />
+          <NavigationProperty Name="buzzs1" Relationship="Self.FK__buzz__buzzerid__4316F928" FromRole="hivemember" ToRole="buzz" />
+          <NavigationProperty Name="preference" Relationship="Self.FK__hivemembe__prefe__33D4B598" FromRole="hivemember" ToRole="preferences" />
+          <NavigationProperty Name="usertype" Relationship="Self.FK__hivemembe__usert__34C8D9D1" FromRole="hivemember" ToRole="usertype" />
+          <NavigationProperty Name="images" Relationship="Self.FK__image__hivemembe__534D60F1" FromRole="hivemember" ToRole="image" />
+          <NavigationProperty Name="matches" Relationship="Self.FK__match__firstbuzz__47DBAE45" FromRole="hivemember" ToRole="match" />
+          <NavigationProperty Name="matches1" Relationship="Self.FK__match__lastbuzze__48CFD27E" FromRole="hivemember" ToRole="match" />
+          <NavigationProperty Name="messages" Relationship="Self.FK__message__recieve__4D94879B" FromRole="hivemember" ToRole="message" />
+          <NavigationProperty Name="messages1" Relationship="Self.FK__message__senderi__4CA06362" FromRole="hivemember" ToRole="message" />
+          <NavigationProperty Name="userlogins" Relationship="Self.FK__userlogin__useri__37A5467C" FromRole="hivemember" ToRole="userlogin" />
+        </EntityType>
+        <EntityType Name="image">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="hivememberid" Type="Int32" />
+          <Property Name="imagename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="hivemember" Relationship="Self.FK__image__hivemembe__534D60F1" FromRole="image" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="match">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="firstbuzzerid" Type="Int32" />
+          <Property Name="lastbuzzerid" Type="Int32" />
+          <Property Name="timeofcreation" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="hivemember" Relationship="Self.FK__match__firstbuzz__47DBAE45" FromRole="match" ToRole="hivemember" />
+          <NavigationProperty Name="hivemember1" Relationship="Self.FK__match__lastbuzze__48CFD27E" FromRole="match" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="memberstory">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="story" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="imagepath" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="message">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="senderid" Type="Int32" />
+          <Property Name="recieverid" Type="Int32" />
+          <Property Name="timestamp" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="text" Type="String" MaxLength="500" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="isread" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="hivemember" Relationship="Self.FK__message__recieve__4D94879B" FromRole="message" ToRole="hivemember" />
+          <NavigationProperty Name="hivemember1" Relationship="Self.FK__message__senderi__4CA06362" FromRole="message" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="preference">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="haircolorid" Type="Int32" />
+          <Property Name="eyecolorid" Type="Int32" />
+          <Property Name="heightmin" Type="Int32" />
+          <Property Name="heightmax" Type="Int32" />
+          <Property Name="weightmin" Type="Int32" />
+          <Property Name="weightmax" Type="Int32" />
+          <Property Name="attractionmale" Type="Boolean" Nullable="false" />
+          <Property Name="attractionfemale" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="eyecolor" Relationship="Self.FK__preferenc__eyeco__2E1BDC42" FromRole="preferences" ToRole="eyecolor" />
+          <NavigationProperty Name="haircolor" Relationship="Self.FK__preferenc__hairc__2D27B809" FromRole="preferences" ToRole="haircolor" />
+          <NavigationProperty Name="hivemembers" Relationship="Self.FK__hivemembe__prefe__33D4B598" FromRole="preferences" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="userlogin">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="userid" Type="Int32" />
+          <Property Name="pass" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="hivemember" Relationship="Self.FK__userlogin__useri__37A5467C" FromRole="userlogin" ToRole="hivemember" />
+        </EntityType>
+        <EntityType Name="usertype">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="typename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="hivemembers" Relationship="Self.FK__hivemembe__usert__34C8D9D1" FromRole="usertype" ToRole="hivemember" />
+        </EntityType>
+        <Association Name="FK__beetails__eyecol__3F466844">
+          <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eyecolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="eyecolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beetails__gender__403A8C7D">
+          <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="gender">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="genderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beetails__hairco__3E52440B">
+          <End Role="haircolor" Type="Self.haircolor" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="haircolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="haircolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__beetails__hiveme__3D5E1FD2">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="beetails" Type="Self.beetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="beetails">
+              <PropertyRef Name="hivememberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__buzz__buzzeeid__440B1D61">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="buzz" Type="Self.buzz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="buzz">
+              <PropertyRef Name="buzzeeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__buzz__buzzerid__4316F928">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="buzz" Type="Self.buzz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="buzz">
+              <PropertyRef Name="buzzerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__preferenc__eyeco__2E1BDC42">
+          <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
+          <End Role="preferences" Type="Self.preference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="eyecolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="preferences">
+              <PropertyRef Name="eyecolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__preferenc__hairc__2D27B809">
+          <End Role="haircolor" Type="Self.haircolor" Multiplicity="0..1" />
+          <End Role="preferences" Type="Self.preference" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="haircolor">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="preferences">
+              <PropertyRef Name="haircolorid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hivemembe__prefe__33D4B598">
+          <End Role="preferences" Type="Self.preference" Multiplicity="0..1" />
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="preferences">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hivemember">
+              <PropertyRef Name="preferenceid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__hivemembe__usert__34C8D9D1">
+          <End Role="usertype" Type="Self.usertype" Multiplicity="0..1" />
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="usertype">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="hivemember">
+              <PropertyRef Name="usertypeid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__image__hivemembe__534D60F1">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="image" Type="Self.image" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="image">
+              <PropertyRef Name="hivememberid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__match__firstbuzz__47DBAE45">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="match" Type="Self.match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="match">
+              <PropertyRef Name="firstbuzzerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__match__lastbuzze__48CFD27E">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="match" Type="Self.match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="match">
+              <PropertyRef Name="lastbuzzerid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__recieve__4D94879B">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="recieverid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__message__senderi__4CA06362">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="message" Type="Self.message" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="message">
+              <PropertyRef Name="senderid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__userlogin__useri__37A5467C">
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="userlogin" Type="Self.userlogin" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="hivemember">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="userlogin">
+              <PropertyRef Name="userid" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="connectionString" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="beetails" EntityType="Self.beetail" />
+          <EntitySet Name="buzzs" EntityType="Self.buzz" />
+          <EntitySet Name="eyecolors" EntityType="Self.eyecolor" />
+          <EntitySet Name="genders" EntityType="Self.gender" />
+          <EntitySet Name="haircolors" EntityType="Self.haircolor" />
+          <EntitySet Name="hivemembers" EntityType="Self.hivemember" />
+          <EntitySet Name="images" EntityType="Self.image" />
+          <EntitySet Name="matches" EntityType="Self.match" />
+          <EntitySet Name="memberstories" EntityType="Self.memberstory" />
+          <EntitySet Name="messages" EntityType="Self.message" />
+          <EntitySet Name="preferences" EntityType="Self.preference" />
+          <EntitySet Name="userlogins" EntityType="Self.userlogin" />
+          <EntitySet Name="usertypes" EntityType="Self.usertype" />
+          <AssociationSet Name="FK__beetails__eyecol__3F466844" Association="Self.FK__beetails__eyecol__3F466844">
+            <End Role="eyecolor" EntitySet="eyecolors" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beetails__gender__403A8C7D" Association="Self.FK__beetails__gender__403A8C7D">
+            <End Role="gender" EntitySet="genders" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beetails__hairco__3E52440B" Association="Self.FK__beetails__hairco__3E52440B">
+            <End Role="haircolor" EntitySet="haircolors" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__beetails__hiveme__3D5E1FD2" Association="Self.FK__beetails__hiveme__3D5E1FD2">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="beetails" EntitySet="beetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK__buzz__buzzeeid__440B1D61" Association="Self.FK__buzz__buzzeeid__440B1D61">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="buzz" EntitySet="buzzs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__buzz__buzzerid__4316F928" Association="Self.FK__buzz__buzzerid__4316F928">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="buzz" EntitySet="buzzs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__preferenc__eyeco__2E1BDC42" Association="Self.FK__preferenc__eyeco__2E1BDC42">
+            <End Role="eyecolor" EntitySet="eyecolors" />
+            <End Role="preferences" EntitySet="preferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__preferenc__hairc__2D27B809" Association="Self.FK__preferenc__hairc__2D27B809">
+            <End Role="haircolor" EntitySet="haircolors" />
+            <End Role="preferences" EntitySet="preferences" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hivemembe__prefe__33D4B598" Association="Self.FK__hivemembe__prefe__33D4B598">
+            <End Role="preferences" EntitySet="preferences" />
+            <End Role="hivemember" EntitySet="hivemembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__hivemembe__usert__34C8D9D1" Association="Self.FK__hivemembe__usert__34C8D9D1">
+            <End Role="usertype" EntitySet="usertypes" />
+            <End Role="hivemember" EntitySet="hivemembers" />
+          </AssociationSet>
+          <AssociationSet Name="FK__image__hivemembe__534D60F1" Association="Self.FK__image__hivemembe__534D60F1">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="image" EntitySet="images" />
+          </AssociationSet>
+          <AssociationSet Name="FK__match__firstbuzz__47DBAE45" Association="Self.FK__match__firstbuzz__47DBAE45">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="match" EntitySet="matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__match__lastbuzze__48CFD27E" Association="Self.FK__match__lastbuzze__48CFD27E">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="match" EntitySet="matches" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__recieve__4D94879B" Association="Self.FK__message__recieve__4D94879B">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="message" EntitySet="messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__message__senderi__4CA06362" Association="Self.FK__message__senderi__4CA06362">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="message" EntitySet="messages" />
+          </AssociationSet>
+          <AssociationSet Name="FK__userlogin__useri__37A5467C" Association="Self.FK__userlogin__useri__37A5467C">
+            <End Role="hivemember" EntitySet="hivemembers" />
+            <End Role="userlogin" EntitySet="userlogins" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="buzzerbaseModelStoreContainer" CdmEntityContainer="connectionString">
+          <EntitySetMapping Name="beetails">
+            <EntityTypeMapping TypeName="buzzerbaseModel.beetail">
+              <MappingFragment StoreEntitySet="beetails">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hivememberid" ColumnName="hivememberid" />
+                <ScalarProperty Name="haircolorid" ColumnName="haircolorid" />
+                <ScalarProperty Name="eyecolorid" ColumnName="eyecolorid" />
+                <ScalarProperty Name="height" ColumnName="height" />
+                <ScalarProperty Name="weight" ColumnName="weight" />
+                <ScalarProperty Name="genderid" ColumnName="genderid" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="buzzs">
+            <EntityTypeMapping TypeName="buzzerbaseModel.buzz">
+              <MappingFragment StoreEntitySet="buzz">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="buzzerid" ColumnName="buzzerid" />
+                <ScalarProperty Name="buzzeeid" ColumnName="buzzeeid" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="eyecolors">
+            <EntityTypeMapping TypeName="buzzerbaseModel.eyecolor">
+              <MappingFragment StoreEntitySet="eyecolor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="genders">
+            <EntityTypeMapping TypeName="buzzerbaseModel.gender">
+              <MappingFragment StoreEntitySet="gender">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="gender1" ColumnName="gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="haircolors">
+            <EntityTypeMapping TypeName="buzzerbaseModel.haircolor">
+              <MappingFragment StoreEntitySet="haircolor">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="color" ColumnName="color" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="hivemembers">
+            <EntityTypeMapping TypeName="buzzerbaseModel.hivemember">
+              <MappingFragment StoreEntitySet="hivemember">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="preferenceid" ColumnName="preferenceid" />
+                <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="bio" ColumnName="bio" />
+                <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="images">
+            <EntityTypeMapping TypeName="buzzerbaseModel.image">
+              <MappingFragment StoreEntitySet="image">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="hivememberid" ColumnName="hivememberid" />
+                <ScalarProperty Name="imagename" ColumnName="imagename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="matches">
+            <EntityTypeMapping TypeName="buzzerbaseModel.match">
+              <MappingFragment StoreEntitySet="match">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstbuzzerid" ColumnName="firstbuzzerid" />
+                <ScalarProperty Name="lastbuzzerid" ColumnName="lastbuzzerid" />
+                <ScalarProperty Name="timeofcreation" ColumnName="timeofcreation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="memberstories">
+            <EntityTypeMapping TypeName="buzzerbaseModel.memberstory">
+              <MappingFragment StoreEntitySet="memberstory">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="story" ColumnName="story" />
+                <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="messages">
+            <EntityTypeMapping TypeName="buzzerbaseModel.message">
+              <MappingFragment StoreEntitySet="message">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="senderid" ColumnName="senderid" />
+                <ScalarProperty Name="recieverid" ColumnName="recieverid" />
+                <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+                <ScalarProperty Name="text" ColumnName="text" />
+                <ScalarProperty Name="isread" ColumnName="isread" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="preferences">
+            <EntityTypeMapping TypeName="buzzerbaseModel.preference">
+              <MappingFragment StoreEntitySet="preferences">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="haircolorid" ColumnName="haircolorid" />
+                <ScalarProperty Name="eyecolorid" ColumnName="eyecolorid" />
+                <ScalarProperty Name="heightmin" ColumnName="heightmin" />
+                <ScalarProperty Name="heightmax" ColumnName="heightmax" />
+                <ScalarProperty Name="weightmin" ColumnName="weightmin" />
+                <ScalarProperty Name="weightmax" ColumnName="weightmax" />
+                <ScalarProperty Name="attractionmale" ColumnName="attractionmale" />
+                <ScalarProperty Name="attractionfemale" ColumnName="attractionfemale" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="userlogins">
+            <EntityTypeMapping TypeName="buzzerbaseModel.userlogin">
+              <MappingFragment StoreEntitySet="userlogin">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="userid" ColumnName="userid" />
+                <ScalarProperty Name="pass" ColumnName="pass" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usertypes">
+            <EntityTypeMapping TypeName="buzzerbaseModel.usertype">
+              <MappingFragment StoreEntitySet="usertype">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="typename" ColumnName="typename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

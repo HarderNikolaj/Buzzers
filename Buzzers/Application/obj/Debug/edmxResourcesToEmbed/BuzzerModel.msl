@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="buzzerbaseModelStoreContainer" CdmEntityContainer="connectionString">
+    <EntitySetMapping Name="beetails">
+      <EntityTypeMapping TypeName="buzzerbaseModel.beetail">
+        <MappingFragment StoreEntitySet="beetails">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hivememberid" ColumnName="hivememberid" />
+          <ScalarProperty Name="haircolorid" ColumnName="haircolorid" />
+          <ScalarProperty Name="eyecolorid" ColumnName="eyecolorid" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="genderid" ColumnName="genderid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="buzzs">
+      <EntityTypeMapping TypeName="buzzerbaseModel.buzz">
+        <MappingFragment StoreEntitySet="buzz">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="buzzerid" ColumnName="buzzerid" />
+          <ScalarProperty Name="buzzeeid" ColumnName="buzzeeid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="eyecolors">
+      <EntityTypeMapping TypeName="buzzerbaseModel.eyecolor">
+        <MappingFragment StoreEntitySet="eyecolor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="genders">
+      <EntityTypeMapping TypeName="buzzerbaseModel.gender">
+        <MappingFragment StoreEntitySet="gender">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="gender1" ColumnName="gender" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="haircolors">
+      <EntityTypeMapping TypeName="buzzerbaseModel.haircolor">
+        <MappingFragment StoreEntitySet="haircolor">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="color" ColumnName="color" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="hivemembers">
+      <EntityTypeMapping TypeName="buzzerbaseModel.hivemember">
+        <MappingFragment StoreEntitySet="hivemember">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="preferenceid" ColumnName="preferenceid" />
+          <ScalarProperty Name="usertypeid" ColumnName="usertypeid" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="images">
+      <EntityTypeMapping TypeName="buzzerbaseModel.image">
+        <MappingFragment StoreEntitySet="image">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="hivememberid" ColumnName="hivememberid" />
+          <ScalarProperty Name="imagename" ColumnName="imagename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="matches">
+      <EntityTypeMapping TypeName="buzzerbaseModel.match">
+        <MappingFragment StoreEntitySet="match">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstbuzzerid" ColumnName="firstbuzzerid" />
+          <ScalarProperty Name="lastbuzzerid" ColumnName="lastbuzzerid" />
+          <ScalarProperty Name="timeofcreation" ColumnName="timeofcreation" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="memberstories">
+      <EntityTypeMapping TypeName="buzzerbaseModel.memberstory">
+        <MappingFragment StoreEntitySet="memberstory">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="story" ColumnName="story" />
+          <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="messages">
+      <EntityTypeMapping TypeName="buzzerbaseModel.message">
+        <MappingFragment StoreEntitySet="message">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="senderid" ColumnName="senderid" />
+          <ScalarProperty Name="recieverid" ColumnName="recieverid" />
+          <ScalarProperty Name="timestamp" ColumnName="timestamp" />
+          <ScalarProperty Name="text" ColumnName="text" />
+          <ScalarProperty Name="isread" ColumnName="isread" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="preferences">
+      <EntityTypeMapping TypeName="buzzerbaseModel.preference">
+        <MappingFragment StoreEntitySet="preferences">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="haircolorid" ColumnName="haircolorid" />
+          <ScalarProperty Name="eyecolorid" ColumnName="eyecolorid" />
+          <ScalarProperty Name="heightmin" ColumnName="heightmin" />
+          <ScalarProperty Name="heightmax" ColumnName="heightmax" />
+          <ScalarProperty Name="weightmin" ColumnName="weightmin" />
+          <ScalarProperty Name="weightmax" ColumnName="weightmax" />
+          <ScalarProperty Name="attractionmale" ColumnName="attractionmale" />
+          <ScalarProperty Name="attractionfemale" ColumnName="attractionfemale" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="userlogins">
+      <EntityTypeMapping TypeName="buzzerbaseModel.userlogin">
+        <MappingFragment StoreEntitySet="userlogin">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="userid" ColumnName="userid" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usertypes">
+      <EntityTypeMapping TypeName="buzzerbaseModel.usertype">
+        <MappingFragment StoreEntitySet="usertype">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="typename" ColumnName="typename" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

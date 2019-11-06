@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="99b626d99bc3416c85a0890a9cd40df5" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="buzzerbaseModel.beetail" Width="1.5" PointX="3" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.buzz" Width="1.5" PointX="10.5" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.eyecolor" Width="1.5" PointX="0.75" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.gender" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.haircolor" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.hivemember" Width="1.5" PointX="8.25" PointY="7.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.image" Width="1.5" PointX="10.5" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.match" Width="1.5" PointX="10.5" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.memberstory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.message" Width="1.5" PointX="10.5" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.preference" Width="1.5" PointX="6" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.userlogin" Width="1.5" PointX="10.5" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="buzzerbaseModel.usertype" Width="1.5" PointX="6" PointY="5.625" IsExpanded="true" />
+        <AssociationConnector Association="buzzerbaseModel.FK__beetails__eyecol__3F466844" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__beetails__gender__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__beetails__hairco__3E52440B" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__beetails__hiveme__3D5E1FD2" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__buzz__buzzeeid__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__buzz__buzzerid__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__preferenc__eyeco__2E1BDC42" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__preferenc__hairc__2D27B809" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__hivemembe__prefe__33D4B598" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__hivemembe__usert__34C8D9D1" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__image__hivemembe__534D60F1" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__match__firstbuzz__47DBAE45" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__match__lastbuzze__48CFD27E" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__message__recieve__4D94879B" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__message__senderi__4CA06362" ManuallyRouted="false" />
+        <AssociationConnector Association="buzzerbaseModel.FK__userlogin__useri__37A5467C" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
