@@ -31,6 +31,7 @@ namespace Application
         public int id { get; set; }
         public Nullable<int> preferenceid { get; set; }
         public Nullable<int> usertypeid { get; set; }
+        public Nullable<int> genderid { get; set; }
         public string firstname { get; set; }
         public string lastname { get; set; }
         public string nick { get; set; }
@@ -45,6 +46,7 @@ namespace Application
         public virtual ICollection<buzz> buzzs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<buzz> buzzs1 { get; set; }
+        public virtual gender gender { get; set; }
         public virtual preference preference { get; set; }
         public virtual usertype usertype { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

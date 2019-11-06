@@ -8,8 +8,8 @@ namespace Domain.Enums
 {
     public enum UserType
     {
-        Honeypot,
-        Bee,
-        Beekeeper
+        Honeypot = 2,
+        Bee = 1,
+        Beekeeper = 3
     }
 }

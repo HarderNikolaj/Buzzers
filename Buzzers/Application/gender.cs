@@ -18,6 +18,7 @@ namespace Application
         public gender()
         {
             this.beetails = new HashSet<beetail>();
+            this.hivemembers = new HashSet<hivemember>();
         }
     
         public int id { get; set; }
@@ -25,5 +26,7 @@ namespace Application
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<beetail> beetails { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<hivemember> hivemembers { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Users
 {
-    class Honeypot : Hivemember
+    public class Honeypot : Hivemember
     {
         public string JobTitle { get; set; }
     }
