@@ -85,7 +85,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>BuzzerModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="DAL\DataContext.cs" />
     <Compile Include="eyecolor.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
