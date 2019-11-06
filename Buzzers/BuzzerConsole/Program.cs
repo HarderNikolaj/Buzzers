@@ -10,6 +10,7 @@ namespace BuzzerConsole
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
