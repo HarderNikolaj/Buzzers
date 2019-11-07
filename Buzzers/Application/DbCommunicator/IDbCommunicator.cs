@@ -9,7 +9,7 @@ namespace Application.DbCommunicator
 {
     public interface IDbCommunicator
     {
-        void CreateBee(Bee hivemember);
+        void CreateHivemember(Bee hivemember);
         void CreateHoneypot(Honeypot hivemember);
         void Delete(int id);
     }

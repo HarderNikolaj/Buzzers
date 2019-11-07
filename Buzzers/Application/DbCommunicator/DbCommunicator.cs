@@ -10,7 +10,7 @@ namespace Application.DbCommunicator
 {
     public class DbCommunicator : IDbCommunicator
     {
-        public void CreateBee(Bee member)
+        public void CreateHivemember(Bee member)
         {
             using (var context = new Entities())
             {
@@ -19,14 +19,21 @@ namespace Application.DbCommunicator
             }
         }
 
-        public void CreateHoneypot(Honeypot hivemember)
+        public void CreateHoneypot(Honeypot member)
         {
-            throw new NotImplementedException();
+            using (var context = new Entities())
+            {
+                context.hivemembers.Add(HivememberEntityMapper.MapHoneypotToHivemember(member));
+                context.SaveChanges();
+            }
         }
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Entities())
+            {
+                
+            }
         }
     }
 }

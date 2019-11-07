@@ -23,5 +23,21 @@ namespace Application.MapperClasses
             };
             return converted;
         }
+
+        public static hivemember MapHoneypotToHivemember(Honeypot honeypot)
+        {
+            var converted = new hivemember()
+            {
+                firstname = honeypot.FirstName,
+                lastname = honeypot.LastName,
+                nick = honeypot.Nickname,
+                email = honeypot.Email,
+                birthdate = honeypot.BirthDate,
+                genderid = (int)honeypot.Gender,
+                usertypeid = 2,
+                jobtitle = honeypot.JobTitle
+            };
+            return converted;
+        }
     }
 }

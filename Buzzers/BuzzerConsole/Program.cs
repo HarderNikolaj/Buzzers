@@ -19,14 +19,15 @@ namespace BuzzerConsole
             container.Install(new WindsorInstaller());
             var manager = container.Resolve<IAccountManager>();
 
-            var member = new Bee()
+            var member = new Honeypot()
             {
                 FirstName = "Nikolaj",
                 LastName = "Harder",
                 Gender = Gender.Male,
                 Nickname = "WillDoAnything4ca$h",
-                Email = "letmecallyoudaddy@mail.com",
-                BirthDate = new DateTime(1847, 05, 12)
+                Email = "pimp@mail.com",
+                BirthDate = new DateTime(1847, 05, 12),
+                JobTitle = "Pimp"
             };
 
             manager.CreateUser(member);
