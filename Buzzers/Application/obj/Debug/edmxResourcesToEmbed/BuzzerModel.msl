@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="buzzerbaseModelStoreContainer" CdmEntityContainer="buzzerbaseEntities">
+  <EntityContainerMapping StorageEntityContainer="buzzerbaseModelStoreContainer" CdmEntityContainer="Entities">
     <EntitySetMapping Name="beetails">
       <EntityTypeMapping TypeName="buzzerbaseModel.beetail">
         <MappingFragment StoreEntitySet="beetails">
@@ -10,7 +10,6 @@
           <ScalarProperty Name="eyecolorid" ColumnName="eyecolorid" />
           <ScalarProperty Name="height" ColumnName="height" />
           <ScalarProperty Name="weight" ColumnName="weight" />
-          <ScalarProperty Name="genderid" ColumnName="genderid" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -20,6 +19,7 @@
           <ScalarProperty Name="id" ColumnName="id" />
           <ScalarProperty Name="buzzerid" ColumnName="buzzerid" />
           <ScalarProperty Name="buzzeeid" ColumnName="buzzeeid" />
+          <ScalarProperty Name="isbuzzon" ColumnName="isbuzzon" />
           <ScalarProperty Name="timestamp" ColumnName="timestamp" />
         </MappingFragment>
       </EntityTypeMapping>

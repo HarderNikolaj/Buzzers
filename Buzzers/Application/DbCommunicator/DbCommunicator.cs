@@ -12,7 +12,7 @@ namespace Application.DbCommunicator
     {
         public void CreateBee(Bee member)
         {
-            using (var context = new buzzerbaseEntities())
+            using (var context = new Entities())
             {
                 context.hivemembers.Add(HivememberEntityMapper.MapBeeToHivemember(member));
                 context.SaveChanges();

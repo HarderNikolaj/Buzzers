@@ -13,10 +13,10 @@ namespace Application
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class buzzerbaseEntities : DbContext
+    public partial class Entities : DbContext
     {
-        public buzzerbaseEntities()
-            : base("name=buzzerbaseEntities")
+        public Entities()
+            : base("name=Entities")
         {
         }
     

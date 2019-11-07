@@ -17,6 +17,7 @@ namespace Application
         public int id { get; set; }
         public Nullable<int> buzzerid { get; set; }
         public Nullable<int> buzzeeid { get; set; }
+        public Nullable<bool> isbuzzon { get; set; }
         public System.DateTime timestamp { get; set; }
     
         public virtual hivemember hivemember { get; set; }

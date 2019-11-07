@@ -20,10 +20,8 @@ namespace Application
         public Nullable<int> eyecolorid { get; set; }
         public Nullable<int> height { get; set; }
         public Nullable<int> weight { get; set; }
-        public Nullable<int> genderid { get; set; }
     
         public virtual eyecolor eyecolor { get; set; }
-        public virtual gender gender { get; set; }
         public virtual haircolor haircolor { get; set; }
         public virtual hivemember hivemember { get; set; }
     }

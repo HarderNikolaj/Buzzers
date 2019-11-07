@@ -10,7 +10,6 @@
     <Property Name="eyecolorid" Type="int" />
     <Property Name="height" Type="int" />
     <Property Name="weight" Type="int" />
-    <Property Name="genderid" Type="int" />
   </EntityType>
   <EntityType Name="buzz">
     <Key>
@@ -19,6 +18,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="buzzerid" Type="int" />
     <Property Name="buzzeeid" Type="int" />
+    <Property Name="isbuzzon" Type="bit" />
     <Property Name="timestamp" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="eyecolor">
@@ -80,8 +80,8 @@
       <PropertyRef Name="id" />
     </Key>
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="story" Type="varchar" MaxLength="500" Nullable="false" />
-    <Property Name="imagepath" Type="varchar" MaxLength="255" Nullable="false" />
+    <Property Name="story" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="imagepath" Type="nvarchar" MaxLength="255" Nullable="false" />
   </EntityType>
   <EntityType Name="message">
     <Key>
@@ -123,7 +123,7 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="typename" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
-  <Association Name="FK__beetails__eyecol__403A8C7D">
+  <Association Name="FK__beetails__eyecol__412EB0B6">
     <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -135,19 +135,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__beetails__gender__412EB0B6">
-    <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
-    <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="gender">
-        <PropertyRef Name="id" />
-      </Principal>
-      <Dependent Role="beetails">
-        <PropertyRef Name="genderid" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__beetails__hairco__3F466844">
+  <Association Name="FK__beetails__hairco__403A8C7D">
     <End Role="haircolor" Type="Self.haircolor" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -159,7 +147,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__beetails__hiveme__3E52440B">
+  <Association Name="FK__beetails__hiveme__3F466844">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
     <ReferentialConstraint>
@@ -195,7 +183,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hivemembe__gende__38996AB5">
+  <Association Name="FK__hivemembe__gende__398D8EEE">
     <End Role="gender" Type="Self.gender" Multiplicity="0..1" />
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
     <ReferentialConstraint>
@@ -207,7 +195,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hivemembe__prefe__36B12243">
+  <Association Name="FK__hivemembe__prefe__37A5467C">
     <End Role="preferences" Type="Self.preferences" Multiplicity="0..1" />
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
     <ReferentialConstraint>
@@ -219,7 +207,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__hivemembe__usert__37A5467C">
+  <Association Name="FK__hivemembe__usert__38996AB5">
     <End Role="usertype" Type="Self.usertype" Multiplicity="0..1" />
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="*" />
     <ReferentialConstraint>
@@ -315,7 +303,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK__userlogin__useri__3B75D760">
+  <Association Name="FK__userlogin__useri__3C69FB99">
     <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
     <End Role="userlogin" Type="Self.userlogin" Multiplicity="*" />
     <ReferentialConstraint>
@@ -341,19 +329,15 @@
     <EntitySet Name="preferences" EntityType="Self.preferences" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usertype" EntityType="Self.usertype" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__beetails__eyecol__403A8C7D" Association="Self.FK__beetails__eyecol__403A8C7D">
+    <AssociationSet Name="FK__beetails__eyecol__412EB0B6" Association="Self.FK__beetails__eyecol__412EB0B6">
       <End Role="eyecolor" EntitySet="eyecolor" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__beetails__gender__412EB0B6" Association="Self.FK__beetails__gender__412EB0B6">
-      <End Role="gender" EntitySet="gender" />
-      <End Role="beetails" EntitySet="beetails" />
-    </AssociationSet>
-    <AssociationSet Name="FK__beetails__hairco__3F466844" Association="Self.FK__beetails__hairco__3F466844">
+    <AssociationSet Name="FK__beetails__hairco__403A8C7D" Association="Self.FK__beetails__hairco__403A8C7D">
       <End Role="haircolor" EntitySet="haircolor" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
-    <AssociationSet Name="FK__beetails__hiveme__3E52440B" Association="Self.FK__beetails__hiveme__3E52440B">
+    <AssociationSet Name="FK__beetails__hiveme__3F466844" Association="Self.FK__beetails__hiveme__3F466844">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="beetails" EntitySet="beetails" />
     </AssociationSet>
@@ -365,15 +349,15 @@
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="buzz" EntitySet="buzz" />
     </AssociationSet>
-    <AssociationSet Name="FK__hivemembe__gende__38996AB5" Association="Self.FK__hivemembe__gende__38996AB5">
+    <AssociationSet Name="FK__hivemembe__gende__398D8EEE" Association="Self.FK__hivemembe__gende__398D8EEE">
       <End Role="gender" EntitySet="gender" />
       <End Role="hivemember" EntitySet="hivemember" />
     </AssociationSet>
-    <AssociationSet Name="FK__hivemembe__prefe__36B12243" Association="Self.FK__hivemembe__prefe__36B12243">
+    <AssociationSet Name="FK__hivemembe__prefe__37A5467C" Association="Self.FK__hivemembe__prefe__37A5467C">
       <End Role="preferences" EntitySet="preferences" />
       <End Role="hivemember" EntitySet="hivemember" />
     </AssociationSet>
-    <AssociationSet Name="FK__hivemembe__usert__37A5467C" Association="Self.FK__hivemembe__usert__37A5467C">
+    <AssociationSet Name="FK__hivemembe__usert__38996AB5" Association="Self.FK__hivemembe__usert__38996AB5">
       <End Role="usertype" EntitySet="usertype" />
       <End Role="hivemember" EntitySet="hivemember" />
     </AssociationSet>
@@ -405,7 +389,7 @@
       <End Role="haircolor" EntitySet="haircolor" />
       <End Role="preferences" EntitySet="preferences" />
     </AssociationSet>
-    <AssociationSet Name="FK__userlogin__useri__3B75D760" Association="Self.FK__userlogin__useri__3B75D760">
+    <AssociationSet Name="FK__userlogin__useri__3C69FB99" Association="Self.FK__userlogin__useri__3C69FB99">
       <End Role="hivemember" EntitySet="hivemember" />
       <End Role="userlogin" EntitySet="userlogin" />
     </AssociationSet>
