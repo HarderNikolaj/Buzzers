@@ -58,7 +58,7 @@ create table hivemember(
 
 create table userlogin(
 	id int identity primary key,
-	userid int foreign key references hivemember(id),
+	userid int foreign key references hivemember(id) on delete cascade,
 	pass nvarchar (30) not null
 );
 
