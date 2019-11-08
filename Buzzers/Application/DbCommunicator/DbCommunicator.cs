@@ -10,7 +10,7 @@ namespace Application.DbCommunicator
 {
     public class DbCommunicator : IDbCommunicator
     {
-        public void CreateHivemember(Bee member)
+        public void CreateBee(Bee member)
         {
             using (var context = new Entities())
             {

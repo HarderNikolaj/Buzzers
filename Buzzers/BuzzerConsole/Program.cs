@@ -19,21 +19,21 @@ namespace BuzzerConsole
             container.Install(new WindsorInstaller());
             var manager = container.Resolve<IAccountManager>();
 
-            //var member = new Honeypot()
-            //{
-            //    FirstName = "Nikolaj",
-            //    LastName = "Harder",
-            //    Gender = Gender.Male,
-            //    Nickname = "WillDoAnything4ca$h",
-            //    Email = "pimp2@mail.com",
-            //    BirthDate = new DateTime(1847, 05, 12),
-            //    JobTitle = "Pimp"
-            //};
+            var member = new Honeypot()
+            {
+                FirstName = "Nikolaj",
+                LastName = "Harder",
+                Gender = Gender.Male,
+                Nickname = "WillDoAnything4ca$h",
+                Email = "pimp3@mail.com",
+                BirthDate = new DateTime(1847, 05, 12),
+                JobTitle = "Pimp"
+            };
 
-            //manager.CreateUser(member);
+            manager.CreateUser(member);
 
             //manager.Login("pimp@mail.com", "asdf");
-            manager.DeleteUser(2);
+       //     manager.DeleteUser(2);
         }
     }
 }
