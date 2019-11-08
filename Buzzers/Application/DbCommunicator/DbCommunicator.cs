@@ -28,11 +28,35 @@ namespace Application.DbCommunicator
             }
         }
 
-        public void Delete(int id)
+        public bool Delete(int id)
         {
             using (var context = new Entities())
             {
+                var toDelete = context.hivemembers.SingleOrDefault(a => a.id == id);
+
+                if (toDelete == null) 
+                    return false;
                 
+                context.hivemembers.Remove(toDelete);
+                context.SaveChanges();
+
+                return true;
+            }
+        }
+
+        public int Login(string email, string password)
+        {
+            using (var context = new Entities())
+            {
+                var queer = context.hivemembers
+                    .Where(a => a.email == email)
+                    .FirstOrDefault();
+
+                var query = context.userlogins
+                    .Where(e => e.userid == queer.id && e.pass == password)
+                    .FirstOrDefault();
+
+                return query.userid ?? 0;
             }
         }
     }

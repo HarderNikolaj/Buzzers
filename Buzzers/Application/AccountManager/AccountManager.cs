@@ -33,7 +33,7 @@ namespace Application
 
         public bool DeleteUser(int id)
         {
-            throw new NotImplementedException();
+            return _db.Delete(id);
         }
 
         public void Edit(Hivemember hivemember)
@@ -43,7 +43,7 @@ namespace Application
 
         public void Login(string email, string password)
         {
-            throw new NotImplementedException();
+            _db.Login(email, password);
         }
 
         public void Logout()
