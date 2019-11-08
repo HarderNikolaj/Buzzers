@@ -22,7 +22,7 @@ namespace Application
 
             if (member is Bee)
             {
-                _db.CreateHivemember((Bee)member);
+                _db.CreateBee((Bee)member);
             }
             else if (member is Honeypot)
             {
