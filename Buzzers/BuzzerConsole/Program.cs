@@ -34,7 +34,7 @@ namespace BuzzerConsole
 
             //manager.CreateUser(member);
 
-            var session = new Session();
+            var session = new Session(manager);
             //session.UserLoggedIn = member;
             session.LoginScreen();
 
