@@ -41,9 +41,9 @@ namespace Application
             throw new NotImplementedException();
         }
 
-        public void Login(string email, string password)
+        public int Login(string email, string password)
         {
-            _db.Login(email, password);
+            return  _db.Login(email, password);
         }
 
         public void Logout()

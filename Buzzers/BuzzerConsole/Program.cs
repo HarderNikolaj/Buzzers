@@ -19,6 +19,8 @@ namespace BuzzerConsole
             container.Install(new WindsorInstaller());
             var manager = container.Resolve<IAccountManager>();
 
+
+
             var member = new Honeypot()
             {
                 FirstName = "Nikolaj",
@@ -30,10 +32,14 @@ namespace BuzzerConsole
                 JobTitle = "Pimp"
             };
 
-            manager.CreateUser(member);
+            //manager.CreateUser(member);
+
+            var session = new Session();
+            //session.UserLoggedIn = member;
+            session.LoginScreen();
 
             //manager.Login("pimp@mail.com", "asdf");
-       //     manager.DeleteUser(2);
+            //     manager.DeleteUser(2);
         }
     }
 }
