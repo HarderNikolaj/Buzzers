@@ -11,12 +11,12 @@ namespace BuzzerConsole
 {
     class Session
     {
-        public Hivemember UserLoggedIn { get; set; }
-        public IAccountManager Manager { get; set; }
+        private Hivemember UserLoggedIn { get; set; }
+        private IAccountManager _manager { get; set; }
 
         public Session(IAccountManager accountManager)
         {
-            Manager = accountManager;
+            _manager = accountManager;
         }
 
         private void Header()
@@ -28,7 +28,7 @@ namespace BuzzerConsole
                 Console.Write($"Buzzers - {UserLoggedIn.Nickname ?? UserLoggedIn.FirstName}\n\n");
         }
 
-        public void Login()
+        private void Login()
         {
             Header();
             Console.Write("Email: ");
@@ -36,9 +36,9 @@ namespace BuzzerConsole
             Console.WriteLine("Password: ");
             var password = Console.ReadLine();
 
-            UserLoggedIn = Manager.Login(login, password);
+            UserLoggedIn = _manager.Login(login, password);
         }
-        public void CreateUser()
+        private void CreateUser()
         {
             try
             {
@@ -69,7 +69,7 @@ namespace BuzzerConsole
                         Email = email,
                         BirthDate = birthdate,
                     };
-                    Manager.CreateUser(newMember, password);
+                    _manager.CreateUser(newMember, password);
                 }
                 else if (usertype == 2)
                 {
@@ -85,7 +85,7 @@ namespace BuzzerConsole
                         BirthDate = birthdate,
                         JobTitle = jobTitle
                     };
-                    Manager.CreateUser(newMember, password);
+                    _manager.CreateUser(newMember, password);
                 }
         }
             catch (Exception)
@@ -118,7 +118,7 @@ namespace BuzzerConsole
             }
             MainScreen();
         }
-        public void MainScreen()
+        private void MainScreen()
         {
             while (UserLoggedIn != null)
             {
@@ -131,11 +131,11 @@ namespace BuzzerConsole
                         Hivemember PotentialMatch = null;
                         if (UserLoggedIn.GetType().ToString() == "Domain.Users.Honeypot")
                         {
-                            PotentialMatch = Manager.GetBee(UserLoggedIn.Id);
+                            PotentialMatch = _manager.GetBee(UserLoggedIn.Id);
                         }
                         else if (UserLoggedIn.GetType().ToString() == "Domain.Users.Bee")
                         {
-                            PotentialMatch = Manager.GetHoneypot(UserLoggedIn.Id);
+                            PotentialMatch = _manager.GetHoneypot(UserLoggedIn.Id);
                         }
                         DisplayBee(PotentialMatch);
                         if (PotentialMatch != null)
@@ -158,7 +158,7 @@ namespace BuzzerConsole
                 }
             }
         }
-        void DisplayBee(Hivemember User)
+        private void DisplayBee(Hivemember User)
         {
             if (User == null)
             {
@@ -182,7 +182,7 @@ namespace BuzzerConsole
             }
 
         }
-        void PreferenceMenu()
+        private void PreferenceMenu()
         {
             UserLoggedIn.BeginEdit();
             char preferenceAnswer;
@@ -200,7 +200,7 @@ namespace BuzzerConsole
                         UserLoggedIn.Preferences.AttracitonFemales = !UserLoggedIn.Preferences.AttracitonFemales;
                         break;
                     case '8':
-                        Manager.Edit(UserLoggedIn);
+                        _manager.Edit(UserLoggedIn);
                         UserLoggedIn.EndEdit();
                         break;
                     case '9':
@@ -213,13 +213,13 @@ namespace BuzzerConsole
             } while (preferenceAnswer != '9' && preferenceAnswer != '8');
         }
 
-        void BeetailsMenu()
+        private void BeetailsMenu()
         {
             Header();
             Console.WriteLine($"(1) Nickname: {UserLoggedIn.Nickname.ToString() ?? "Not Set"}\n(2) Bio: {UserLoggedIn.Bio.ToString() ?? "Not Set"}");
         }
 
-        void BuzzMenu(Hivemember potentialMatch)
+        private void BuzzMenu(Hivemember potentialMatch)
         {
             Console.WriteLine("(1) Buzz\n(2) Reject\n(9) Return");
             char buzzAnswer;
@@ -229,10 +229,10 @@ namespace BuzzerConsole
                 switch (buzzAnswer)
                 {
                     case '1':
-                        Manager.Buzz(UserLoggedIn, potentialMatch, true);
+                        _manager.Buzz(UserLoggedIn, potentialMatch, true);
                         break;
                     case '2':
-                        Manager.Buzz(UserLoggedIn, potentialMatch, true);
+                        _manager.Buzz(UserLoggedIn, potentialMatch, true);
                         break;
                     default:
                         break;
