@@ -55,7 +55,7 @@ namespace Application.DbCommunicator
             throw new NotImplementedException();
         }
 
-        public int Login(string email, string password)
+        public Hivemember Login(string email, string password)
         {
             using (var context = new Entities())
             {
@@ -63,13 +63,24 @@ namespace Application.DbCommunicator
                     .Where(a => a.email == email)
                     .FirstOrDefault();
 
-                if (queer == null) return 0;
+                if (queer == null) return null;
 
                 var query = context.userlogins
                     .Where(e => e.userid == queer.id && e.pass == password)
                     .FirstOrDefault();
 
-                return query.userid ?? 0;
+                if (query.hivemember.usertypeid == 1)
+                {
+                    return HivememberEntityMapper.MapHivememberToBee(query.hivemember);
+                }
+                else if (query.hivemember.usertypeid == 2)
+                {
+                    return HivememberEntityMapper.MapHivememberToHoneypot(query.hivemember);
+                }
+                else
+                {
+                    return null;
+                }
             }
         }
     }

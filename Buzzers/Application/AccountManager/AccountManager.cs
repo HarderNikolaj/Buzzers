@@ -18,8 +18,6 @@ namespace Application
 
         public bool CreateUser(Hivemember member, string password)
         {
-            //validate
-            //TODO Oprettelse med password
             if (member is Bee)
             {
                 _db.CreateBee((Bee)member, password);
@@ -41,7 +39,7 @@ namespace Application
             throw new NotImplementedException();
         }
 
-        public int Login(string email, string password)
+        public Hivemember Login(string email, string password)
         {
             return _db.Login(email, password);
         }
