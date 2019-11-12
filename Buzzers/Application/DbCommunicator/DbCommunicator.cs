@@ -62,10 +62,7 @@ namespace Application.DbCommunicator
         //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure
         public Bee FindBee(int id)
         {
-            using (var context = new Entities())
-            {
-                
-            }
+            throw NotImplementedException();
         }
         
         //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure

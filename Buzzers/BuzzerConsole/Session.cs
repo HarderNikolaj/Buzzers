@@ -5,9 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Users;
 using Application;
-using Application.DbCommunicator;
 using Domain.Enums;
-using Application.MapperClasses;
 
 namespace BuzzerConsole
 {
@@ -148,7 +146,7 @@ namespace BuzzerConsole
                     case '3':
                         break;
                     case '9':
-                        Manager.Logout();
+                        UserLoggedIn = null;
                         break;
                     default:
                         break;
@@ -173,6 +171,7 @@ namespace BuzzerConsole
         }
         void PreferenceMenu()
         {
+            UserLoggedIn.BeginEdit();
             char preferenceAnswer;
             do
             {
@@ -188,16 +187,23 @@ namespace BuzzerConsole
                         UserLoggedIn.Preferences.AttracitonFemales = !UserLoggedIn.Preferences.AttracitonFemales;
                         break;
                     case '8':
-                        //TODO submit changes
+                        Manager.Edit(UserLoggedIn);
+                        UserLoggedIn.EndEdit();
                         break;
                     case '9':
-                        //TODO undo changes
+                        UserLoggedIn.CancelEdit();
                         break;
                     default:
                         break;
                 }
 
             } while (preferenceAnswer != '9' || preferenceAnswer != '8');
+        }
+
+        void BeetailsMenu() 
+        {
+            Header();
+            Console.WriteLine($"(1) Nickname: {UserLoggedIn.Nickname.ToString() ?? "Not Set"}\n(2) Bio: {UserLoggedIn.Bio.ToString() ?? "Not Set"}");
         }
     }
 
