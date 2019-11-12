@@ -19,8 +19,6 @@ namespace BuzzerConsole
             container.Install(new WindsorInstaller());
             var session = container.Resolve<ISession>();
 
-            //manager.CreateUser(member);
-
             session.LoginScreen();
 
         }

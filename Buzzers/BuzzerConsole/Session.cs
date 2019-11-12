@@ -223,7 +223,7 @@ namespace BuzzerConsole
             {
                 Header();
                 Console.WriteLine($"(1) Nickname: {UserLoggedIn.Nickname ?? "Not Set"}\n(2) Bio: {UserLoggedIn.Bio ?? "Not Set"}\n(8) Submit Changes.\n(9) Discard Changes.");
-                beetailsAnswer = Console.ReadKey().KeyChar;
+                beetailsAnswer = Console.ReadKey(true).KeyChar;
                 switch (beetailsAnswer)
                 {
                     case '1':
