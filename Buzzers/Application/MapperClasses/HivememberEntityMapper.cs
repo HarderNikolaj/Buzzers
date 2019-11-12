@@ -27,6 +27,7 @@ namespace Application.MapperClasses
         {
             var converted = new Bee()
             {
+                Id =  hivemember.id,
                 FirstName = hivemember.firstname,
                 LastName = hivemember.lastname,
                 Nickname = hivemember.nick,
@@ -56,6 +57,7 @@ namespace Application.MapperClasses
         {
             var converted = new Honeypot()
             {
+                Id = hivemember.id,
                 FirstName = hivemember.firstname,
                 LastName = hivemember.lastname,
                 Nickname = hivemember.nick,
