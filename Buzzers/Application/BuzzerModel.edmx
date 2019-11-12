@@ -331,6 +331,13 @@
           <Parameter Name="birthdate" Type="date" Mode="In" />
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="GetPotentialMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+          <Parameter Name="usertypeid" Type="int" Mode="In" />
+          <Parameter Name="genderid" Type="int" Mode="In" />
+          <Parameter Name="prefmale" Type="int" Mode="In" />
+          <Parameter Name="preffemale" Type="int" Mode="In" />
+        </Function>
         <EntityContainer Name="buzzerbaseModelStoreContainer">
           <EntitySet Name="beetails" EntityType="Self.beetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="buzz" EntityType="Self.buzz" Schema="dbo" store:Type="Tables" />
@@ -848,6 +855,13 @@
             <Parameter Name="birthdate" Mode="In" Type="DateTime" />
             <Parameter Name="pass" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(Int32)">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+            <Parameter Name="usertypeid" Mode="In" Type="Int32" />
+            <Parameter Name="genderid" Mode="In" Type="Int32" />
+            <Parameter Name="prefmale" Mode="In" Type="Int32" />
+            <Parameter Name="preffemale" Mode="In" Type="Int32" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -992,6 +1006,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
+          <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

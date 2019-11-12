@@ -13,7 +13,7 @@ namespace Application
         bool CreateUser(Hivemember hivemember, string password);
         bool DeleteUser(int id);
         void Edit(Hivemember hivemember);
-        int Login(string email, string password);
+        Hivemember Login(string email, string password);
         void Logout();
         Bee GetBee(int id);
         Honeypot GetHoneypot(int id);

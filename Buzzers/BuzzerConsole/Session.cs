@@ -37,26 +37,8 @@ namespace BuzzerConsole
             var login = Console.ReadLine();
             Console.WriteLine("Password: ");
             var password = Console.ReadLine();
-            var userId = Manager.Login(login, password);
-            using (var contexts = new Entities())
-            {
-                if (userId != 0)
-                {
-                    var User = contexts.hivemembers
-                    .Where(i => i.id == userId)
-                    .FirstOrDefault();
-                    if (User.usertypeid == 1)
-                    {
-                        UserLoggedIn = HivememberEntityMapper.MapHivememberToBee(User);
-                    }
 
-                    else if (User.usertypeid == 2)
-                    {
-                        UserLoggedIn = HivememberEntityMapper.MapHivememberToHoneypot(User);
-                    }
-
-                }
-            }
+            UserLoggedIn = Manager.Login(login, password);
         }
         public void CreateUser()
         {
@@ -149,11 +131,11 @@ namespace BuzzerConsole
                 {
                     case '1':
                         Hivemember PotentialMatch = null;
-                        if (UserLoggedIn.GetType().ToString() == "Honeypot")
+                        if (UserLoggedIn.GetType().ToString() == "Domain.Users.Honeypot")
                         {
                             PotentialMatch = Manager.GetBee(UserLoggedIn.Id);
                         }
-                        else if (UserLoggedIn.GetType().ToString() == "Bee")
+                        else if (UserLoggedIn.GetType().ToString() == "Domain.Users.Bee")
                         {
                             PotentialMatch = Manager.GetHoneypot(UserLoggedIn.Id);
                         }

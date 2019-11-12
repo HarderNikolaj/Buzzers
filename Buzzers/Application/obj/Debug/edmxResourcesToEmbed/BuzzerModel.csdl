@@ -434,5 +434,12 @@
       <Parameter Name="birthdate" Mode="In" Type="DateTime" />
       <Parameter Name="pass" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(Int32)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+      <Parameter Name="usertypeid" Mode="In" Type="Int32" />
+      <Parameter Name="genderid" Mode="In" Type="Int32" />
+      <Parameter Name="prefmale" Mode="In" Type="Int32" />
+      <Parameter Name="preffemale" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>
