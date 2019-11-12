@@ -14,7 +14,7 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, password);
+                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate ,null, password);
             }
         }
 
@@ -22,8 +22,7 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                //TODO: Attach job title
-                context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, password);
+                context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, member.JobTitle, password);
             }
         }
 

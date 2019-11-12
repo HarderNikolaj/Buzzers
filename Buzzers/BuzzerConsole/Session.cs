@@ -190,7 +190,7 @@ namespace BuzzerConsole
                     case '8':
                         //TODO submit changes
                         break;
-                    case '8':
+                    case '9':
                         //TODO undo changes
                         break;
                     default:

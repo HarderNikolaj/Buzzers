@@ -324,6 +324,7 @@
     <Parameter Name="lastname" Type="nvarchar" Mode="In" />
     <Parameter Name="email" Type="nvarchar" Mode="In" />
     <Parameter Name="birthdate" Type="date" Mode="In" />
+    <Parameter Name="jobtitle" Type="nvarchar" Mode="In" />
     <Parameter Name="pass" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="GetPotentialMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">

@@ -41,7 +41,32 @@ namespace Application
         public virtual DbSet<userlogin> userlogins { get; set; }
         public virtual DbSet<usertype> usertypes { get; set; }
     
-        public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string pass)
+        public virtual ObjectResult<Nullable<int>> GetPotentialMatch(Nullable<int> userid, Nullable<int> usertypeid, Nullable<int> genderid, Nullable<int> prefmale, Nullable<int> preffemale)
+        {
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            var usertypeidParameter = usertypeid.HasValue ?
+                new ObjectParameter("usertypeid", usertypeid) :
+                new ObjectParameter("usertypeid", typeof(int));
+    
+            var genderidParameter = genderid.HasValue ?
+                new ObjectParameter("genderid", genderid) :
+                new ObjectParameter("genderid", typeof(int));
+    
+            var prefmaleParameter = prefmale.HasValue ?
+                new ObjectParameter("prefmale", prefmale) :
+                new ObjectParameter("prefmale", typeof(int));
+    
+            var preffemaleParameter = preffemale.HasValue ?
+                new ObjectParameter("preffemale", preffemale) :
+                new ObjectParameter("preffemale", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GetPotentialMatch", useridParameter, usertypeidParameter, genderidParameter, prefmaleParameter, preffemaleParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string jobtitle, string pass)
         {
             var usertypeidParameter = usertypeid.HasValue ?
                 new ObjectParameter("usertypeid", usertypeid) :
@@ -67,36 +92,15 @@ namespace Application
                 new ObjectParameter("birthdate", birthdate) :
                 new ObjectParameter("birthdate", typeof(System.DateTime));
     
+            var jobtitleParameter = jobtitle != null ?
+                new ObjectParameter("jobtitle", jobtitle) :
+                new ObjectParameter("jobtitle", typeof(string));
+    
             var passParameter = pass != null ?
                 new ObjectParameter("pass", pass) :
                 new ObjectParameter("pass", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("CreateUserWithLogin", usertypeidParameter, genderidParameter, firstnameParameter, lastnameParameter, emailParameter, birthdateParameter, passParameter);
-        }
-    
-        public virtual ObjectResult<Nullable<int>> GetPotentialMatch(Nullable<int> userid, Nullable<int> usertypeid, Nullable<int> genderid, Nullable<int> prefmale, Nullable<int> preffemale)
-        {
-            var useridParameter = userid.HasValue ?
-                new ObjectParameter("userid", userid) :
-                new ObjectParameter("userid", typeof(int));
-    
-            var usertypeidParameter = usertypeid.HasValue ?
-                new ObjectParameter("usertypeid", usertypeid) :
-                new ObjectParameter("usertypeid", typeof(int));
-    
-            var genderidParameter = genderid.HasValue ?
-                new ObjectParameter("genderid", genderid) :
-                new ObjectParameter("genderid", typeof(int));
-    
-            var prefmaleParameter = prefmale.HasValue ?
-                new ObjectParameter("prefmale", prefmale) :
-                new ObjectParameter("prefmale", typeof(int));
-    
-            var preffemaleParameter = preffemale.HasValue ?
-                new ObjectParameter("preffemale", preffemale) :
-                new ObjectParameter("preffemale", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("GetPotentialMatch", useridParameter, usertypeidParameter, genderidParameter, prefmaleParameter, preffemaleParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("CreateUserWithLogin", usertypeidParameter, genderidParameter, firstnameParameter, lastnameParameter, emailParameter, birthdateParameter, jobtitleParameter, passParameter);
         }
     }
 }
