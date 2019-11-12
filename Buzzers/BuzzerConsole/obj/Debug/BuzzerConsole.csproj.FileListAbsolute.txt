@@ -37,3 +37,4 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole.csproj.CopyComplete
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole.exe
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerConsole\obj\Debug\BuzzerConsole.pdb
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Application.dll.config

@@ -137,7 +137,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch" />
     <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
+    <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="buzzerbaseModel.GetPotentialMatch_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

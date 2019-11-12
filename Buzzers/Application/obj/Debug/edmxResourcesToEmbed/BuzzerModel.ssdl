@@ -329,10 +329,6 @@
   </Function>
   <Function Name="GetPotentialMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userid" Type="int" Mode="In" />
-    <Parameter Name="usertypeid" Type="int" Mode="In" />
-    <Parameter Name="genderid" Type="int" Mode="In" />
-    <Parameter Name="prefmale" Type="int" Mode="In" />
-    <Parameter Name="preffemale" Type="int" Mode="In" />
   </Function>
   <EntityContainer Name="buzzerbaseModelStoreContainer">
     <EntitySet Name="beetails" EntityType="Self.beetails" Schema="dbo" store:Type="Tables" />

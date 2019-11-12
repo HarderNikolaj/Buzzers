@@ -62,13 +62,37 @@ namespace Application.DbCommunicator
         //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure
         public Bee FindBee(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Entities())
+            {
+                var result = context.GetPotentialMatch(37).FirstOrDefault();
+                var bee = new Bee()
+                {
+                    FirstName = result.firstname,
+                    LastName = result.lastname,
+                    Nickname = result.nick,
+                    BirthDate = result.birthdate,
+                    Weight = (int) result.weight
+                };
+                return bee;
+            }
         }
         
         //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure
         public Honeypot FindHoneypot(int id)
         {
-            throw new NotImplementedException();
+            using (var context = new Entities())
+            {
+                var result = context.GetPotentialMatch(id).FirstOrDefault();
+                var honeypot = new Honeypot()
+                {
+                    FirstName = result.firstname,
+                    LastName = result.lastname,
+                    Nickname = result.nick,
+                    BirthDate = result.birthdate,
+                    JobTitle = result.jobtitle
+                };
+                return honeypot;
+            }
         }
 
         public Hivemember Login(string email, string password)
