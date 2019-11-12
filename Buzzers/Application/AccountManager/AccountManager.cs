@@ -16,10 +16,10 @@ namespace Application
             _db = db;
         }
 
-        public bool CreateUser(Hivemember member)
+        public bool CreateUser(Hivemember member, string password)
         {
             //validate
-
+            //TODO Oprettelse med password
             if (member is Bee)
             {
                 _db.CreateBee((Bee)member);
@@ -43,12 +43,22 @@ namespace Application
 
         public int Login(string email, string password)
         {
-            return  _db.Login(email, password);
+            return _db.Login(email, password);
         }
 
         public void Logout()
         {
             throw new NotImplementedException();
+        }
+
+        public Bee GetBee(int id) 
+        {
+            return _db.FindBee(id);
+        }
+
+        public Honeypot GetHoneypot(int id)
+        {
+            return _db.FindHoneypot(id);
         }
     }
 }

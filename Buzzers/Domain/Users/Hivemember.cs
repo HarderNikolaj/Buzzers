@@ -44,5 +44,10 @@ namespace Domain.Users
         {
             _backup = null;
         }
+        public int GetAge() 
+        {
+            var Age = DateTime.Today.Year - BirthDate.Year;
+            return Age;
+        }
     }
 }

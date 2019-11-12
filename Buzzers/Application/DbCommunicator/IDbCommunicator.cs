@@ -13,5 +13,8 @@ namespace Application.DbCommunicator
         void CreateHoneypot(Honeypot hivemember);
         bool Delete(int id);
         int Login(string email, string pass);
+        Honeypot FindHoneypot(int id);
+        Bee FindBee(int id);
+
     }
 }

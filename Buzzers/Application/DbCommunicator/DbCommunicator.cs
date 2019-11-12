@@ -34,14 +34,26 @@ namespace Application.DbCommunicator
             {
                 var toDelete = context.hivemembers.SingleOrDefault(a => a.id == id);
 
-                if (toDelete == null) 
+                if (toDelete == null)
                     return false;
-                
+
                 context.hivemembers.Remove(toDelete);
                 context.SaveChanges();
 
                 return true;
             }
+        }
+
+        //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure
+        public Bee FindBee(int id)
+        {
+            throw new NotImplementedException();
+        }
+        
+        //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure
+        public Honeypot FindHoneypot(int id)
+        {
+            throw new NotImplementedException();
         }
 
         public int Login(string email, string password)
