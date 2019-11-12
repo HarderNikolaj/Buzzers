@@ -20,11 +20,11 @@ namespace Application
         {
             if (member is Bee)
             {
-                _db.CreateBee((Bee)member, password);
+                _db.CreateMember((Bee)member, password);
             }
             else if (member is Honeypot)
             {
-                _db.CreateHoneypot((Honeypot)member, password);
+                _db.CreateMember((Honeypot)member, password);
             }
             return true;
         }

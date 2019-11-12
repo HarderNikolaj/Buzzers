@@ -10,7 +10,7 @@ namespace Application.DbCommunicator
 {
     public class DbCommunicator : IDbCommunicator
     {
-        public void CreateBee(Bee member, string password)
+        public void CreateMember(Bee member, string password)
         {
             using (var context = new Entities())
             {
@@ -18,7 +18,7 @@ namespace Application.DbCommunicator
             }
         }
 
-        public void CreateHoneypot(Honeypot member, string password)
+        public void CreateMember(Honeypot member, string password)
         {
             using (var context = new Entities())
             {
