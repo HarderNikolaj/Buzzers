@@ -87,15 +87,15 @@ namespace BuzzerConsole
                     };
                     _manager.CreateUser(newMember, password);
                 }
-        }
+            }
             catch (Exception)
             {
                 Header();
-        Console.WriteLine("Something went wrong. Please try again.");
+                Console.WriteLine("Something went wrong. Please try again.");
                 System.Threading.Thread.Sleep(2000);
             }
 
-}
+        }
         public void LoginScreen()
         {
             while (UserLoggedIn is null)
@@ -124,7 +124,7 @@ namespace BuzzerConsole
             {
                 Header();
                 Console.WriteLine("1: Browse Buzzer.\n2: View your preferences.\n3: View your beetails.\n9: Log out.");
-                var answer = Console.ReadKey().KeyChar;
+                var answer = Console.ReadKey(true).KeyChar;
                 switch (answer)
                 {
                     case '1':
@@ -159,6 +159,7 @@ namespace BuzzerConsole
                 }
             }
         }
+
         private void DisplayBee(Hivemember User)
         {
             if (User == null)
@@ -192,7 +193,7 @@ namespace BuzzerConsole
             {
                 Header();
                 Console.WriteLine($"Interested in:\n(1) Males: {UserLoggedIn.Preferences.AttractionMales.ToString() ?? "Not set"}\n(2) Females: {UserLoggedIn.Preferences.AttracitonFemales.ToString() ?? "Not set"}\n(8) Submit Changes.\n(9) Discard Changes.");
-                preferenceAnswer = Console.ReadKey().KeyChar;
+                preferenceAnswer = Console.ReadKey(true).KeyChar;
                 switch (preferenceAnswer)
                 {
                     case '1':
@@ -245,7 +246,7 @@ namespace BuzzerConsole
                         break;
                 }
 
-            } while (beetailsAnswer != '9' && beetailsAnswer != '8');            
+            } while (beetailsAnswer != '9' && beetailsAnswer != '8');
         }
 
         private void BuzzMenu(Hivemember potentialMatch)
@@ -254,7 +255,7 @@ namespace BuzzerConsole
             char buzzAnswer;
             do
             {
-                buzzAnswer = Console.ReadKey().KeyChar;
+                buzzAnswer = Console.ReadKey(true).KeyChar;
                 switch (buzzAnswer)
                 {
                     case '1':
