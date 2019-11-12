@@ -44,7 +44,7 @@ namespace Application
             return _db.Login(email, password);
         }
 
-        public Bee GetBee(int id) 
+        public Bee GetBee(int id)
         {
             return _db.FindBee(id);
         }
@@ -52,6 +52,11 @@ namespace Application
         public Honeypot GetHoneypot(int id)
         {
             return _db.FindHoneypot(id);
+        }
+
+        public void Buzz(Hivemember Buzzer, Hivemember Buzzee, bool Buzz)
+        {
+            _db.CreateBuzz(Buzzer, Buzzee, Buzz);
         }
     }
 }

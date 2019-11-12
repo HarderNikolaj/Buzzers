@@ -16,5 +16,6 @@ namespace Application
         Hivemember Login(string email, string password);
         Bee GetBee(int id);
         Honeypot GetHoneypot(int id);
+        void Buzz(Hivemember Buzzer, Hivemember Buzzee, Boolean Buzz);
     }
 }

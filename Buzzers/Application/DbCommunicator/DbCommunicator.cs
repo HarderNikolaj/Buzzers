@@ -64,14 +64,23 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                var result = context.GetPotentialMatch(37).FirstOrDefault();
+                var result = context.GetPotentialMatch(id).FirstOrDefault();
+                if (result == null)
+                {
+                    return null;
+                }
+                if (result.weight == null)
+                {
+                    result.weight = 0;
+                }
                 var bee = new Bee()
                 {
+                    Id = result.id,
                     FirstName = result.firstname,
                     LastName = result.lastname,
                     Nickname = result.nick,
                     BirthDate = result.birthdate,
-                    Weight = (int) result.weight
+                    Weight = (int) result.weight                    
                 };
                 return bee;
             }
@@ -83,8 +92,13 @@ namespace Application.DbCommunicator
             using (var context = new Entities())
             {
                 var result = context.GetPotentialMatch(id).FirstOrDefault();
+                if (result == null)
+                {
+                    return null;
+                }
                 var honeypot = new Honeypot()
                 {
+                    Id = result.id,
                     FirstName = result.firstname,
                     LastName = result.lastname,
                     Nickname = result.nick,
@@ -108,7 +122,10 @@ namespace Application.DbCommunicator
                 var query = context.userlogins
                     .Where(e => e.userid == queer.id && e.pass == password)
                     .FirstOrDefault();
-
+                if (query == null)
+                {
+                    return null;
+                }
                 if (query.hivemember.usertypeid == 1)
                 {
                     return HivememberEntityMapper.MapHivememberToBee(query.hivemember);
@@ -121,6 +138,21 @@ namespace Application.DbCommunicator
                 {
                     return null;
                 }
+            }
+        }
+
+        public void CreateBuzz(Hivemember buzzer, Hivemember buzzee, Boolean buzz)
+        {
+            using (var context = new Entities())
+            {
+                context.buzzs.Add(new buzz()
+                {
+                    buzzerid = buzzer.Id,
+                    buzzeeid = buzzee.Id,
+                    isbuzzon = buzz,
+                    timestamp = DateTime.Now
+                });
+                context.SaveChanges();
             }
         }
     }

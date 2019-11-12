@@ -16,6 +16,7 @@ namespace Application.DbCommunicator
         Hivemember Login(string email, string pass);
         Honeypot FindHoneypot(int id);
         Bee FindBee(int id);
+        void CreateBuzz(Hivemember buzzer, Hivemember buzze, Boolean buzz);
 
     }
 }

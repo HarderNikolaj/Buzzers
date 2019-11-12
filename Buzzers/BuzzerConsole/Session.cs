@@ -87,15 +87,15 @@ namespace BuzzerConsole
                     };
                     Manager.CreateUser(newMember, password);
                 }
-            }
+        }
             catch (Exception)
             {
                 Header();
-                Console.WriteLine("Something went wrong. Please try again.");
+        Console.WriteLine("Something went wrong. Please try again.");
                 System.Threading.Thread.Sleep(2000);
             }
 
-        }
+}
         public void LoginScreen()
         {
             while (UserLoggedIn is null)
@@ -138,7 +138,10 @@ namespace BuzzerConsole
                             PotentialMatch = Manager.GetHoneypot(UserLoggedIn.Id);
                         }
                         DisplayBee(PotentialMatch);
-                        //TODO Include Buzz selection
+                        if (PotentialMatch != null)
+                        {
+                            BuzzMenu(PotentialMatch);
+                        }
                         break;
                     case '2':
                         PreferenceMenu();
@@ -147,6 +150,7 @@ namespace BuzzerConsole
                         break;
                     case '9':
                         UserLoggedIn = null;
+                        LoginScreen();
                         break;
                     default:
                         break;
@@ -156,18 +160,27 @@ namespace BuzzerConsole
         }
         void DisplayBee(Hivemember User)
         {
-            Header();
-            Console.WriteLine($"Name: {User.Nickname ?? User.FirstName + ' ' + User.LastName}\nGender: {User.Gender}\nAge: {User.GetAge()}");
-            if (User.GetType().ToString() == "Honeypot")
+            if (User == null)
             {
-                var user = (Honeypot)User;
-                Console.WriteLine($"Job: {user.JobTitle}");
+                Console.WriteLine("There are no more users that meet your preferences.\nTry lowering your standards if you want to get some.");
             }
-            else if (User.GetType().ToString() == "Bee")
+            else
             {
-                var user = (Bee)User;
-                Console.WriteLine($"Weight: {user.Weight}");
+
+                Header();
+                Console.WriteLine($"Name: {User.Nickname ?? User.FirstName + ' ' + User.LastName}\nAge: {User.GetAge()}");
+                if (User.GetType().ToString() == "Honeypot")
+                {
+                    var user = (Honeypot)User;
+                    Console.WriteLine($"Job: {user.JobTitle}");
+                }
+                else if (User.GetType().ToString() == "Bee")
+                {
+                    var user = (Bee)User;
+                    Console.WriteLine($"Weight: {user.Weight}");
+                }
             }
+
         }
         void PreferenceMenu()
         {
@@ -176,7 +189,7 @@ namespace BuzzerConsole
             do
             {
                 Header();
-                Console.WriteLine($"Interested in:\n(1) Males: {UserLoggedIn.Preferences.AttractionMales.ToString() ?? "Not set"}\n(2) Females: {UserLoggedIn.Preferences.AttracitonFemales.ToString() ?? "Not set"}\n(9) Return");
+                Console.WriteLine($"Interested in:\n(1) Males: {UserLoggedIn.Preferences.AttractionMales.ToString() ?? "Not set"}\n(2) Females: {UserLoggedIn.Preferences.AttracitonFemales.ToString() ?? "Not set"}\n(8) Submit Changes.\n(9) Discard Changes.");
                 preferenceAnswer = Console.ReadKey().KeyChar;
                 switch (preferenceAnswer)
                 {
@@ -187,7 +200,6 @@ namespace BuzzerConsole
                         UserLoggedIn.Preferences.AttracitonFemales = !UserLoggedIn.Preferences.AttracitonFemales;
                         break;
                     case '8':
-                        
                         Manager.Edit(UserLoggedIn);
                         UserLoggedIn.EndEdit();
                         break;
@@ -201,10 +213,32 @@ namespace BuzzerConsole
             } while (preferenceAnswer != '9' && preferenceAnswer != '8');
         }
 
-        void BeetailsMenu() 
+        void BeetailsMenu()
         {
             Header();
             Console.WriteLine($"(1) Nickname: {UserLoggedIn.Nickname.ToString() ?? "Not Set"}\n(2) Bio: {UserLoggedIn.Bio.ToString() ?? "Not Set"}");
+        }
+
+        void BuzzMenu(Hivemember potentialMatch)
+        {
+            Console.WriteLine("(1) Buzz\n(2) Reject\n(9) Return");
+            char buzzAnswer;
+            do
+            {
+                buzzAnswer = Console.ReadKey().KeyChar;
+                switch (buzzAnswer)
+                {
+                    case '1':
+                        Manager.Buzz(UserLoggedIn, potentialMatch, true);
+                        break;
+                    case '2':
+                        Manager.Buzz(UserLoggedIn, potentialMatch, true);
+                        break;
+                    default:
+                        break;
+                }
+            } while (buzzAnswer != '1' && buzzAnswer != '2' && buzzAnswer != '9');
+
         }
     }
 
