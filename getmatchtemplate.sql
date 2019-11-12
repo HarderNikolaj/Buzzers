@@ -10,10 +10,9 @@ set @prefmale = (select top 1 attractionmale from preferences join hivemember on
 declare @prefemale int
 set @prefemale = (select top 1 attractionfemale from preferences join hivemember on hivemember.preferenceid = preferences.id where hivemember.id = @userid)
 
-select @male,@female,@prefmale,@prefemale
-
-select top 1 hivemember.id from hivemember
+select top 1 hivemember.id, firstname, lastname, nick, birthdate, jobtitle, weight from hivemember
 left join preferences on preferences.id = hivemember.preferenceid
+left join beetails on beetails.hivememberid = hivemember.id
 WHERE usertypeid != (select top 1 usertypeid from hivemember where id = @userid)
 AND
 (
