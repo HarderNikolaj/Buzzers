@@ -27,7 +27,6 @@ namespace BuzzerConsole
             else
                 Console.Write($"Buzzers - {UserLoggedIn.Nickname ?? UserLoggedIn.FirstName}\n\n");
         }
-
         private void Login()
         {
             Header();
@@ -102,7 +101,7 @@ namespace BuzzerConsole
             {
                 Console.Clear();
                 Header();
-                Console.WriteLine("1: Login.\n2: Create New User.");
+                Console.WriteLine("1: Login.\n2: Create New User\n9: Buzz-out.");
                 var answer = Console.ReadKey().KeyChar;
                 switch (answer)
                 {
@@ -111,6 +110,9 @@ namespace BuzzerConsole
                         break;
                     case '2':
                         CreateUser();
+                        break;
+                    case '9':
+                        Environment.Exit(0);
                         break;
                     default:
                         break;
@@ -123,7 +125,7 @@ namespace BuzzerConsole
             while (UserLoggedIn != null)
             {
                 Header();
-                Console.WriteLine("1: Browse Buzzer.\n2: View your preferences.\n3: View your beetails.\n9: Log out.");
+                Console.WriteLine("1: Browse Buzzer.\n2: View your preferences.\n3: View your beetails.\n4: View Matches9: Log out.");
                 var answer = Console.ReadKey(true).KeyChar;
                 switch (answer)
                 {
@@ -149,6 +151,9 @@ namespace BuzzerConsole
                     case '3':
                         BeetailsMenu();
                         break;
+                    case '4':
+                        MatchMenu();
+                        break;
                     case '9':
                         UserLoggedIn = null;
                         LoginScreen();
@@ -159,11 +164,11 @@ namespace BuzzerConsole
                 }
             }
         }
-
         private void DisplayBee(Hivemember User)
         {
             if (User == null)
             {
+                Header();
                 Console.WriteLine("There are no more users that meet your preferences.\nTry lowering your standards if you want to get some.");
                 Console.ReadKey();
             }
@@ -215,7 +220,6 @@ namespace BuzzerConsole
 
             } while (preferenceAnswer != '9' && preferenceAnswer != '8');
         }
-
         private void BeetailsMenu()
         {
             UserLoggedIn.BeginEdit();
@@ -248,7 +252,6 @@ namespace BuzzerConsole
 
             } while (beetailsAnswer != '9' && beetailsAnswer != '8');
         }
-
         private void BuzzMenu(Hivemember potentialMatch)
         {
             Console.WriteLine("(1) Buzz\n(2) Reject\n(9) Return");
@@ -270,6 +273,10 @@ namespace BuzzerConsole
             } while (buzzAnswer != '1' && buzzAnswer != '2' && buzzAnswer != '9');
 
         }
-    }
 
+        private void MatchMenu()
+        {
+
+        }
+    }
 }
