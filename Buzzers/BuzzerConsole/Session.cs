@@ -149,11 +149,11 @@ namespace BuzzerConsole
                 {
                     case '1':
                         Hivemember PotentialMatch = null;
-                        if (UserLoggedIn.GetType().ToString() == "Honeypot")
+                        if (UserLoggedIn.GetType().ToString() == "Domain.Users.Honeypot")
                         {
                             PotentialMatch = Manager.GetBee(UserLoggedIn.Id);
                         }
-                        else if (UserLoggedIn.GetType().ToString() == "Bee")
+                        else if (UserLoggedIn.GetType().ToString() == "Domain.Users.Bee")
                         {
                             PotentialMatch = Manager.GetHoneypot(UserLoggedIn.Id);
                         }

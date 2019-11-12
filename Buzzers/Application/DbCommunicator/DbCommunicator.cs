@@ -23,7 +23,7 @@ namespace Application.DbCommunicator
             using (var context = new Entities())
             {
                 //TODO: Attach job title
-                var a = context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, password);
+                context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, password);
             }
         }
 
