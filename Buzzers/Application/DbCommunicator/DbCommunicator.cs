@@ -64,7 +64,7 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                context.
+                
             }
         }
         

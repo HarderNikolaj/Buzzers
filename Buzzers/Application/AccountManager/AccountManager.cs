@@ -44,11 +44,6 @@ namespace Application
             return _db.Login(email, password);
         }
 
-        public void Logout()
-        {
-            throw new NotImplementedException();
-        }
-
         public Bee GetBee(int id) 
         {
             return _db.FindBee(id);
