@@ -304,7 +304,9 @@
     </ReferentialConstraint>
   </Association>
   <Association Name="FK__userlogin__useri__3C69FB99">
-    <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+    <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
     <End Role="userlogin" Type="Self.userlogin" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="hivemember">
@@ -315,6 +317,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="CreateUserWithLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usertypeid" Type="int" Mode="In" />
+    <Parameter Name="genderid" Type="int" Mode="In" />
+    <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+    <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+    <Parameter Name="email" Type="nvarchar" Mode="In" />
+    <Parameter Name="birthdate" Type="date" Mode="In" />
+    <Parameter Name="pass" Type="nvarchar" Mode="In" />
+  </Function>
   <EntityContainer Name="buzzerbaseModelStoreContainer">
     <EntitySet Name="beetails" EntityType="Self.beetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="buzz" EntityType="Self.buzz" Schema="dbo" store:Type="Tables" />

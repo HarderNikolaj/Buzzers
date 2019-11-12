@@ -425,5 +425,14 @@
       <End Role="hivemember" EntitySet="hivemembers" />
       <End Role="userlogin" EntitySet="userlogins" />
     </AssociationSet>
+    <FunctionImport Name="CreateUserWithLogin" ReturnType="Collection(Boolean)">
+      <Parameter Name="usertypeid" Mode="In" Type="Int32" />
+      <Parameter Name="genderid" Mode="In" Type="Int32" />
+      <Parameter Name="firstname" Mode="In" Type="String" />
+      <Parameter Name="lastname" Mode="In" Type="String" />
+      <Parameter Name="email" Mode="In" Type="String" />
+      <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+      <Parameter Name="pass" Mode="In" Type="String" />
+    </FunctionImport>
   </EntityContainer>
 </Schema>

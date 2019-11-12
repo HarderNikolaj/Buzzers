@@ -24,6 +24,11 @@ namespace Domain.Users
 
         private Hivemember _backup;
 
+        public Hivemember() 
+        {
+            Preferences = new Preferences();
+        }
+
         public void BeginEdit()
         {
             _backup = MemberwiseClone() as Hivemember;

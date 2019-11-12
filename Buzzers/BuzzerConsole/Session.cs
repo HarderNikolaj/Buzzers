@@ -161,7 +161,7 @@ namespace BuzzerConsole
                         //TODO Include Buzz selection
                         break;
                     case '2':
-                        Console.WriteLine($"Interested in:\n(1) Males: {UserLoggedIn.Preferences.AttractionMales}\nFemales: {UserLoggedIn.Preferences.AttracitonFemales}");
+                        PreferenceMenu();
                         break;
                     case '3':
                         break;
@@ -170,6 +170,7 @@ namespace BuzzerConsole
                         break;
                     default:
                         break;
+
                 }
             }
         }
@@ -182,12 +183,40 @@ namespace BuzzerConsole
                 var user = (Honeypot)User;
                 Console.WriteLine($"Job: {user.JobTitle}");
             }
-            else if(User.GetType().ToString() == "Bee")
+            else if (User.GetType().ToString() == "Bee")
             {
                 var user = (Bee)User;
                 Console.WriteLine($"Weight: {user.Weight}");
             }
         }
-    }
-}
+        void PreferenceMenu()
+        {
+            char preferenceAnswer;
+            do
+            {
+                Header();
+                Console.WriteLine($"Interested in:\n(1) Males: {UserLoggedIn.Preferences.AttractionMales.ToString() ?? "Not set"}\n(2) Females: {UserLoggedIn.Preferences.AttracitonFemales.ToString() ?? "Not set"}\n(9) Return");
+                preferenceAnswer = Console.ReadKey().KeyChar;
+                switch (preferenceAnswer)
+                {
+                    case '1':
+                        UserLoggedIn.Preferences.AttractionMales = !UserLoggedIn.Preferences.AttractionMales;
+                        break;
+                    case '2':
+                        UserLoggedIn.Preferences.AttracitonFemales = !UserLoggedIn.Preferences.AttracitonFemales;
+                        break;
+                    case '8':
+                        //TODO submit changes
+                        break;
+                    case '8':
+                        //TODO undo changes
+                        break;
+                    default:
+                        break;
+                }
 
+            } while (preferenceAnswer != '9' || preferenceAnswer != '8');
+        }
+    }
+
+}
