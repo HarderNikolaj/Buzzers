@@ -1,4 +1,4 @@
-CREATE PROCEDURE CreateUserWithLogin @usertypeid int, @genderid int, @firstname nvarchar(50), @lastname nvarchar(50),@email nvarchar(100), @birthdate date, @jobtitle string, @pass nvarchar(30)
+CREATE PROCEDURE CreateUserWithLogin @usertypeid int, @genderid int, @firstname nvarchar(50), @lastname nvarchar(50),@email nvarchar(100), @birthdate date, @jobtitle nvarchar(50), @pass nvarchar(30)
 AS
 declare @success bit
 BEGIN TRY
