@@ -332,6 +332,9 @@
           <Parameter Name="jobtitle" Type="nvarchar" Mode="In" />
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="getmatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="userid" Type="int" Mode="In" />
+        </Function>
         <Function Name="GetPotentialMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userid" Type="int" Mode="In" />
         </Function>
@@ -854,6 +857,9 @@
             <Parameter Name="pass" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result)">
+          <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
             <Parameter Name="userid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
@@ -865,6 +871,12 @@
           <Property Type="DateTime" Name="birthdate" Nullable="false" />
           <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="weight" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getmatches_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1019,6 +1031,16 @@
                 <ScalarProperty Name="birthdate" ColumnName="birthdate" />
                 <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
                 <ScalarProperty Name="weight" ColumnName="weight" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>

@@ -93,6 +93,9 @@
     <Compile Include="gender.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="getmatches_Result.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="GetPotentialMatch_Result.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>

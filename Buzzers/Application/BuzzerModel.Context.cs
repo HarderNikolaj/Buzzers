@@ -86,5 +86,14 @@ namespace Application
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPotentialMatch_Result>("GetPotentialMatch", useridParameter);
         }
+    
+        public virtual ObjectResult<getmatches_Result> getmatches(Nullable<int> userid)
+        {
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getmatches_Result>("getmatches", useridParameter);
+        }
     }
 }
