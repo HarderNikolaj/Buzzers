@@ -163,6 +163,7 @@ namespace BuzzerConsole
             if (User == null)
             {
                 Console.WriteLine("There are no more users that meet your preferences.\nTry lowering your standards if you want to get some.");
+                Console.ReadKey();
             }
             else
             {
