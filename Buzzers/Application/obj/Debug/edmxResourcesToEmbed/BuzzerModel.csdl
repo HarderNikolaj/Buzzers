@@ -438,6 +438,9 @@
     <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result)">
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetPotentialMatch_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -447,5 +450,11 @@
     <Property Type="DateTime" Name="birthdate" Nullable="false" />
     <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="weight" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="getmatches_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
   </ComplexType>
 </Schema>

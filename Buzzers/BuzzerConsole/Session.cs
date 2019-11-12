@@ -125,8 +125,9 @@ namespace BuzzerConsole
             while (UserLoggedIn != null)
             {
                 Header();
-                Console.WriteLine("1: Browse Buzzer.\n2: View your preferences.\n3: View your beetails.\n4: View Matches9: Log out.");
-                var answer = Console.ReadKey(true).KeyChar;
+                Console.WriteLine("1: Browse Buzzer.\n2: View your preferences.\n3: View your beetails.\n4: View Matches\n9: Log out.");
+                char answer;
+                answer = Console.ReadKey(true).KeyChar;
                 switch (answer)
                 {
                     case '1':
@@ -273,10 +274,57 @@ namespace BuzzerConsole
             } while (buzzAnswer != '1' && buzzAnswer != '2' && buzzAnswer != '9');
 
         }
-
         private void MatchMenu()
         {
+            Header();
+            var matches = _manager.GetMatches(UserLoggedIn);
+            Console.WriteLine("Your Matches:");
+            foreach (var item in matches)
+            {
+                Console.WriteLine((item.Nickname ?? item.FirstName) + " - " + item.Id);
 
+            }
+            Console.WriteLine("Press 1 to select match\nPress any other key to return");
+            char result = Console.ReadKey().KeyChar;
+            switch (result)
+            {
+                case '1':
+                    Console.WriteLine("Type ID of the match.");
+                    int matchId;
+                    if (int.TryParse(Console.ReadLine(), out matchId))
+                    {
+                        ChatMenu(matches.Find(i => i.Id == matchId));
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        private void ChatMenu(Hivemember hivemember)
+        {
+            Header();
+            Console.WriteLine($"You are in a chat with {hivemember.Nickname ?? hivemember.FirstName}\n");
+            foreach (var item in _manager.GetMessages(UserLoggedIn, hivemember))
+            {
+                if (item.senderid == UserLoggedIn.Id)
+                {
+                    Console.WriteLine($"Meassage from you {item.timestamp}:\n{item.text}\n");
+                }
+                else
+                {
+                    Console.WriteLine($"Meassage from {hivemember.Nickname ?? hivemember.FirstName} {item.timestamp}:\n{item.text}\n");
+                }
+            }
+            Console.WriteLine("9: Return\nPress any other button to start chatting");
+            char result;
+            result = Console.ReadKey().KeyChar;
+            while (result != '9')
+            {
+                Console.WriteLine();
+                var message = Console.ReadLine();
+                _manager.SendMessage(UserLoggedIn, hivemember, message);
+                ChatMenu(hivemember);
+            }
         }
     }
 }

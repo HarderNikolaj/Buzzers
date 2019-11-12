@@ -14,7 +14,7 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate ,null, password);
+                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, null, password);
             }
         }
 
@@ -39,7 +39,7 @@ namespace Application.DbCommunicator
                     toChange.preference.attractionmale = hivemember.Preferences.AttractionMales;
 
                     context.SaveChanges();
-                }                
+                }
             }
         }
 
@@ -80,12 +80,12 @@ namespace Application.DbCommunicator
                     LastName = result.lastname,
                     Nickname = result.nick,
                     BirthDate = result.birthdate,
-                    Weight = (int) result.weight                    
+                    Weight = (int)result.weight
                 };
                 return bee;
             }
         }
-        
+
         //TODO hent brugerpreference mm. fra database og brug denne data til at kalde stored procedure
         public Honeypot FindHoneypot(int id)
         {
@@ -152,6 +152,43 @@ namespace Application.DbCommunicator
                     isbuzzon = buzz,
                     timestamp = DateTime.Now
                 });
+                context.SaveChanges();
+            }
+        }
+
+        public List<getmatches_Result> GetMatches(Hivemember user)
+        {
+            using (var context = new Entities())
+            {
+                return context.getmatches(user.Id).ToList();
+            }
+        }
+
+        public List<message> GetMessages(Hivemember user, Hivemember chatPartner)
+        {
+            using (var context = new Entities())
+            {
+                return context.messages
+                     .Where(m => m.recieverid == user.Id && m.senderid == chatPartner.Id || m.recieverid == chatPartner.Id && m.senderid == user.Id)
+                     .OrderBy(m => m.timestamp)
+                     .ToList();
+            }
+        }
+
+        public void SendMessage(Hivemember sender, Hivemember reciever, string message)
+        {
+            using (var context = new Entities())
+            {
+                context.messages.Add(
+                    new message()
+                    {
+                        senderid = sender.Id,
+                        recieverid = reciever.Id,
+                        text = message,
+                        isread = false,
+                        timestamp = DateTime.Now
+                    }
+                    );
                 context.SaveChanges();
             }
         }

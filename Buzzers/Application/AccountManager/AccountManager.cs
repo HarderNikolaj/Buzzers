@@ -58,5 +58,45 @@ namespace Application
         {
             _db.CreateBuzz(Buzzer, Buzzee, Buzz);
         }
+
+        public List<Hivemember> GetMatches(Hivemember user)
+        {
+            var list = new List<Hivemember>();
+            var results = _db.GetMatches(user);
+            foreach (var item in results)
+            {
+                if (user.GetType().ToString() == "Domain.Users.Honeypot")
+                {
+                    list.Add(new Bee()
+                    {
+                        Id = item.id,
+                        FirstName = item.firstname,
+                        LastName = item.lastname,
+                        Nickname = item.nick
+                    });
+                }
+                else if (user.GetType().ToString() == "Domain.Users.Bee")
+                {
+                    list.Add(new Honeypot()
+                    {
+                        Id = item.id,
+                        FirstName = item.firstname,
+                        LastName = item.lastname,
+                        Nickname = item.nick
+                    });
+                }
+            }
+            return list;
+        }
+
+        public List<message> GetMessages(Hivemember user, Hivemember chatPartner)
+        {
+            return _db.GetMessages(user, chatPartner);
+        }
+
+        public void SendMessage(Hivemember sender, Hivemember reciever, string message)
+        {
+            _db.SendMessage(sender, reciever, message);
+        }
     }
 }

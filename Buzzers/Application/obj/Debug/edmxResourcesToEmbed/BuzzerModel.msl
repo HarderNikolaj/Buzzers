@@ -151,5 +151,15 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>

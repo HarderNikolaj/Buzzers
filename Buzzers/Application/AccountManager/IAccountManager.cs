@@ -17,5 +17,8 @@ namespace Application
         Bee GetBee(int id);
         Honeypot GetHoneypot(int id);
         void Buzz(Hivemember Buzzer, Hivemember Buzzee, Boolean Buzz);
+        List<Hivemember> GetMatches(Hivemember user);
+        List<message> GetMessages(Hivemember user, Hivemember chatPartner);
+        void SendMessage(Hivemember sender, Hivemember reciever, string message);
     }
 }
