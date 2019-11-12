@@ -11,6 +11,7 @@ namespace Application.DbCommunicator
     {
         void CreateBee(Bee hivemember, string password);
         void CreateHoneypot(Honeypot hivemember, string password);
+        void Edit(Hivemember hivemember);
         bool Delete(int id);
         Hivemember Login(string email, string pass);
         Honeypot FindHoneypot(int id);

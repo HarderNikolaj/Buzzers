@@ -26,6 +26,23 @@ namespace Application.DbCommunicator
             }
         }
 
+        public void Edit(Hivemember hivemember)
+        {
+            using (var context = new Entities())
+            {
+                var toChange = context.hivemembers.SingleOrDefault(a => a.id == hivemember.Id);
+                if (toChange != null)
+                {
+                    toChange.bio = hivemember.Bio;
+                    toChange.nick = hivemember.Nickname;
+                    toChange.preference.attractionfemale = hivemember.Preferences.AttracitonFemales;
+                    toChange.preference.attractionmale = hivemember.Preferences.AttractionMales;
+
+                    context.SaveChanges();
+                }                
+            }
+        }
+
         public bool Delete(int id)
         {
             using (var context = new Entities())

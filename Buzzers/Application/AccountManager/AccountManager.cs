@@ -36,7 +36,7 @@ namespace Application
 
         public void Edit(Hivemember hivemember)
         {
-            throw new NotImplementedException();
+            _db.Edit(hivemember);
         }
 
         public Hivemember Login(string email, string password)
