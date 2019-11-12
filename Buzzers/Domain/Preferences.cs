@@ -18,6 +18,8 @@ namespace Domain
         public int WeightMax { get; set; }
         public bool AttractionMales { get; set; }
         public bool AttracitonFemales { get; set; }
+
+
     }
 
 
