@@ -187,6 +187,7 @@ namespace BuzzerConsole
                         UserLoggedIn.Preferences.AttracitonFemales = !UserLoggedIn.Preferences.AttracitonFemales;
                         break;
                     case '8':
+                        
                         Manager.Edit(UserLoggedIn);
                         UserLoggedIn.EndEdit();
                         break;
@@ -197,7 +198,7 @@ namespace BuzzerConsole
                         break;
                 }
 
-            } while (preferenceAnswer != '9' || preferenceAnswer != '8');
+            } while (preferenceAnswer != '9' && preferenceAnswer != '8');
         }
 
         void BeetailsMenu() 
