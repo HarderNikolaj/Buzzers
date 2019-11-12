@@ -28,7 +28,6 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Domain.dll
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\EntityFramework.dll
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Application.pdb
-C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Application.dll.config
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Domain.pdb
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Castle.Core.xml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerConsole\bin\Debug\Castle.Windsor.xml
