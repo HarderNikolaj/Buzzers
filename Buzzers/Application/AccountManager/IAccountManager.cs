@@ -14,7 +14,6 @@ namespace Application
         bool DeleteUser(int id);
         void Edit(Hivemember hivemember);
         Hivemember Login(string email, string password);
-        void Logout();
         Bee GetBee(int id);
         Honeypot GetHoneypot(int id);
     }
