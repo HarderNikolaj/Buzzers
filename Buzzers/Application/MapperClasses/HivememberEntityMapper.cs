@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Enums;
+using Domain;
+
 namespace Application.MapperClasses
 {
     public static class HivememberEntityMapper
@@ -27,13 +29,14 @@ namespace Application.MapperClasses
         {
             var converted = new Bee()
             {
-                Id =  hivemember.id,
+                Id = hivemember.id,
                 FirstName = hivemember.firstname,
                 LastName = hivemember.lastname,
                 Nickname = hivemember.nick,
                 Email = hivemember.email,
                 BirthDate = hivemember.birthdate,
-                Gender = (Gender)hivemember.genderid
+                Gender = (Gender)hivemember.genderid,
+                Preferences = MapEntityToDomainPreferences(hivemember.preference)
             };
             return converted;
         }
@@ -64,9 +67,20 @@ namespace Application.MapperClasses
                 Email = hivemember.email,
                 BirthDate = hivemember.birthdate,
                 Gender = (Gender)hivemember.genderid,
-                JobTitle = hivemember.jobtitle
+                JobTitle = hivemember.jobtitle,
+                Preferences = MapEntityToDomainPreferences(hivemember.preference)
             };
             return converted;
+        }
+
+        public static Preferences MapEntityToDomainPreferences(preference p)
+        {
+            return new Preferences()
+            {
+                Id = p.id,
+                AttracitonFemales = p.attractionfemale,
+                AttractionMales = p.attractionmale
+            };
         }
     }
 }

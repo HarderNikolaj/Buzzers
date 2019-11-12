@@ -187,6 +187,7 @@ namespace BuzzerConsole
                         UserLoggedIn.Preferences.AttracitonFemales = !UserLoggedIn.Preferences.AttracitonFemales;
                         break;
                     case '8':
+                        
                         Manager.Edit(UserLoggedIn);
                         UserLoggedIn.EndEdit();
                         break;
