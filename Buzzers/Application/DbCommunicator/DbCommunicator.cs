@@ -64,6 +64,8 @@ namespace Application.DbCommunicator
                     .Where(a => a.email == email)
                     .FirstOrDefault();
 
+                if (queer == null) return 0;
+
                 var query = context.userlogins
                     .Where(e => e.userid == queer.id && e.pass == password)
                     .FirstOrDefault();

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="buzzerbaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="buzzerbaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="beetails">
           <Key>
             <PropertyRef Name="id" />
@@ -309,7 +309,9 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK__userlogin__useri__3C69FB99">
-          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1" />
+          <End Role="hivemember" Type="Self.hivemember" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
           <End Role="userlogin" Type="Self.userlogin" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="hivemember">
@@ -320,6 +322,15 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="CreateUserWithLogin" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="usertypeid" Type="int" Mode="In" />
+          <Parameter Name="genderid" Type="int" Mode="In" />
+          <Parameter Name="firstname" Type="nvarchar" Mode="In" />
+          <Parameter Name="lastname" Type="nvarchar" Mode="In" />
+          <Parameter Name="email" Type="nvarchar" Mode="In" />
+          <Parameter Name="birthdate" Type="date" Mode="In" />
+          <Parameter Name="pass" Type="nvarchar" Mode="In" />
+        </Function>
         <EntityContainer Name="buzzerbaseModelStoreContainer">
           <EntitySet Name="beetails" EntityType="Self.beetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="buzz" EntityType="Self.buzz" Schema="dbo" store:Type="Tables" />
@@ -399,8 +410,7 @@
             <End Role="userlogin" EntitySet="userlogin" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="buzzerbaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -829,6 +839,15 @@
             <End Role="hivemember" EntitySet="hivemembers" />
             <End Role="userlogin" EntitySet="userlogins" />
           </AssociationSet>
+          <FunctionImport Name="CreateUserWithLogin" ReturnType="Collection(Boolean)">
+            <Parameter Name="usertypeid" Mode="In" Type="Int32" />
+            <Parameter Name="genderid" Mode="In" Type="Int32" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="lastname" Mode="In" Type="String" />
+            <Parameter Name="email" Mode="In" Type="String" />
+            <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="pass" Mode="In" Type="String" />
+          </FunctionImport>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -972,6 +991,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
