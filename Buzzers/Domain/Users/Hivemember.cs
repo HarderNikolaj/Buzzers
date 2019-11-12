@@ -38,10 +38,12 @@ namespace Domain.Users
         //TODO: fix this shit
         public void CancelEdit()
         {
-            foreach (PropertyInfo prop in this.GetType().GetProperties())
-            {
-                prop.SetValue(prop.Name, _backup.GetType().GetProperty(prop.Name));
-            }
+            Nickname = _backup.Nickname;
+            FirstName = _backup.FirstName;
+            LastName = _backup.LastName;
+            BirthDate = _backup.BirthDate;
+            Bio = _backup.Bio;
+
             _backup = null;
         }
 
