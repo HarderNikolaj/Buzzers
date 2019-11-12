@@ -21,6 +21,10 @@ namespace BuzzerConsole.Startup
 
             container.Register(Component.For<IDbCommunicator>()
                 .ImplementedBy<DbCommunicator>());
+
+            container.Register(Component.For<ISession>()
+                .ImplementedBy<Session>()
+                .LifestyleSingleton());
         }
     }
 }

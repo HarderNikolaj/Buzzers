@@ -9,7 +9,7 @@ using Domain.Enums;
 
 namespace BuzzerConsole
 {
-    class Session
+    class Session : ISession
     {
         private Hivemember UserLoggedIn { get; set; }
         private IAccountManager _manager { get; set; }

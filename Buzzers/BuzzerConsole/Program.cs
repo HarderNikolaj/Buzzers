@@ -17,29 +17,12 @@ namespace BuzzerConsole
         {
             var container = new WindsorContainer();
             container.Install(new WindsorInstaller());
-            var manager = container.Resolve<IAccountManager>();
-
-
-
-            var member = new Honeypot()
-            {
-                FirstName = "Nikolaj",
-                LastName = "Harder",
-                Gender = Gender.Male,
-                Nickname = "WillDoAnything4ca$h",
-                Email = "pimp3@mail.com",
-                BirthDate = new DateTime(1847, 05, 12),
-                JobTitle = "Pimp"
-            };
+            var session = container.Resolve<ISession>();
 
             //manager.CreateUser(member);
 
-            var session = new Session(manager);
-            //session.UserLoggedIn = member;
             session.LoginScreen();
 
-            //manager.Login("pimp@mail.com", "asdf");
-            //     manager.DeleteUser(2);
         }
     }
 }
