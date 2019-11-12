@@ -137,7 +137,7 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
     <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch" />
+    <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
   </EntityContainerMapping>
 </Mapping>

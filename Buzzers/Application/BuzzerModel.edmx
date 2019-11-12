@@ -329,6 +329,7 @@
           <Parameter Name="lastname" Type="nvarchar" Mode="In" />
           <Parameter Name="email" Type="nvarchar" Mode="In" />
           <Parameter Name="birthdate" Type="date" Mode="In" />
+          <Parameter Name="jobtitle" Type="nvarchar" Mode="In" />
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="GetPotentialMatch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
@@ -846,6 +847,13 @@
             <End Role="hivemember" EntitySet="hivemembers" />
             <End Role="userlogin" EntitySet="userlogins" />
           </AssociationSet>
+          <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(Int32)">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
+            <Parameter Name="usertypeid" Mode="In" Type="Int32" />
+            <Parameter Name="genderid" Mode="In" Type="Int32" />
+            <Parameter Name="prefmale" Mode="In" Type="Int32" />
+            <Parameter Name="preffemale" Mode="In" Type="Int32" />
+          </FunctionImport>
           <FunctionImport Name="CreateUserWithLogin" ReturnType="Collection(Boolean)">
             <Parameter Name="usertypeid" Mode="In" Type="Int32" />
             <Parameter Name="genderid" Mode="In" Type="Int32" />
@@ -853,14 +861,8 @@
             <Parameter Name="lastname" Mode="In" Type="String" />
             <Parameter Name="email" Mode="In" Type="String" />
             <Parameter Name="birthdate" Mode="In" Type="DateTime" />
+            <Parameter Name="jobtitle" Mode="In" Type="String" />
             <Parameter Name="pass" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(Int32)">
-            <Parameter Name="userid" Mode="In" Type="Int32" />
-            <Parameter Name="usertypeid" Mode="In" Type="Int32" />
-            <Parameter Name="genderid" Mode="In" Type="Int32" />
-            <Parameter Name="prefmale" Mode="In" Type="Int32" />
-            <Parameter Name="preffemale" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
       </Schema>
@@ -1005,8 +1007,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
           <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch" />
+          <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
