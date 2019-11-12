@@ -12,6 +12,8 @@ namespace Application
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class Entities : DbContext
     {
@@ -38,5 +40,38 @@ namespace Application
         public virtual DbSet<preference> preferences { get; set; }
         public virtual DbSet<userlogin> userlogins { get; set; }
         public virtual DbSet<usertype> usertypes { get; set; }
+    
+        public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string pass)
+        {
+            var usertypeidParameter = usertypeid.HasValue ?
+                new ObjectParameter("usertypeid", usertypeid) :
+                new ObjectParameter("usertypeid", typeof(int));
+    
+            var genderidParameter = genderid.HasValue ?
+                new ObjectParameter("genderid", genderid) :
+                new ObjectParameter("genderid", typeof(int));
+    
+            var firstnameParameter = firstname != null ?
+                new ObjectParameter("firstname", firstname) :
+                new ObjectParameter("firstname", typeof(string));
+    
+            var lastnameParameter = lastname != null ?
+                new ObjectParameter("lastname", lastname) :
+                new ObjectParameter("lastname", typeof(string));
+    
+            var emailParameter = email != null ?
+                new ObjectParameter("email", email) :
+                new ObjectParameter("email", typeof(string));
+    
+            var birthdateParameter = birthdate.HasValue ?
+                new ObjectParameter("birthdate", birthdate) :
+                new ObjectParameter("birthdate", typeof(System.DateTime));
+    
+            var passParameter = pass != null ?
+                new ObjectParameter("pass", pass) :
+                new ObjectParameter("pass", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("CreateUserWithLogin", usertypeidParameter, genderidParameter, firstnameParameter, lastnameParameter, emailParameter, birthdateParameter, passParameter);
+        }
     }
 }
