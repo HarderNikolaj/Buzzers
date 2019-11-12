@@ -10,21 +10,19 @@ namespace Application.DbCommunicator
 {
     public class DbCommunicator : IDbCommunicator
     {
-        public void CreateBee(Bee member)
+        public void CreateBee(Bee member, string password)
         {
             using (var context = new Entities())
             {
-                context.hivemembers.Add(HivememberEntityMapper.MapBeeToHivemember(member));
-                context.SaveChanges();
+                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, password);
             }
         }
 
-        public void CreateHoneypot(Honeypot member)
+        public void CreateHoneypot(Honeypot member, string password)
         {
             using (var context = new Entities())
             {
-                context.hivemembers.Add(HivememberEntityMapper.MapHoneypotToHivemember(member));
-                context.SaveChanges();
+                context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, password);
             }
         }
 

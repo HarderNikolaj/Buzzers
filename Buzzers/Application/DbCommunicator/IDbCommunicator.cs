@@ -9,8 +9,8 @@ namespace Application.DbCommunicator
 {
     public interface IDbCommunicator
     {
-        void CreateBee(Bee hivemember);
-        void CreateHoneypot(Honeypot hivemember);
+        void CreateBee(Bee hivemember, string password);
+        void CreateHoneypot(Honeypot hivemember, string password);
         bool Delete(int id);
         int Login(string email, string pass);
         Honeypot FindHoneypot(int id);
