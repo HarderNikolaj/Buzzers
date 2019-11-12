@@ -197,7 +197,7 @@ namespace BuzzerConsole
                         break;
                 }
 
-            } while (preferenceAnswer != '9' || preferenceAnswer != '8');
+            } while (preferenceAnswer != '9' && preferenceAnswer != '8');
         }
 
         void BeetailsMenu() 
