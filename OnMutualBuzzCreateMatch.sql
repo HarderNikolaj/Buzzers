@@ -7,7 +7,7 @@ create trigger [dbo].[OnMutualBuzzCreateMatch]
 	select @firstbuzzer =  buzzeeid from inserted
 	declare @lastbuzzer int
 	select @lastbuzzer = buzzerid from inserted
-	if (select count(id) from buzz where buzzerid = @firstbuzzer AND isbuzzon = 1) = 1
+	if (select count(id) from buzz where buzzerid = @firstbuzzer AND buzzeeid = @lastbuzzer AND isbuzzon = 1) = 1
 	begin
 	insert into [match] (firstbuzzerid, lastbuzzerid) values (@firstbuzzer, @lastbuzzer)
 	end
