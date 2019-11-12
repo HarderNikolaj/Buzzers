@@ -147,6 +147,7 @@ namespace BuzzerConsole
                         PreferenceMenu();
                         break;
                     case '3':
+                        BeetailsMenu();
                         break;
                     case '9':
                         UserLoggedIn = null;
@@ -216,8 +217,35 @@ namespace BuzzerConsole
 
         private void BeetailsMenu()
         {
-            Header();
-            Console.WriteLine($"(1) Nickname: {UserLoggedIn.Nickname.ToString() ?? "Not Set"}\n(2) Bio: {UserLoggedIn.Bio.ToString() ?? "Not Set"}");
+            UserLoggedIn.BeginEdit();
+            char beetailsAnswer;
+            do
+            {
+                Header();
+                Console.WriteLine($"(1) Nickname: {UserLoggedIn.Nickname ?? "Not Set"}\n(2) Bio: {UserLoggedIn.Bio ?? "Not Set"}\n(8) Submit Changes.\n(9) Discard Changes.");
+                beetailsAnswer = Console.ReadKey().KeyChar;
+                switch (beetailsAnswer)
+                {
+                    case '1':
+                        Console.WriteLine("Enter a new nickname");
+                        UserLoggedIn.Nickname = Console.ReadLine();
+                        break;
+                    case '2':
+                        Console.WriteLine("Enter a new Bio");
+                        UserLoggedIn.Bio = Console.ReadLine();
+                        break;
+                    case '8':
+                        _manager.Edit(UserLoggedIn);
+                        UserLoggedIn.EndEdit();
+                        break;
+                    case '9':
+                        UserLoggedIn.CancelEdit();
+                        break;
+                    default:
+                        break;
+                }
+
+            } while (beetailsAnswer != '9' && beetailsAnswer != '8');            
         }
 
         private void BuzzMenu(Hivemember potentialMatch)
