@@ -21,7 +21,9 @@ namespace BuzzerGui
         {
             var container = new WindsorContainer();
             container.Install(new WindsorInstaller());
-            container.Resolve<ViewModelLocator>();
+            container.Install(new ViewModelInstaller());
+            
+            Resources["viewmodellocator"] = container.Resolve<ViewModelLocator>();
 
             base.OnStartup(e);
         }

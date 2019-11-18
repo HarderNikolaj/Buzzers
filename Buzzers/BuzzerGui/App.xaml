@@ -8,6 +8,14 @@
              d1p1:Ignorable="d"
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Application.Resources>
-        
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="SignInLabelStyle.xaml"/>
+                <ResourceDictionary Source="SignInTextBoxStyle.xaml"/>
+                <ResourceDictionary Source="SignInButtonStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
     </Application.Resources>
 </Application>

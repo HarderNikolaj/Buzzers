@@ -37,3 +37,7 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.g.cs
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\App.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInLabelStyle.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInTextBoxStyle.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInButtonStyle.baml

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Commands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,8 @@ namespace BuzzerGui.ViewModels
 {
     public interface IMainWindowViewModel
     {
+        string Email { get; set; }
+        string Password { get; set; }
+        DelegateCommand LogInCommand { get; }
     }
 }
