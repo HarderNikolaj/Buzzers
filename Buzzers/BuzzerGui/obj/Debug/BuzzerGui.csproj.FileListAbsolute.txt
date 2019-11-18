@@ -27,7 +27,6 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\System.ValueTuple
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\Domain.pdb
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\EntityFramework.xml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MainWindow.g.cs
-C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\App.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MainWindow.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.g.resources
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.Properties.Resources.resources

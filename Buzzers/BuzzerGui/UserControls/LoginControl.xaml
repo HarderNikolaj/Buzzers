@@ -48,6 +48,6 @@
         <Button Content="Log In"
                 Grid.Column="1"
                 Grid.Row="5"
-                Command="{Binding}" />
+                Command="{Binding LogInCommand}" />
     </Grid>
 </UserControl>

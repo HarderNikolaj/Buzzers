@@ -21,7 +21,7 @@ namespace BuzzerGui
         {
             var container = new WindsorContainer();
             container.Install(new WindsorInstaller());
-            container.Resolve<IAccountManager>();
+            container.Resolve<ViewModelLocator>();
 
             base.OnStartup(e);
         }

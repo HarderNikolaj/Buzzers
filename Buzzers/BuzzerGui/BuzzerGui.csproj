@@ -84,6 +84,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Startup\ViewModelInstaller.cs" />
+    <Compile Include="Startup\ViewModelLocator.cs" />
     <Compile Include="Startup\WindsorInstaller.cs" />
     <Page Include="UserControls\LoginControl.xaml">
       <SubType>Designer</SubType>
@@ -100,7 +101,8 @@
     <Compile Include="UserControls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>

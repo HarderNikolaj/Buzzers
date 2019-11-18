@@ -14,8 +14,11 @@ namespace BuzzerGui.Startup
     {
         public void Install(IWindsorContainer container, IConfigurationStore store)
         {
-            //container.Register(Component.For<IMainWindowViewModel>()
-            //    .ImplementedBy<MainWindowViewModel>());
+            container.Register(Component.For<ViewModelLocator>()
+                .LifestyleSingleton());
+
+            container.Register(Component.For<IMainWindowViewModel>()
+                .ImplementedBy<MainWindowViewModel>());
         }
     }
 }

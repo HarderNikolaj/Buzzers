@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace BuzzerGui.ViewModels
 {
-    public class MainWindowViewModel : ViewModelBase
+    public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     {
         private IAccountManager _manager;
 
