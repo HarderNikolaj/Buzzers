@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.DBObjects;
+using Domain;
 
 namespace BuzzerGui.ViewModels
 {
@@ -16,11 +16,12 @@ namespace BuzzerGui.ViewModels
         private string _email;
         private string _password;
 
+        public MemberStory Story { get; set; }
+        
         public MainWindowViewModel()
         {
-            var Story = _manager.GetMemberstory();
+            var Story = _manager.GetMemberStory();
         }
-        public MemberStory Story { get; set; }
        
         public string Email
         {

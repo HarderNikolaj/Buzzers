@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Domain;
 
 namespace Application
 {
@@ -20,5 +21,6 @@ namespace Application
         List<Hivemember> GetMatches(Hivemember user);
         List<message> GetMessages(Hivemember user, Hivemember chatPartner);
         void SendMessage(Hivemember sender, Hivemember reciever, string message);
+        MemberStory GetMemberStory();
     }
 }

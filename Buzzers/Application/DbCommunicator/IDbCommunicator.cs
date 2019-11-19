@@ -20,6 +20,7 @@ namespace Application.DbCommunicator
         List<getmatches_Result> GetMatches(Hivemember user);
         List<message> GetMessages(Hivemember user, Hivemember chatPartner);
         void SendMessage(Hivemember sender, Hivemember reciever, string message);
+        memberstory GetMemberstory();
 
     }
 }

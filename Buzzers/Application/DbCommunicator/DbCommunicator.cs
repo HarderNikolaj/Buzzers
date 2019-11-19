@@ -192,5 +192,14 @@ namespace Application.DbCommunicator
                 context.SaveChanges();
             }
         }
+        public memberstory GetMemberstory() 
+        {
+            using (var context = new Entities())
+            {
+                throw new NotImplementedException();
+                //return context.randommemberstory();
+
+            }
+        }
     }
 }

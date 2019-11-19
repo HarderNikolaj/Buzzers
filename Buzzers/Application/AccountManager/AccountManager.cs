@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Application.DbCommunicator;
 using Domain.Users;
+using Domain;
 
 namespace Application
 {
@@ -97,6 +98,11 @@ namespace Application
         public void SendMessage(Hivemember sender, Hivemember reciever, string message)
         {
             _db.SendMessage(sender, reciever, message);
+        }
+        public MemberStory GetMemberStory() 
+        {
+            var story = _db.GetMemberstory();
+            return new MemberStory(story.imagepath, story.story);
         }
     }
 }
