@@ -48,7 +48,7 @@
         <TextBox Grid.Row="4"
                  Grid.Column="1"
                  Text="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Style="{DynamicResource SignInTextBoxStyle}" />
+                 Style="{DynamicResource SignInTextBoxStyle}"/>
 
         <Button Content="Log In"
                 Grid.Column="1"

@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBObjects\MemberStory.cs" />
     <Compile Include="Enums\Eyecolor.cs" />
     <Compile Include="Enums\Gender.cs" />
     <Compile Include="Enums\Haircolor.cs" />

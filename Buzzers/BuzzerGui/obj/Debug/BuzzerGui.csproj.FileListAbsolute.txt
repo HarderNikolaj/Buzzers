@@ -41,3 +41,11 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\App.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInLabelStyle.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInTextBoxStyle.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInButtonStyle.baml
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csprojAssemblyReference.cache
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStory.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MainWindow.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\App.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui_MarkupCompile.cache
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui_MarkupCompile.lref
