@@ -1,5 +1,6 @@
 ﻿using Application;
 using Application.DbCommunicator;
+using BuzzerGui.ViewModels;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
@@ -22,9 +23,7 @@ namespace BuzzerGui.Startup
             container.Register(Component.For<IDbCommunicator>()
                 .ImplementedBy<DbCommunicator>());
 
-            //container.Register(Component.For<ISession>()
-            //    .ImplementedBy<Session>()
-            //    .LifestyleSingleton());
+      
         }
     }
 }

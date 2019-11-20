@@ -20,7 +20,6 @@ namespace BuzzerGui.ViewModels
         
         public MainWindowViewModel()
         {
-            var Story = _manager.GetMemberStory();
         }
        
         public string Email
@@ -50,6 +49,8 @@ namespace BuzzerGui.ViewModels
             _manager = manager;
             
             LogInCommand = new DelegateCommand(() => LogIn());
+            Story = _manager.GetMemberStory();
+
         }
 
         private void LogIn()

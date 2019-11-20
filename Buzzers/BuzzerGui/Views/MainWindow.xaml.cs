@@ -22,6 +22,7 @@ namespace BuzzerGui.Views
     {
         public MainWindow()
         {
+
             InitializeComponent();
         }
     }

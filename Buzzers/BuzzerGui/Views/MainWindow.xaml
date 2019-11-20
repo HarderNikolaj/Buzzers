@@ -45,7 +45,9 @@
 
             <Border BorderBrush="Gray"
                     BorderThickness="1"
-                    Grid.Column="2" />
+                    Grid.Column="2" >
+                <control:UserStoryControl/>
+            </Border>
         </Grid>
     </Grid>
 </Window>

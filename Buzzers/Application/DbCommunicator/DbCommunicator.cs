@@ -196,7 +196,8 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                throw new NotImplementedException();
+                var memberS = context.memberstories.FirstOrDefault();
+                return memberS;
                 //return context.randommemberstory();
 
             }
