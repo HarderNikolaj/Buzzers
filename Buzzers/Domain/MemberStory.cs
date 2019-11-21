@@ -10,6 +10,11 @@ namespace Domain
     {
         public string Image { get; set; }
         public string Story { get; set; }
+
+        public MemberStory()
+        {
+
+        }
         public MemberStory(string image, string story)
         {
             Image = image;

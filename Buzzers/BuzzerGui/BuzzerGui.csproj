@@ -158,6 +158,8 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Beemages\UserStoryM2.webp" />
+    <None Include="Beemages\UserStoryM3.webp" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -177,7 +179,24 @@
       <Name>Domain</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Beemages\UserStoryF4.jpg" />
+    <Resource Include="Beemages\BeeAd1.jpg" />
+    <Resource Include="Beemages\BeeAd2.jpg" />
+    <Resource Include="Beemages\BeeAd3.jpg" />
+    <Resource Include="Beemages\BeeAd4.png" />
+    <Resource Include="Beemages\BeeAd5.jpg" />
+    <Resource Include="Beemages\BeeAd6.jpg" />
+    <Resource Include="Beemages\Harambee.jpg" />
+    <Resource Include="Beemages\UserStoryM5.jpg" />
+    <Resource Include="Beemages\UserStoryF5.jpg" />
+    <Resource Include="Beemages\UserStoryF6.png" />
+    <Resource Include="Beemages\UserStoryF1.jpg" />
+    <Resource Include="Beemages\UserStoryF2.jpg" />
+    <Resource Include="Beemages\UserStoryF3.jpeg" />
+    <Resource Include="Beemages\UserStoryM1.jpg" />
+    <Resource Include="Beemages\UserStoryM4.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
