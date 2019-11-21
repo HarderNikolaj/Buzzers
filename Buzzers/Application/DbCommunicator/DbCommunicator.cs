@@ -192,14 +192,11 @@ namespace Application.DbCommunicator
                 context.SaveChanges();
             }
         }
-        public memberstory GetMemberstory() 
+        public randommemberstory GetMemberstory() 
         {
             using (var context = new Entities())
             {
-                var memberS = context.memberstories.FirstOrDefault();
-                return memberS;
-                //return context.randommemberstory();
-
+                 return  context.randommemberstories.FirstOrDefault();
             }
         }
     }
