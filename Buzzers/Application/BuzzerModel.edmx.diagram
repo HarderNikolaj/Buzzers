@@ -34,6 +34,7 @@
         <AssociationConnector Association="buzzerbaseModel.FK__message__recieve__4E88ABD4" ManuallyRouted="false" />
         <AssociationConnector Association="buzzerbaseModel.FK__message__senderi__4D94879B" ManuallyRouted="false" />
         <AssociationConnector Association="buzzerbaseModel.FK__userlogin__useri__3C69FB99" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="buzzerbaseModel.randommemberstory" Width="1.5" PointX="3.375" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

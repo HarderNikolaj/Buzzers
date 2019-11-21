@@ -40,6 +40,7 @@ namespace Application
         public virtual DbSet<preference> preferences { get; set; }
         public virtual DbSet<userlogin> userlogins { get; set; }
         public virtual DbSet<usertype> usertypes { get; set; }
+        public virtual DbSet<randommemberstory> randommemberstories { get; set; }
     
         public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string jobtitle, string pass)
         {
