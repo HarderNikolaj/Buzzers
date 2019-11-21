@@ -92,3 +92,5 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInButt
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInLabelStyle.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInTextBoxStyle.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\LoggedInWindow.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\LoggedInWindow.baml

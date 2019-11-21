@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain;
+using BuzzerGui.Utility;
 
 namespace BuzzerGui.ViewModels
 {
@@ -56,6 +57,11 @@ namespace BuzzerGui.ViewModels
         private void LogIn()
         {
             var member = _manager.Login(_email, _password);
+            if (member!=null)
+            {
+
+                Messenger.Default.Send(member);
+            }
         }
     }
 }

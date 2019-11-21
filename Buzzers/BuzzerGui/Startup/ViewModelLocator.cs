@@ -10,9 +10,11 @@ namespace BuzzerGui.Startup
     public class ViewModelLocator
     {
         public IMainWindowViewModel MainWindowViewModel { get; }
-        public ViewModelLocator(IMainWindowViewModel mainWindowViewModel)
+        public ILoggedInWindowViewModel LoggedInWindowViewModel { get; }
+        public ViewModelLocator(IMainWindowViewModel mainWindowViewModel, ILoggedInWindowViewModel loggedInWindowViewModel)
         {
             MainWindowViewModel = mainWindowViewModel;
+            LoggedInWindowViewModel = loggedInWindowViewModel;
         }
     }
 }
