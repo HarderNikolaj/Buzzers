@@ -102,6 +102,10 @@ namespace Application
         public MemberStory GetMemberStory() 
         {
             var story = _db.GetMemberstory();
+            if (story == null)
+            {
+                return new MemberStory();
+            }
             return new MemberStory(story.imagepath, story.story);
         }
     }

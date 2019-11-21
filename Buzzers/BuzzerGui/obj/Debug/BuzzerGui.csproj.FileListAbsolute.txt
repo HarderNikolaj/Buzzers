@@ -38,9 +38,6 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\Logi
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.baml
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\App.baml
-C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInLabelStyle.baml
-C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInTextBoxStyle.baml
-C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\SignInButtonStyle.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csprojAssemblyReference.cache
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.g.cs
@@ -88,3 +85,10 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.exe
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInButtonStyle.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInLabelStyle.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInTextBoxStyle.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.baml
