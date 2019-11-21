@@ -441,6 +441,7 @@
     <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="randommemberstories" EntityType="buzzerbaseModel.randommemberstory" />
   </EntityContainer>
   <ComplexType Name="GetPotentialMatch_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -457,4 +458,14 @@
     <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
     <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
   </ComplexType>
+  <EntityType Name="randommemberstory">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="story" />
+      <PropertyRef Name="imagepath" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="story" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="imagepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+  </EntityType>
 </Schema>

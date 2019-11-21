@@ -123,6 +123,18 @@
     <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="typename" Type="nvarchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="randommemberstory">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="story" />
+      <PropertyRef Name="imagepath" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="story" Type="nvarchar" MaxLength="500" Nullable="false" />
+    <Property Name="imagepath" Type="nvarchar" MaxLength="255" Nullable="false" />
+  </EntityType>
   <Association Name="FK__beetails__eyecol__412EB0B6">
     <End Role="eyecolor" Type="Self.eyecolor" Multiplicity="0..1" />
     <End Role="beetails" Type="Self.beetails" Multiplicity="*" />
@@ -347,6 +359,13 @@
     <EntitySet Name="preferences" EntityType="Self.preferences" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="userlogin" EntityType="Self.userlogin" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="usertype" EntityType="Self.usertype" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="randommemberstory" EntityType="Self.randommemberstory" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [randommemberstory].[id] AS [id], 
+    [randommemberstory].[story] AS [story], 
+    [randommemberstory].[imagepath] AS [imagepath]
+    FROM [dbo].[randommemberstory] AS [randommemberstory]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK__beetails__eyecol__412EB0B6" Association="Self.FK__beetails__eyecol__412EB0B6">
       <End Role="eyecolor" EntitySet="eyecolor" />
       <End Role="beetails" EntitySet="beetails" />

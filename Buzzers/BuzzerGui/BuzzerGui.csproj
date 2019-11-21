@@ -98,15 +98,15 @@
     <Compile Include="Startup\ViewModelInstaller.cs" />
     <Compile Include="Startup\ViewModelLocator.cs" />
     <Compile Include="Startup\WindsorInstaller.cs" />
-    <Page Include="SignInButtonStyle.xaml">
+    <Page Include="Styles\SignInButtonStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignInLabelStyle.xaml">
+    <Page Include="Styles\SignInLabelStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SignInTextBoxStyle.xaml">
+    <Page Include="Styles\SignInTextBoxStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
