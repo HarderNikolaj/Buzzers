@@ -161,5 +161,14 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
+    <EntitySetMapping Name="randommemberstories">
+      <EntityTypeMapping TypeName="buzzerbaseModel.randommemberstory">
+        <MappingFragment StoreEntitySet="randommemberstory">
+          <ScalarProperty Name="imagepath" ColumnName="imagepath" />
+          <ScalarProperty Name="story" ColumnName="story" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
