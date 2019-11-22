@@ -19,9 +19,6 @@ namespace BuzzerGui.ViewModels
 
         public MemberStory Story { get; set; }
 
-        public LoginViewModel()
-        {
-        }
 
         public string Email
         {

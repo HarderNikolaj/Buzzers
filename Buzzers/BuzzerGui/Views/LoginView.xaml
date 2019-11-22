@@ -17,7 +17,6 @@
             <ColumnDefinition Width="80" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
             <RowDefinition Height="*" />
             <RowDefinition Height="50" />
             <RowDefinition Height="4*" />
@@ -25,12 +24,12 @@
         </Grid.RowDefinitions>
 
         <Label Grid.Column="1"
-               Grid.Row="1"
+               Grid.Row="0"
                Content="BANNER TEST"
                Background="Aqua" />
 
         <Grid Grid.Column="1"
-              Grid.Row="3">
+              Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
