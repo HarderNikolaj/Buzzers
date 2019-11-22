@@ -18,6 +18,7 @@ namespace BuzzerGui.Startup
 
             container.Register(Component.For<IMainWindowViewModel>()
                 .ImplementedBy<MainWindowViewModel>());
+
         }
     }
 }
