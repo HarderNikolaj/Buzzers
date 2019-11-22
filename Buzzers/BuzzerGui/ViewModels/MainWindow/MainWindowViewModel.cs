@@ -12,22 +12,43 @@ namespace BuzzerGui.ViewModels
 {
     public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel
     {
-        private ViewModelBase _context;
-        public ViewModelBase Context
+        private List<INavigationViewModel> _viewModels;
+        private INavigationViewModel _currentViewModel;
+
+        public List<INavigationViewModel> ViewModels
         {
-            get => _context;
+            get
+            {
+                if (_viewModels == null)
+                {
+                    _viewModels = new List<INavigationViewModel>();
+                }
+                return _viewModels;
+            }
+        }
+        public INavigationViewModel CurrentViewModel
+        {
+            get => _currentViewModel;
             set
             {
-                _context = value;
+                _currentViewModel = value;
                 OnPropertyChanged();
             }
         }
 
-        public LoginViewModel LoginViewModel { get; private set; }
         public MainWindowViewModel()
         {
-            LoginViewModel = new LoginViewModel();
-            Context = LoginViewModel;
+            ViewModels.Add(new LoginViewModel());
+            CurrentViewModel = ViewModels[0];
+        }
+
+        private void ChangeViewModel(INavigationViewModel viewModel)
+        {
+            if (!ViewModels.Contains(viewModel))
+            {
+                ViewModels.Add(viewModel);
+            }
+            CurrentViewModel = ViewModels.FirstOrDefault(vm => vm == viewModel);
         }
     }
 }

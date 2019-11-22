@@ -6,11 +6,13 @@
         xmlns:prism="http://prismlibrary.com/"
         xmlns:control="clr-namespace:BuzzerGui.UserControls"
         xmlns:local="clr-namespace:BuzzerGui.Views"
+        xmlns:vm="clr-namespace:BuzzerGui.ViewModels"
         DataContext="{Binding MainWindowViewModel, Source={StaticResource viewmodellocator}}"
         mc:Ignorable="d"
         Title="LoginScreen"
         Height="900"
         Width="1600">
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20" />
@@ -33,7 +35,9 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
-            <Image Source="{Binding Context}" />
+            <Image Source="{Binding}" />
         </Grid>
+
+        <ContentControl Grid.Row="2" Grid.Column="3" Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>
