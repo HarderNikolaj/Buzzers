@@ -32,6 +32,7 @@ namespace BuzzerGui
         {
             MainWindow window = new MainWindow();
             window.Show();
+            
         }
     }
 }

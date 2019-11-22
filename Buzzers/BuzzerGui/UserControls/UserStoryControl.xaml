@@ -18,11 +18,14 @@
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Image 
-            Source="{Binding Story.Image, Mode=OneTime, FallbackValue='C:\Users\nikol\Desktop\Wierd Shit\oldbee.jpg'}" 
+            Source="{Binding Story.Image, Mode=OneTime}" 
             Grid.Row="0" 
-            Grid.Column="0"/>
-        <Label Content="User Story:" Grid.Row="1" Grid.Column="0"></Label>
-        <TextBlock Text="{Binding Story.Story, Mode=OneTime, UpdateSourceTrigger=Default}" Grid.Row="2" Grid.Column="0"/>
-
+            Grid.Column="0"
+            />
+        <TextBlock 
+            Text="{Binding Story.Story, Mode=OneTime, UpdateSourceTrigger=Default}" 
+            Grid.Row="2" 
+            Grid.Column="0"
+            />
     </Grid>
 </UserControl>
