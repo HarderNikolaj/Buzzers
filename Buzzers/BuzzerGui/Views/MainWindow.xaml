@@ -13,42 +13,27 @@
         Width="1600">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="20" />
             <ColumnDefinition Width="*" />
-            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="3.5*" />
+            <ColumnDefinition Width="20" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" />
+            <RowDefinition Height="20" />
             <RowDefinition Height="*" />
-            <RowDefinition Height="50" />
-            <RowDefinition Height="4*" />
-            <RowDefinition Height="60" />
+            <RowDefinition Height="20" />
         </Grid.RowDefinitions>
 
-        <Label Grid.Column="1"
-               Grid.Row="1"
-               Content="BANNER TEST"
-               Background="Aqua" />
+        <Grid Grid.Row="1"
+              Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="20" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
 
-        <Grid Grid.Column="1"
-              Grid.Row="3">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
-
-            <Border BorderBrush="Gray"
-                    BorderThickness="1"
-                    Grid.Column="0">
-                <control:LoginControl />
-            </Border>
-
-            <Border BorderBrush="Gray"
-                    BorderThickness="1"
-                    Grid.Column="2" >
-                <control:UserStoryControl/>
-            </Border>
+            <Image Source="{Binding Context}" />
         </Grid>
     </Grid>
 </Window>

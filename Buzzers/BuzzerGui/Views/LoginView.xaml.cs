@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace BuzzerGui.Views
 {
     /// <summary>
-    /// Interaction logic for LoggedInWindow.xaml
+    /// Interaction logic for LoginView.xaml
     /// </summary>
-    public partial class LoggedInWindow : Window
+    public partial class LoginView : UserControl
     {
-        public LoggedInWindow()
+        public LoginView()
         {
             InitializeComponent();
         }

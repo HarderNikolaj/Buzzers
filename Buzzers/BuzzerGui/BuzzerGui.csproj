@@ -118,7 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\LoggedInWindow.xaml">
+    <Page Include="Views\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -137,13 +137,12 @@
       <DependentUpon>UserStoryControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utility\Messenger.cs" />
-    <Compile Include="ViewModels\LoggedInWindowViewModel\ILoggedInWindowViewModel.cs" />
-    <Compile Include="ViewModels\LoggedInWindowViewModel\LoggedInWindowViewModel.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\IMainWindowViewModel.cs" />
     <Compile Include="ViewModels\MainWindow\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
-    <Compile Include="Views\LoggedInWindow.xaml.cs">
-      <DependentUpon>LoggedInWindow.xaml</DependentUpon>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
