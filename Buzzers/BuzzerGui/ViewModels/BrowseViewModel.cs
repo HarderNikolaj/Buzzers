@@ -12,7 +12,6 @@ namespace BuzzerGui.ViewModels
     public class BrowseViewModel : ViewModelBase
     {
         private Hivemember potentialMatch { get; set; }
-
         private IAccountManager _manager;
         public Hivemember PotentialMatch 
         { 
@@ -34,7 +33,6 @@ namespace BuzzerGui.ViewModels
         {
             //Messenger.Default.
             _manager = accountManager;
-           
         }
        
     }

@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using BuzzerGui.Utility;
+using Domain.Users;
 
 namespace BuzzerGui.ViewModels
 {
@@ -14,6 +15,15 @@ namespace BuzzerGui.ViewModels
     {
         private List<INavigationViewModel> _viewModels;
         private INavigationViewModel _currentViewModel;
+
+        public Hivemember userloggedin;
+        public Hivemember Userloggedin
+        {
+            get => userloggedin;
+            set
+            {
+            }
+        }
 
         public List<INavigationViewModel> ViewModels
         {
@@ -40,6 +50,13 @@ namespace BuzzerGui.ViewModels
         {
             ViewModels.Add(new LoginViewModel());
             CurrentViewModel = ViewModels[0];
+            Messenger.Default.Register<Hivemember>(this, NewUser);
+
+        }
+
+        private void NewUser(Hivemember obj)
+        {
+            userloggedin = obj;
         }
 
         private void ChangeViewModel(INavigationViewModel viewModel)
