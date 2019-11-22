@@ -35,9 +35,9 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
-            <Image Source="{Binding}" />
+            <Label Background="AliceBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
         </Grid>
 
-        <ContentControl Grid.Row="2" Grid.Column="3" Content="{Binding CurrentViewModel}" />
+        <ContentControl  Grid.Column="3" Grid.Row="1" Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>

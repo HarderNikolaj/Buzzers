@@ -36,9 +36,9 @@ namespace BuzzerGui.ViewModels
             }
         }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IAccountManager manager)
         {
-            ViewModels.Add(new LoginViewModel());
+            ViewModels.Add(new LoginViewModel(manager));
             CurrentViewModel = ViewModels[0];
         }
 
