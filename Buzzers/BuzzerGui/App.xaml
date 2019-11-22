@@ -5,11 +5,16 @@
              Startup="Application_Startup"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:locator ="clr-namespace:BuzzerGui.Startup"
+             xmlns:vm="clr-namespace:BuzzerGui.ViewModels"
+             xmlns:views="clr-namespace:BuzzerGui.Views"
              d1p1:Ignorable="d"
              xmlns:d1p1="http://schemas.openxmlformats.org/markup-compatibility/2006">
     <Application.Resources>
-
+        
         <ResourceDictionary>
+            <DataTemplate DataType="{x:Type vm:LoginViewModel}">
+                <views:LoginView />
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="styles/SignInLabelStyle.xaml"/>
                 <ResourceDictionary Source="styles/SignInTextBoxStyle.xaml"/>
