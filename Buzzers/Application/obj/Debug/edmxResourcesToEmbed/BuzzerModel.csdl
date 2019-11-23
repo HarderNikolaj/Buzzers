@@ -435,13 +435,13 @@
       <Parameter Name="jobtitle" Mode="In" Type="String" />
       <Parameter Name="pass" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result)">
-      <Parameter Name="userid" Mode="In" Type="Int32" />
-    </FunctionImport>
     <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
     <EntitySet Name="randommemberstories" EntityType="buzzerbaseModel.randommemberstory" />
+    <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result1)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
   </EntityContainer>
   <ComplexType Name="GetPotentialMatch_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -468,4 +468,14 @@
     <Property Name="story" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="true" />
     <Property Name="imagepath" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
   </EntityType>
+  <ComplexType Name="GetPotentialMatch_Result1">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="birthdate" Nullable="false" />
+    <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
+    <Property Type="Int32" Name="weight" Nullable="true" />
+  </ComplexType>
 </Schema>

@@ -79,15 +79,6 @@ namespace Application
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("CreateUserWithLogin", usertypeidParameter, genderidParameter, firstnameParameter, lastnameParameter, emailParameter, birthdateParameter, jobtitleParameter, passParameter);
         }
     
-        public virtual ObjectResult<GetPotentialMatch_Result> GetPotentialMatch(Nullable<int> userid)
-        {
-            var useridParameter = userid.HasValue ?
-                new ObjectParameter("userid", userid) :
-                new ObjectParameter("userid", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPotentialMatch_Result>("GetPotentialMatch", useridParameter);
-        }
-    
         public virtual ObjectResult<getmatches_Result> getmatches(Nullable<int> userid)
         {
             var useridParameter = userid.HasValue ?
@@ -95,6 +86,15 @@ namespace Application
                 new ObjectParameter("userid", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<getmatches_Result>("getmatches", useridParameter);
+        }
+    
+        public virtual ObjectResult<GetPotentialMatch_Result1> GetPotentialMatch(Nullable<int> userid)
+        {
+            var useridParameter = userid.HasValue ?
+                new ObjectParameter("userid", userid) :
+                new ObjectParameter("userid", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<GetPotentialMatch_Result1>("GetPotentialMatch", useridParameter);
         }
     }
 }
