@@ -103,7 +103,7 @@ namespace Application.DbCommunicator
                     LastName = result.lastname,
                     Nickname = result.nick,
                     BirthDate = result.birthdate,
-                    JobTitle = result.jobtitle
+                    JobTitle = result.jobtitle,
                 };
                 return honeypot;
             }

@@ -54,7 +54,7 @@
                 Grid.Column="1"
                 Grid.Row="5"
                 Command="{Binding LogInCommand}"
-                Margin="0,20,240,30"
+                Margin="0,20,117,30"
                 Style="{DynamicResource SignInButtonStyle}" >
 
         </Button>

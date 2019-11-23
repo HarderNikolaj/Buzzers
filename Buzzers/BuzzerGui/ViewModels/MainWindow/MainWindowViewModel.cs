@@ -9,6 +9,7 @@ using Domain;
 using BuzzerGui.Utility;
 using Domain.Users;
 using System.Windows.Input;
+using BuzzerGui.Utility.Messages;
 
 namespace BuzzerGui.ViewModels
 {
@@ -51,7 +52,6 @@ namespace BuzzerGui.ViewModels
             BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
 
             Messenger.Default.Register<Hivemember>(this, NewUser);
-
         }
 
         private void NewUser(Hivemember obj)
@@ -74,6 +74,7 @@ namespace BuzzerGui.ViewModels
         private void SwitchToBrowseView()
         {
             ChangeViewModel(ViewModels[1]);
+            Messenger.Default.Send(new BrowseMessage(UserLoggedIn));
         }
     }
 }

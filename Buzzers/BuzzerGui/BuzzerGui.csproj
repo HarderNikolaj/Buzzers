@@ -147,6 +147,7 @@
     <Compile Include="UserControls\UserStoryControl.xaml.cs">
       <DependentUpon>UserStoryControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Utility\Messages\BrowseMessage.cs" />
     <Compile Include="Utility\Messenger.cs" />
     <Compile Include="ViewModels\BrowseViewModel.cs" />
     <Compile Include="ViewModels\INavigationViewModel.cs" />
