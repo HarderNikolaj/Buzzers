@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using BuzzerGui.Utility;
 using BuzzerGui.Utility.Messages;
+using System.Windows.Input;
+using Prism.Commands;
 
 namespace BuzzerGui.ViewModels
 {
@@ -25,9 +27,15 @@ namespace BuzzerGui.ViewModels
             }
         }
 
+        public ICommand BuzzOffCommand { get; private set; }
+        public ICommand BuzzOnCommand { get; private set; }
         public BrowseViewModel(IAccountManager accountManager) 
         {
             Messenger.Default.Register<BrowseMessage>(this, CurrentUser);
+
+            BuzzOffCommand = new DelegateCommand(BuzzOff);
+            BuzzOnCommand = new DelegateCommand(BuzzOn);
+
             _manager = accountManager;
         }
 
@@ -46,6 +54,16 @@ namespace BuzzerGui.ViewModels
         private void CurrentUser(BrowseMessage obj)
         {
             _userLoggedIn = obj.Hivemember;
+            FindPotentialMatch();
+        }
+        private void BuzzOff()
+        {
+            _manager.Buzz(_userLoggedIn, PotentialMatch, false);
+            FindPotentialMatch();
+        }
+        private void BuzzOn()
+        {
+            _manager.Buzz(_userLoggedIn, PotentialMatch, true);
             FindPotentialMatch();
         }
     }

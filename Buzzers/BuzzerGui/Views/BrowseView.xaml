@@ -25,5 +25,13 @@
         <TextBlock Text="{Binding PotentialMatch.Bio, Mode=OneWay}" 
                    Grid.Column="3"
                    Grid.Row="1"/>
+        <Button Content="Buzz Off"
+                Grid.Column="1"
+                Grid.Row="2"
+                Command="{Binding BuzzOffCommand}" />
+        <Button Content="Buzz On"
+                Grid.Column="3"
+                Grid.Row="2"
+                Command="{Binding BuzzOnCommand}" />
     </Grid>
 </UserControl>
