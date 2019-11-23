@@ -98,3 +98,7 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.g.reso
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.Properties.Resources.resources
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.GenerateResource.cache
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.CopyComplete
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\BrowseControl.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\BrowseControl.baml
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.baml

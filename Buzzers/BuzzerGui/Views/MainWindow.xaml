@@ -35,9 +35,19 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
-            <Label Background="AliceBlue" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"/>
+            <Label Background="AliceBlue"
+                   HorizontalAlignment="Stretch"
+                   VerticalAlignment="Stretch" />
+            <StackPanel Orientation="Vertical"
+                        Grid.Column="1"
+                        Grid.Row="2">
+                <Button Content="Browse Buzzer"
+                        Command="{Binding BrowseViewCommand}" />
+            </StackPanel>
         </Grid>
 
-        <ContentControl  Grid.Column="3" Grid.Row="1" Content="{Binding CurrentViewModel}" />
+        <ContentControl  Grid.Column="3"
+                         Grid.Row="1"
+                         Content="{Binding CurrentViewModel}" />
     </Grid>
 </Window>

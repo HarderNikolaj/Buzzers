@@ -15,6 +15,9 @@
             <DataTemplate DataType="{x:Type vm:LoginViewModel}">
                 <views:LoginView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:BrowseViewModel}">
+                <views:BrowseView />
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="styles/SignInLabelStyle.xaml"/>
                 <ResourceDictionary Source="styles/SignInTextBoxStyle.xaml"/>

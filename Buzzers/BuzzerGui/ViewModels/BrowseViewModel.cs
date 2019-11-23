@@ -9,7 +9,7 @@ using BuzzerGui.Utility;
 
 namespace BuzzerGui.ViewModels
 {
-    public class BrowseViewModel : ViewModelBase
+    public class BrowseViewModel : ViewModelBase, INavigationViewModel
     {
         private Hivemember potentialMatch { get; set; }
         private IAccountManager _manager;

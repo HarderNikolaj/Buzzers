@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Domain;
 using BuzzerGui.Utility;
 using Domain.Users;
+using System.Windows.Input;
 
 namespace BuzzerGui.ViewModels
 {
@@ -46,10 +47,16 @@ namespace BuzzerGui.ViewModels
             }
         }
 
+        public ICommand BrowseViewCommand { get; private set; }
+
         public MainWindowViewModel(IAccountManager manager)
         {
             ViewModels.Add(new LoginViewModel(manager));
+            ViewModels.Add(new BrowseViewModel(manager));
             CurrentViewModel = ViewModels[0];
+
+            BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
+
             Messenger.Default.Register<Hivemember>(this, NewUser);
 
         }
@@ -61,11 +68,18 @@ namespace BuzzerGui.ViewModels
 
         private void ChangeViewModel(INavigationViewModel viewModel)
         {
+            if (Userloggedin == null) return;
+
             if (!ViewModels.Contains(viewModel))
             {
                 ViewModels.Add(viewModel);
             }
             CurrentViewModel = ViewModels.FirstOrDefault(vm => vm == viewModel);
+        }
+
+        private void SwitchToBrowseView()
+        {
+            ChangeViewModel(ViewModels[1]);
         }
     }
 }
