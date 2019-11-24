@@ -80,7 +80,8 @@ namespace Application.DbCommunicator
                     LastName = result.lastname,
                     Nickname = result.nick,
                     BirthDate = result.birthdate,
-                    Weight = (int)result.weight
+                    Weight = (int)result.weight,
+                    Bio = result.bio
                 };
                 return bee;
             }
@@ -103,7 +104,8 @@ namespace Application.DbCommunicator
                     LastName = result.lastname,
                     Nickname = result.nick,
                     BirthDate = result.birthdate,
-                    JobTitle = result.jobtitle
+                    JobTitle = result.jobtitle,
+                    Bio = result.bio
                 };
                 return honeypot;
             }

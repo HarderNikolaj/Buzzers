@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using Domain;
 using BuzzerGui.Utility;
 using Domain.Users;
+using System.Windows.Input;
+using BuzzerGui.Utility.Messages;
 
 namespace BuzzerGui.ViewModels
 {
@@ -16,7 +18,7 @@ namespace BuzzerGui.ViewModels
         private List<INavigationViewModel> _viewModels;
         private INavigationViewModel _currentViewModel;
 
-        public Hivemember Userloggedin { get; set;  }
+        public Hivemember UserLoggedIn { get; set; }
 
         public List<INavigationViewModel> ViewModels
         {
@@ -39,26 +41,46 @@ namespace BuzzerGui.ViewModels
             }
         }
 
+        public ICommand BrowseViewCommand { get; private set; }
+
         public MainWindowViewModel(IAccountManager manager)
         {
             ViewModels.Add(new LoginViewModel(manager));
+            ViewModels.Add(new BrowseViewModel(manager));
+            ViewModels.Add(new SignUpViewModel(manager));
             CurrentViewModel = ViewModels[0];
-            Messenger.Default.Register<Hivemember>(this, NewUser);
 
+            BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
+
+            Messenger.Default.Register<SignUpMessage>(this, SwitchToSignUpView);
+            Messenger.Default.Register<Hivemember>(this, NewUser);
         }
 
         private void NewUser(Hivemember obj)
         {
-            Userloggedin = obj;
+            UserLoggedIn = obj;
+            SwitchToBrowseView();           
         }
 
         private void ChangeViewModel(INavigationViewModel viewModel)
         {
+            if (UserLoggedIn == null) return;
+
             if (!ViewModels.Contains(viewModel))
             {
                 ViewModels.Add(viewModel);
             }
             CurrentViewModel = ViewModels.FirstOrDefault(vm => vm == viewModel);
+        }
+
+        private void SwitchToBrowseView()
+        {
+            ChangeViewModel(ViewModels[1]);
+            Messenger.Default.Send(new BrowseMessage(UserLoggedIn));
+        }
+        private void SwitchToSignUpView(SignUpMessage s)
+        {
+            CurrentViewModel = ViewModels[2];
         }
     }
 }

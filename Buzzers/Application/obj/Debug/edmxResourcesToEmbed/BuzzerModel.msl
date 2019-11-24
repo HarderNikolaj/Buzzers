@@ -138,19 +138,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
-    <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="buzzerbaseModel.GetPotentialMatch_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="nick" ColumnName="nick" />
-          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
-          <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
-          <ScalarProperty Name="weight" ColumnName="weight" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
       <ResultMapping>
         <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
@@ -170,5 +157,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetPotentialMatch" FunctionName="buzzerbaseModel.Store.GetPotentialMatch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="buzzerbaseModel.GetPotentialMatch_Result1">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
   </EntityContainerMapping>
 </Mapping>
