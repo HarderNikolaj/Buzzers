@@ -80,7 +80,7 @@ namespace BuzzerGui.ViewModels
         }
         private void SwitchToSignUpView(SignUpMessage s)
         {
-            ChangeViewModel(ViewModels[2]);
+            CurrentViewModel = ViewModels[2];
         }
     }
 }

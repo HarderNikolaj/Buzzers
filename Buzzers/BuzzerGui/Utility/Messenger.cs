@@ -10,7 +10,9 @@ namespace BuzzerGui.Utility
     public class Messenger
     {
         private static readonly object CreationLock = new object();
-        private static readonly ConcurrentDictionary<MessengerKey, object> Dictionary = new ConcurrentDictionary<MessengerKey, object>();
+
+        private static readonly ConcurrentDictionary<MessengerKey, object> Dictionary =
+            new ConcurrentDictionary<MessengerKey, object>();
 
         #region Default property
 
@@ -43,17 +45,15 @@ namespace BuzzerGui.Utility
         /// <summary>
         /// Initializes a new instance of the Messenger class.
         /// </summary>
-        private Messenger()
-        {
-        }
+        private Messenger() { }
 
         /// <summary>
         /// Registers a recipient for a type of message T. The action parameter will be executed
         /// when a corresponding message is sent.
         /// </summary>
-        /// <typeparam name=""T""></typeparam>
-        /// <param name=""recipient""></param>
-        /// <param name=""action""></param>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="recipient"></param>
+        /// <param name="action"></param>
         public void Register<T>(object recipient, Action<T> action)
         {
             Register(recipient, action, null);
@@ -63,13 +63,13 @@ namespace BuzzerGui.Utility
         /// Registers a recipient for a type of message T and a matching context. The action parameter will be executed
         /// when a corresponding message is sent.
         /// </summary>
-        /// <typeparam name=""T""></typeparam>
-        /// <param name=""recipient""></param>
-        /// <param name=""action""></param>
-        /// <param name=""context""></param>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="recipient"></param>
+        /// <param name="action"></param>
+        /// <param name="context"></param>
         public void Register<T>(object recipient, Action<T> action, object context)
         {
-            var key = new MessengerKey(recipient, context);
+            var key = new MessengerKey(recipient, context, typeof(T));
             Dictionary.TryAdd(key, action);
         }
 
@@ -77,22 +77,22 @@ namespace BuzzerGui.Utility
         /// Unregisters a messenger recipient completely. After this method is executed, the recipient will
         /// no longer receive any messages.
         /// </summary>
-        /// <param name=""recipient""></param>
-        public void Unregister(object recipient)
+        /// <param name="recipient"></param>
+        public void Unregister<T>(object recipient)
         {
-            Unregister(recipient, null);
+            Unregister<T>(recipient, null);
         }
 
         /// <summary>
         /// Unregisters a messenger recipient with a matching context completely. After this method is executed, the recipient will
         /// no longer receive any messages.
         /// </summary>
-        /// <param name=""recipient""></param>
-        /// <param name=""context""></param>
-        public void Unregister(object recipient, object context)
+        /// <param name="recipient"></param>
+        /// <param name="context"></param>
+        public void Unregister<T>(object recipient, object context)
         {
             object action;
-            var key = new MessengerKey(recipient, context);
+            var key = new MessengerKey(recipient, context, typeof(T));
             Dictionary.TryRemove(key, out action);
         }
 
@@ -100,8 +100,8 @@ namespace BuzzerGui.Utility
         /// Sends a message to registered recipients. The message will reach all recipients that are
         /// registered for this message type.
         /// </summary>
-        /// <typeparam name=""T""></typeparam>
-        /// <param name=""message""></param>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="message"></param>
         public void Send<T>(T message)
         {
             Send(message, null);
@@ -111,9 +111,9 @@ namespace BuzzerGui.Utility
         /// Sends a message to registered recipients. The message will reach all recipients that are
         /// registered for this message type and matching context.
         /// </summary>
-        /// <typeparam name=""T""></typeparam>
-        /// <param name=""message""></param>
-        /// <param name=""context""></param>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="message"></param>
+        /// <param name="context"></param>
         public void Send<T>(T message, object context)
         {
             IEnumerable<KeyValuePair<MessengerKey, object>> result;
@@ -136,57 +136,74 @@ namespace BuzzerGui.Utility
             }
         }
 
-        protected class MessengerKey
+        protected class MessengerKey : IEquatable<MessengerKey>
         {
-            public object Recipient { get; private set; }
-            public object Context { get; private set; }
+            public object Recipient { get; }
+            public object Context { get; }
+            public Type Type { get; }
 
             /// <summary>
             /// Initializes a new instance of the MessengerKey class.
             /// </summary>
-            /// <param name=""recipient""></param>
-            /// <param name=""context""></param>
-            public MessengerKey(object recipient, object context)
+            /// <param name="recipient"></param>
+            /// <param name="context"></param>
+            /// <param name="type"></param>
+            public MessengerKey(object recipient, object context, Type type)
             {
                 Recipient = recipient;
                 Context = context;
+                Type = type;
             }
 
-            /// <summary>
-            /// Determines whether the specified MessengerKey is equal to the current MessengerKey.
-            /// </summary>
-            /// <param name=""other""></param>
-            /// <returns></returns>
-            protected bool Equals(MessengerKey other)
+            #region Equality members
+
+            /// <summary>Indicates whether the current object is equal to another object of the same type.</summary>
+            /// <returns>true if the current object is equal to the <paramref name="other" /> parameter; otherwise, false.</returns>
+            /// <param name="other">An object to compare with this object.</param>
+            public bool Equals(MessengerKey other)
             {
-                return Equals(Recipient, other.Recipient) && Equals(Context, other.Context);
+                if (ReferenceEquals(null, other)) return false;
+                if (ReferenceEquals(this, other)) return true;
+
+                return Equals(Recipient, other.Recipient) && Equals(Context, other.Context) && Equals(Type, other.Type);
             }
 
-            /// <summary>
-            /// Determines whether the specified MessengerKey is equal to the current MessengerKey.
-            /// </summary>
-            /// <param name=""obj""></param>
-            /// <returns></returns>
+            /// <summary>Determines whether the specified object is equal to the current object.</summary>
+            /// <returns>true if the specified object  is equal to the current object; otherwise, false.</returns>
+            /// <param name="obj">The object to compare with the current object. </param>
             public override bool Equals(object obj)
             {
                 if (ReferenceEquals(null, obj)) return false;
                 if (ReferenceEquals(this, obj)) return true;
-                if (obj.GetType() != GetType()) return false;
+                if (obj.GetType() != this.GetType()) return false;
 
                 return Equals((MessengerKey)obj);
             }
 
-            /// <summary>
-            /// Serves as a hash function for a particular type. 
-            /// </summary>
-            /// <returns></returns>
+            /// <summary>Serves as the default hash function. </summary>
+            /// <returns>A hash code for the current object.</returns>
             public override int GetHashCode()
             {
                 unchecked
                 {
-                    return ((Recipient != null ? Recipient.GetHashCode() : 0) * 397) ^ (Context != null ? Context.GetHashCode() : 0);
+                    var hashCode = Recipient?.GetHashCode() ?? 0;
+                    hashCode = (hashCode * 397) ^ (Context?.GetHashCode() ?? 0);
+                    hashCode = (hashCode * 397) ^ (Type?.GetHashCode() ?? 0);
+                    return hashCode;
                 }
             }
+
+            public static bool operator ==(MessengerKey left, MessengerKey right)
+            {
+                return Equals(left, right);
+            }
+
+            public static bool operator !=(MessengerKey left, MessengerKey right)
+            {
+                return !Equals(left, right);
+            }
+
+            #endregion
         }
     }
 }
