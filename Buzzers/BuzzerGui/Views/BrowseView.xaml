@@ -21,7 +21,10 @@
             <RowDefinition Height="1.5*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
-        <Image Source="{Binding UserLoggedIn}"
+        <Image Source="{Binding PotentialMatch.Images[0]}"
+               Grid.Column="1"
+               Grid.Row="1"
+               VerticalAlignment="Top"/>
         <TextBlock Text="{Binding PotentialMatch.Bio, Mode=OneWay}" 
                    Grid.Column="3"
                    Grid.Row="1"/>

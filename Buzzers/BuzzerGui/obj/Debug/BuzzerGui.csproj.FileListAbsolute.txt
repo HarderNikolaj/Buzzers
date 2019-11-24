@@ -102,3 +102,5 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.CopyComplete
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.exe
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\SignUpView.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\SignUpView.baml

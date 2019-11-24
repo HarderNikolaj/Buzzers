@@ -47,10 +47,12 @@ namespace BuzzerGui.ViewModels
         {
             ViewModels.Add(new LoginViewModel(manager));
             ViewModels.Add(new BrowseViewModel(manager));
+            ViewModels.Add(new SignUpViewModel(manager));
             CurrentViewModel = ViewModels[0];
 
             BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
 
+            Messenger.Default.Register<SignUpMessage>(this, SwitchToSignUpView);
             Messenger.Default.Register<Hivemember>(this, NewUser);
         }
 
@@ -75,6 +77,10 @@ namespace BuzzerGui.ViewModels
         {
             ChangeViewModel(ViewModels[1]);
             Messenger.Default.Send(new BrowseMessage(UserLoggedIn));
+        }
+        private void SwitchToSignUpView(SignUpMessage s)
+        {
+            ChangeViewModel(ViewModels[2]);
         }
     }
 }

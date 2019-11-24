@@ -1,5 +1,6 @@
 ﻿using Application;
 using BuzzerGui.Utility;
+using BuzzerGui.Utility.Messages;
 using Domain;
 using Prism.Commands;
 using System;
@@ -7,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Input;
 
 namespace BuzzerGui.ViewModels
 {
@@ -40,13 +42,15 @@ namespace BuzzerGui.ViewModels
             }
         }
 
-        public DelegateCommand LogInCommand { get; private set; }
+        public ICommand LogInCommand { get; private set; }
+        public ICommand NewUserCommand { get; private set; }
 
         public LoginViewModel(IAccountManager manager)
         {
             _manager = manager;
 
-            LogInCommand = new DelegateCommand(() => LogIn());
+            LogInCommand = new DelegateCommand(LogIn);
+            NewUserCommand = new DelegateCommand(CreateUser);
             Story = _manager.GetMemberStory();
 
         }
@@ -59,6 +63,10 @@ namespace BuzzerGui.ViewModels
 
                 Messenger.Default.Send(member);
             }
+        }
+        private void CreateUser()
+        {
+            Messenger.Default.Send(new SignUpMessage());
         }
     }
 }
