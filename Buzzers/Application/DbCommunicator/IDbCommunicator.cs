@@ -21,6 +21,6 @@ namespace Application.DbCommunicator
         List<message> GetMessages(Hivemember user, Hivemember chatPartner);
         void SendMessage(Hivemember sender, Hivemember reciever, string message);
         randommemberstory GetMemberstory();
-
+        List<String> GetImages(int UserId);
     }
 }

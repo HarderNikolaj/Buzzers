@@ -104,3 +104,7 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.exe
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\SignUpView.g.cs
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\SignUpView.baml
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\SignUpView.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.baml
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\SignUpView.baml

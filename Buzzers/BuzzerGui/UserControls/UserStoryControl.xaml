@@ -13,19 +13,22 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
             <RowDefinition Height="2*"/>
         </Grid.RowDefinitions>
         <Image 
             Source="{Binding Story.Image, Mode=OneTime}" 
-            Grid.Row="0" 
+            Grid.Row="1" 
             Grid.Column="0"
             />
         <TextBlock 
             Text="{Binding Story.Story, Mode=OneTime, UpdateSourceTrigger=Default}" 
-            Grid.Row="2" 
+            Grid.Row="3" 
             Grid.Column="0"
+            TextWrapping="WrapWithOverflow"
+            Padding="5"
             />
     </Grid>
 </UserControl>

@@ -82,6 +82,7 @@ namespace Application.DbCommunicator
                     BirthDate = result.birthdate,
                     Weight = (int)result.weight,
                     Bio = result.bio
+                    
                 };
                 return bee;
             }
@@ -108,6 +109,17 @@ namespace Application.DbCommunicator
                     Bio = result.bio
                 };
                 return honeypot;
+            }
+        }
+
+        public List<String> GetImages(int UserId) 
+        {
+            using (var context = new Entities())
+            {
+                return context.images
+                     .Where(i => i.hivememberid == UserId)
+                     .Select(i => i.imagename)
+                     .ToList();
             }
         }
 

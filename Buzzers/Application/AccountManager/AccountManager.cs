@@ -47,12 +47,22 @@ namespace Application
 
         public Bee GetBee(int id)
         {
-            return _db.FindBee(id);
+            var bee = _db.FindBee(id);
+            if (bee != null)
+            {
+                bee.Images = _db.GetImages(bee.Id);
+            }
+            return bee;
         }
 
         public Honeypot GetHoneypot(int id)
         {
-            return _db.FindHoneypot(id);
+            var honeypot = _db.FindHoneypot(id);
+            if (honeypot != null)
+            {
+                honeypot.Images = _db.GetImages(honeypot.Id);
+            }
+            return honeypot;
         }
 
         public void Buzz(Hivemember Buzzer, Hivemember Buzzee, bool Buzz)
