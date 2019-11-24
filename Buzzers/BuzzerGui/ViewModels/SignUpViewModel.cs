@@ -1,4 +1,5 @@
 ﻿using Application;
+using BuzzerGui.Utility;
 using Domain.Enums;
 using Domain.Users;
 using Prism.Commands;
@@ -48,13 +49,15 @@ namespace BuzzerGui.ViewModels
             _manager = manager;
 
             SignUpCommand = new DelegateCommand(SignUp, CanSignUp).ObservesProperty(() => UserType);
+
+            Birthday = DateTime.Today;
         }
 
         private void SignUp()
         {
             switch (UserType)
             {
-                case UserType.Honeypot:
+                case UserType.Bee:
                     var bee = new Bee()
                     {
                         FirstName = FirstName,
@@ -64,8 +67,9 @@ namespace BuzzerGui.ViewModels
                         BirthDate = Birthday
                     };
                     _manager.CreateUser(bee, Password);
+                    Messenger.Default.Send(bee);
                     break;
-                case UserType.Bee:
+                case UserType.Honeypot:
                     var honeypot = new Honeypot()
                     {
                         FirstName = FirstName,
@@ -76,6 +80,7 @@ namespace BuzzerGui.ViewModels
                         //jobtitle
                     };
                     _manager.CreateUser(honeypot, Password);
+                    Messenger.Default.Send(honeypot);
                     break;
                 default:
                     break;
