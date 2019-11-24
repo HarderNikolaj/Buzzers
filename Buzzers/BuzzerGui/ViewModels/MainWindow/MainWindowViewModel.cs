@@ -16,14 +16,7 @@ namespace BuzzerGui.ViewModels
         private List<INavigationViewModel> _viewModels;
         private INavigationViewModel _currentViewModel;
 
-        public Hivemember userloggedin;
-        public Hivemember Userloggedin
-        {
-            get => userloggedin;
-            set
-            {
-            }
-        }
+        public Hivemember Userloggedin { get; set;  }
 
         public List<INavigationViewModel> ViewModels
         {
@@ -56,7 +49,7 @@ namespace BuzzerGui.ViewModels
 
         private void NewUser(Hivemember obj)
         {
-            userloggedin = obj;
+            Userloggedin = obj;
         }
 
         private void ChangeViewModel(INavigationViewModel viewModel)

@@ -9,9 +9,9 @@
         xmlns:vm="clr-namespace:BuzzerGui.ViewModels"
         DataContext="{Binding MainWindowViewModel, Source={StaticResource viewmodellocator}}"
         mc:Ignorable="d"
-        Title="LoginScreen"
-        Height="900"
-        Width="1600">
+        Title="Buzzers"
+        WindowState="Maximized"
+        >
 
     <Grid>
         <Grid.ColumnDefinitions>
