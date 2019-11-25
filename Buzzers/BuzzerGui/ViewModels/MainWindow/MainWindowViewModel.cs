@@ -10,6 +10,7 @@ using BuzzerGui.Utility;
 using Domain.Users;
 using System.Windows.Input;
 using BuzzerGui.Utility.Messages;
+using System.Windows.Media.Imaging;
 
 namespace BuzzerGui.ViewModels
 {
@@ -17,8 +18,18 @@ namespace BuzzerGui.ViewModels
     {
         private List<INavigationViewModel> _viewModels;
         private INavigationViewModel _currentViewModel;
+        private BitmapImage _profilePicture;
 
         public Hivemember UserLoggedIn { get; set; }
+        public BitmapImage ProfilePicture
+        {
+            get => _profilePicture;
+            set
+            {
+                _profilePicture = value;
+                OnPropertyChanged();
+            }
+        }
 
         public List<INavigationViewModel> ViewModels
         {
@@ -59,6 +70,7 @@ namespace BuzzerGui.ViewModels
         private void NewUser(Hivemember obj)
         {
             UserLoggedIn = obj;
+            ProfilePicture = new BitmapImage(new Uri(obj.Images[0]));
             SwitchToBrowseView();           
         }
 

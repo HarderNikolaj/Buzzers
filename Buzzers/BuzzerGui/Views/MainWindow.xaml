@@ -35,7 +35,7 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
-            <Image Source="{Binding UserLoggedIn.Images[0]}"
+            <Image Source="{Binding ProfilePicture}"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch" />
             <StackPanel Orientation="Vertical"

@@ -22,10 +22,11 @@ namespace Application.MapperClasses
                 birthdate = bee.BirthDate,
                 genderid = (int)bee.Gender,
                 usertypeid = 1
+
             };
             return converted;
         }
-        public static Bee MapHivememberToBee(hivemember hivemember) 
+        public static Bee MapHivememberToBee(hivemember hivemember, string image)
         {
             var converted = new Bee()
             {
@@ -36,12 +37,13 @@ namespace Application.MapperClasses
                 Email = hivemember.email,
                 BirthDate = hivemember.birthdate,
                 Gender = (Gender)hivemember.genderid,
-                Preferences = MapEntityToDomainPreferences(hivemember.preference)
+                Preferences = MapEntityToDomainPreferences(hivemember.preference),
+                Images = new List<string> { image }
             };
             return converted;
         }
 
-        public static hivemember MapHoneypotToHivemember(Honeypot honeypot)
+        public static hivemember MapHoneypotToHivemember(Honeypot honeypot, string image)
         {
             var converted = new hivemember()
             {
@@ -52,11 +54,12 @@ namespace Application.MapperClasses
                 birthdate = honeypot.BirthDate,
                 genderid = (int)honeypot.Gender,
                 usertypeid = 2,
-                jobtitle = honeypot.JobTitle
+                jobtitle = honeypot.JobTitle,
+
             };
             return converted;
         }
-        public static Honeypot MapHivememberToHoneypot(hivemember hivemember)
+        public static Honeypot MapHivememberToHoneypot(hivemember hivemember, string image)
         {
             var converted = new Honeypot()
             {
@@ -68,7 +71,9 @@ namespace Application.MapperClasses
                 BirthDate = hivemember.birthdate,
                 Gender = (Gender)hivemember.genderid,
                 JobTitle = hivemember.jobtitle,
-                Preferences = MapEntityToDomainPreferences(hivemember.preference)
+                Preferences = MapEntityToDomainPreferences(hivemember.preference),
+                Images = new List<string> { image }
+
             };
             return converted;
         }
