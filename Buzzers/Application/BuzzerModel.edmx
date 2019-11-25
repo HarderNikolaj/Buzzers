@@ -877,12 +877,12 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
             <Parameter Name="pass" Mode="In" Type="String" />
             <Parameter Name="image" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
-          <Parameter Name="userid" Mode="In" Type="Int32" />
-          </FunctionImport>
           <EntitySet Name="randommemberstories" EntityType="buzzerbaseModel.randommemberstory" />
           <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result1)">
           <Parameter Name="userid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
+            <Parameter Name="userid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetPotentialMatch_Result">
@@ -893,12 +893,6 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
           <Property Type="DateTime" Name="birthdate" Nullable="false" />
           <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
           <Property Type="Int32" Name="weight" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="getmatches_Result">
-          <Property Type="Int32" Name="id" Nullable="false" />
-          <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
-          <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
         </ComplexType>
         <EntityType Name="randommemberstory">
           <Key>
@@ -919,6 +913,12 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
           <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
           <Property Type="Int32" Name="weight" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="getmatches_Result">
+          <Property Type="Int32" Name="id" Nullable="false" />
+          <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
         </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1063,16 +1063,6 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
             </EntityTypeMapping>
           </EntitySetMapping>
           <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
-          <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
-                <ScalarProperty Name="id" ColumnName="id" />
-                <ScalarProperty Name="firstname" ColumnName="firstname" />
-                <ScalarProperty Name="lastname" ColumnName="lastname" />
-                <ScalarProperty Name="nick" ColumnName="nick" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
           <EntitySetMapping Name="randommemberstories">
             <EntityTypeMapping TypeName="buzzerbaseModel.randommemberstory">
               <MappingFragment StoreEntitySet="randommemberstory">
@@ -1093,6 +1083,16 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
                 <ScalarProperty Name="jobtitle" ColumnName="jobtitle" />
                 <ScalarProperty Name="bio" ColumnName="bio" />
                 <ScalarProperty Name="weight" ColumnName="weight" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="nick" ColumnName="nick" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
