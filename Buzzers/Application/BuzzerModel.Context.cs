@@ -42,7 +42,7 @@ namespace Application
         public virtual DbSet<usertype> usertypes { get; set; }
         public virtual DbSet<randommemberstory> randommemberstories { get; set; }
     
-        public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string jobtitle, string pass)
+        public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string jobtitle, string pass, string image)
         {
             var usertypeidParameter = usertypeid.HasValue ?
                 new ObjectParameter("usertypeid", usertypeid) :
@@ -76,7 +76,11 @@ namespace Application
                 new ObjectParameter("pass", pass) :
                 new ObjectParameter("pass", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("CreateUserWithLogin", usertypeidParameter, genderidParameter, firstnameParameter, lastnameParameter, emailParameter, birthdateParameter, jobtitleParameter, passParameter);
+            var imageParameter = image != null ?
+                new ObjectParameter("image", image) :
+                new ObjectParameter("image", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<bool>>("CreateUserWithLogin", usertypeidParameter, genderidParameter, firstnameParameter, lastnameParameter, emailParameter, birthdateParameter, jobtitleParameter, passParameter, imageParameter);
         }
     
         public virtual ObjectResult<getmatches_Result> getmatches(Nullable<int> userid)

@@ -434,6 +434,7 @@
       <Parameter Name="birthdate" Mode="In" Type="DateTime" />
       <Parameter Name="jobtitle" Mode="In" Type="String" />
       <Parameter Name="pass" Mode="In" Type="String" />
+      <Parameter Name="image" Mode="In" Type="String" />
     </FunctionImport>
     <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
       <Parameter Name="userid" Mode="In" Type="Int32" />

@@ -14,7 +14,7 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, null, password);
+                context.CreateUserWithLogin(1, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, null, password, member.Images[0]);
             }
         }
 
@@ -22,7 +22,7 @@ namespace Application.DbCommunicator
         {
             using (var context = new Entities())
             {
-                context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, member.JobTitle, password);
+                context.CreateUserWithLogin(2, (int)member.Gender, member.FirstName, member.LastName, member.Email, member.BirthDate, member.JobTitle, password, member.Images[0]);
             }
         }
 

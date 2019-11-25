@@ -30,21 +30,21 @@
             <RowDefinition Height="auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Label Content="First Name" 
+        <Label Content="First Name"
                Grid.Column="1"
-               VerticalAlignment="Bottom"/>
+               VerticalAlignment="Bottom" />
         <TextBox Text="{Binding FirstName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Row="1"
-                 Grid.Column="1" 
-                 Style="{StaticResource SignInTextBoxStyle}"/>
-        
+                 Grid.Column="1"
+                 Style="{StaticResource SignInTextBoxStyle}" />
+
         <Label Content="Last Name"
                Grid.Column="3"
                VerticalAlignment="Bottom" />
         <TextBox Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Row="1"
                  Grid.Column="3"
-                 Style="{StaticResource SignInTextBoxStyle}"/>
+                 Style="{StaticResource SignInTextBoxStyle}" />
 
         <Label Content="Email"
                Grid.Row="2"
@@ -69,19 +69,19 @@
                Grid.Column="1"
                VerticalAlignment="Bottom" />
         <DatePicker SelectedDate="{Binding Birthday, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                 Grid.Row="5"
-                 Grid.Column="1" />
-        
-        <Label Content="User Type" 
+                    Grid.Row="5"
+                    Grid.Column="1" />
+
+        <Label Content="User Type"
                Grid.Row="6"
                Grid.Column="1"
-               VerticalAlignment="Bottom"/>
+               VerticalAlignment="Bottom" />
         <ComboBox ItemsSource="{Binding UserTypes}"
                   SelectedValue="{Binding UserType}"
                   Grid.Row="7"
-                  Grid.Column="1" 
-                  Height="30"/>
-        
+                  Grid.Column="1"
+                  Height="30" />
+
         <Label Content="Gender"
                Grid.Row="8"
                Grid.Column="1"
@@ -89,12 +89,20 @@
         <ComboBox ItemsSource="{Binding Genders}"
                   SelectedValue="{Binding Gender}"
                   Grid.Row="9"
-                  Grid.Column="1" 
-                  Height="30"/>
+                  Grid.Column="1"
+                  Height="30" />
+
+        <Button Grid.Row="1"
+                Grid.Column="5"
+                Grid.RowSpan="5"
+                Command="{Binding SelectProfilePictureCommand}">
+            <Image Source="{Binding ProfilePicturePath}" />
+        </Button>
+
 
         <Button Content="Sign Up"
-                Command="{Binding SignUpCommand}" 
+                Command="{Binding SignUpCommand}"
                 Grid.Row="9"
-                Grid.Column="5"/>
+                Grid.Column="5" />
     </Grid>
 </UserControl>

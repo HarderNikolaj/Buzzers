@@ -338,6 +338,7 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
     <Parameter Name="birthdate" Type="date" Mode="In" />
     <Parameter Name="jobtitle" Type="nvarchar" Mode="In" />
     <Parameter Name="pass" Type="nvarchar" Mode="In" />
+    <Parameter Name="image" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="getmatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="userid" Type="int" Mode="In" />

@@ -343,6 +343,7 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
           <Parameter Name="birthdate" Type="date" Mode="In" />
           <Parameter Name="jobtitle" Type="nvarchar" Mode="In" />
           <Parameter Name="pass" Type="nvarchar" Mode="In" />
+          <Parameter Name="image" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="getmatches" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="userid" Type="int" Mode="In" />
@@ -874,13 +875,14 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
             <Parameter Name="birthdate" Mode="In" Type="DateTime" />
             <Parameter Name="jobtitle" Mode="In" Type="String" />
             <Parameter Name="pass" Mode="In" Type="String" />
+            <Parameter Name="image" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
           <Parameter Name="userid" Mode="In" Type="Int32" />
           </FunctionImport>
           <EntitySet Name="randommemberstories" EntityType="buzzerbaseModel.randommemberstory" />
           <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result1)">
-            <Parameter Name="userid" Mode="In" Type="Int32" />
+          <Parameter Name="userid" Mode="In" Type="Int32" />
           </FunctionImport>
         </EntityContainer>
         <ComplexType Name="GetPotentialMatch_Result">

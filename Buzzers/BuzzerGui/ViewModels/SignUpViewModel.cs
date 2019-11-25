@@ -2,6 +2,7 @@
 using BuzzerGui.Utility;
 using Domain.Enums;
 using Domain.Users;
+using Microsoft.Win32;
 using Prism.Commands;
 using System;
 using System.Collections.Generic;
@@ -32,8 +33,10 @@ namespace BuzzerGui.ViewModels
             }
         }
         public Gender Gender { get; set; }
+        public string ProfilePicturePath { get; set; }
 
         public ICommand SignUpCommand { get; private set; }
+        public ICommand SelectProfilePictureCommand { get; private set; }
 
         public IList<UserType> UserTypes
         {
@@ -49,8 +52,18 @@ namespace BuzzerGui.ViewModels
             _manager = manager;
 
             SignUpCommand = new DelegateCommand(SignUp, CanSignUp).ObservesProperty(() => UserType);
+            SelectProfilePictureCommand = new DelegateCommand(OpenFileExplorer);
 
             Birthday = DateTime.Today;
+        }
+
+        private void OpenFileExplorer()
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            if (dialog.ShowDialog() == true)
+            {
+                ProfilePicturePath = dialog.FileName;
+            }
         }
 
         private void SignUp()
@@ -60,11 +73,17 @@ namespace BuzzerGui.ViewModels
                 case UserType.Bee:
                     var bee = new Bee()
                     {
+                        Images = new List<string>
+                        {
+                            ProfilePicturePath
+                        },
+                        
                         FirstName = FirstName,
                         LastName = LastName,
                         Gender = Gender,
                         Email = Email,
-                        BirthDate = Birthday
+                        BirthDate = Birthday,
+                        
                     };
                     _manager.CreateUser(bee, Password);
                     Messenger.Default.Send(bee);
@@ -72,6 +91,11 @@ namespace BuzzerGui.ViewModels
                 case UserType.Honeypot:
                     var honeypot = new Honeypot()
                     {
+                        Images = new List<string>
+                        {
+                            ProfilePicturePath
+                        },
+
                         FirstName = FirstName,
                         LastName = LastName,
                         Gender = Gender,

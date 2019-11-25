@@ -75,6 +75,8 @@ namespace BuzzerGui.ViewModels
 
         private void SwitchToBrowseView()
         {
+            if (UserLoggedIn == null) return;
+
             ChangeViewModel(ViewModels[1]);
             Messenger.Default.Send(new BrowseMessage(UserLoggedIn));
         }

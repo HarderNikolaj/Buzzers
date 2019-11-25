@@ -35,7 +35,7 @@
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
-            <Label Background="AliceBlue"
+            <Image Source="{Binding UserLoggedIn.Images[0]}"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch" />
             <StackPanel Orientation="Vertical"
