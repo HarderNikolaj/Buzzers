@@ -6,36 +6,53 @@
              xmlns:local="clr-namespace:BuzzerGui.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="PaleGreen">
-        <StackPanel x:Name="tStack">
-            <ItemsControl ItemsSource="{Binding Matches}">
-                <ItemsControl.ItemsPanel>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Columns="4" />
-                    </ItemsPanelTemplate>
-                </ItemsControl.ItemsPanel>
-                <ItemsControl.ItemTemplate>
-                    
-                    <DataTemplate>
-                        <Grid Margin="0,0,0,5">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="5*"/>
-                                <RowDefinition Height="25
+    <Grid>
+        <Image Source="../beemages/honeycomp2.jpg" Stretch="UniformToFill">
+        </Image>
+        <ScrollViewer>
+            <StackPanel>
+                <ItemsControl x:Name="MatchControl" ItemsSource="{Binding Matches}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="4" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+
+                        <DataTemplate>
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="5*"/>
+                                    <RowDefinition Height="25
                                                "/>
-                                <RowDefinition Height="100"/>
-                            </Grid.RowDefinitions>
-                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding Images[0], Mode=OneTime}" />
-                            <Label Grid.Column="0" Grid.Row="1" Content="{Binding Nickname, Mode=OneTime}" />
-                            <ScrollViewer Grid.Column="0" Grid.Row="2">
-                                <TextBlock TextWrapping="Wrap" Text="{Binding Bio, Mode=OneTime}"/>
-                            </ScrollViewer>
-                        </Grid>
-                    </DataTemplate>
-                </ItemsControl.ItemTemplate>
-            </ItemsControl>
-        </StackPanel>
+                                    <RowDefinition Height="100"/>
+                                    <RowDefinition Height="25"/>
+                                </Grid.RowDefinitions>
+                                <Image Grid.Column="0" Grid.Row="0" Source="{Binding Images[0], Mode=OneTime}" />
+                                <Label Grid.Column="0" Grid.Row="1" Content="{Binding Nickname, Mode=OneTime}" />
+                                <ScrollViewer Grid.Column="0" Grid.Row="2">
+                                    <TextBlock TextWrapping="Wrap" Text="{Binding Bio, Mode=OneTime}" Background="WhiteSmoke"/>
+                                </ScrollViewer>
+                                <Grid Grid.Row="3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Button 
+                                        Grid.Column="1" 
+                                        Command="{Binding DataContext.EnterChatCommand, ElementName=MatchControl}"
+                                        CommandParameter="{Binding}"
+                                        Content="Chat"
+                                        />
+                                </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </UserControl>

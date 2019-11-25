@@ -98,6 +98,7 @@
     <Compile Include="Startup\ViewModelInstaller.cs" />
     <Compile Include="Startup\ViewModelLocator.cs" />
     <Compile Include="Startup\WindsorInstaller.cs" />
+    <Compile Include="Utility\Messages\ChatMessage.cs" />
     <Compile Include="Utility\Messages\DetailsMessage.cs" />
     <Compile Include="Utility\Messages\MatchesMessage.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
@@ -249,6 +250,12 @@
     <Resource Include="Beemages\UserStoryF3.jpeg" />
     <Resource Include="Beemages\UserStoryM1.jpg" />
     <Resource Include="Beemages\UserStoryM4.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beemages\honeycomp1.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beemages\honeycomp2.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

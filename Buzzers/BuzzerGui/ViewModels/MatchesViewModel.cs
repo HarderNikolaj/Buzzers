@@ -6,25 +6,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BuzzerGui.Utility;
+using Prism.Commands;
+using System.Windows.Input;
+using BuzzerGui.Utility.Messages;
 
 namespace BuzzerGui.ViewModels
 {
     public class MatchesViewModel : ViewModelBase, INavigationViewModel
     {
-        private IAccountManager _manger;
+        private IAccountManager _manager;
         public List<Hivemember> Matches { get; set; }
         public Hivemember UserLoggedIn { get; set; }
+        public ICommand EnterChatCommand { get; private set; }
         public MatchesViewModel(IAccountManager manager)
         {
-            _manger = manager;
-            Messenger.Default.Register<Hivemember>(this, CurrentUser);
+            _manager = manager;
+            Messenger.Default.Register<MatchesMessage>(this, CurrentUser);
+
+            EnterChatCommand = new DelegateCommand<Hivemember>(EnterChat);
         }
 
-        private void CurrentUser(Hivemember obj)
+        private void EnterChat(Hivemember chatPartner)
         {
-            UserLoggedIn = obj;
-            Matches = _manger.GetMatches(UserLoggedIn);
+            throw new NotImplementedException();
+        }
 
+        private void CurrentUser(MatchesMessage obj)
+        {
+            UserLoggedIn = obj.Hivemember;
+            Matches = _manager.GetMatches(UserLoggedIn);
         }
     }
 }

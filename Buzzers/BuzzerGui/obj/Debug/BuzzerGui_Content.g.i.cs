@@ -8,21 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/bee-girl-na-kolinax.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/beead1.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/beead2.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/beead3.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/beead4.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/beead5.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/beead6.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/harambee.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/oldbee.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/slutbee.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/somebee.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/userstoryf1.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/userstoryf2.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/userstoryf3.jpeg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/userstorym1.jpg")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/userstorym4.jpg")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("beemages/honeycomp2.jpg")]
 
 
