@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace BuzzerGui.ViewModels
 {
@@ -17,12 +18,15 @@ namespace BuzzerGui.ViewModels
     {
         private IAccountManager _manager;
         private UserType _userType;
+        private BitmapImage _profilePicture;
+        private string _profilePicturePath;
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public DateTime Birthday { get; set; }
+        
         public UserType UserType
         {
             get => _userType;
@@ -33,7 +37,24 @@ namespace BuzzerGui.ViewModels
             }
         }
         public Gender Gender { get; set; }
-        public string ProfilePicturePath { get; set; }
+        public BitmapImage ProfilePicture
+        {
+            get => _profilePicture;
+            set
+            {
+                _profilePicture = value;
+                OnPropertyChanged();
+            }
+        }
+        public string ProfilePicturePath
+        {
+            get => _profilePicturePath;
+            set
+            {
+                _profilePicturePath = value;
+                ProfilePicture = new BitmapImage(new Uri(_profilePicturePath, UriKind.Absolute));    
+            }
+        }
 
         public ICommand SignUpCommand { get; private set; }
         public ICommand SelectProfilePictureCommand { get; private set; }

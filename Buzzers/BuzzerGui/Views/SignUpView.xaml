@@ -94,9 +94,9 @@
 
         <Button Grid.Row="1"
                 Grid.Column="5"
-                Grid.RowSpan="5"
+                Grid.RowSpan="6"
                 Command="{Binding SelectProfilePictureCommand}">
-            <Image Source="{Binding ProfilePicturePath}" />
+            <Image Source="{Binding ProfilePicture}" />
         </Button>
 
 
