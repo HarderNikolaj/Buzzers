@@ -18,9 +18,18 @@ namespace BuzzerGui.ViewModels
     {
         private List<INavigationViewModel> _viewModels;
         private INavigationViewModel _currentViewModel;
+        private Hivemember _userLoggedIn;
         private BitmapImage _profilePicture;
 
-        public Hivemember UserLoggedIn { get; set; }
+        public Hivemember UserLoggedIn
+        {
+            get => _userLoggedIn;
+            set
+            {
+                _userLoggedIn = value;
+                OnPropertyChanged();
+            }
+        }
         public BitmapImage ProfilePicture
         {
             get => _profilePicture;
@@ -100,6 +109,7 @@ namespace BuzzerGui.ViewModels
             if (UserLoggedIn == null) return;
 
             ChangeViewModel(ViewModels[3]);
+            Messenger.Default.Send(new DetailsMessage(UserLoggedIn));
             
         }
 
