@@ -93,7 +93,13 @@
     <Compile Include="gender.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="getmatches2_Result.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="getmatches_Result.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GetMatch_Result.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="GetPotentialMatch_Result.cs">
@@ -115,6 +121,9 @@
     <Compile Include="match.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="match1.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="memberstory.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
@@ -126,6 +135,15 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="randommemberstory.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sp_helpdiagrams_Result.cs">
+      <DependentUpon>BuzzerModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="sysdiagram.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="userlogin.cs">

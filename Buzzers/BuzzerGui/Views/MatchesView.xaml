@@ -8,12 +8,32 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="PaleGreen">
         <StackPanel x:Name="tStack">
-            <ItemsControl ItemsSource="{Binding matches, Mode=OneTime}">
-                <ItemsControl.Template>
-                    <ControlTemplate>
-                        <Image Source="{Binding Images[0]}"/>
-                    </ControlTemplate>
-                </ItemsControl.Template>
+            <ItemsControl ItemsSource="{Binding Matches}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Columns="4" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    
+                    <DataTemplate>
+                        <Grid Margin="0,0,0,5">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="5*"/>
+                                <RowDefinition Height="50"/>
+                                <RowDefinition Height="200"/>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="{Binding Images[0], Mode=OneTime}" />
+                            <Label Grid.Column="0" Grid.Row="1" Content="{Binding Nickname, Mode=OneTime}" />
+                            <ScrollViewer>
+                                <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding Bio, Mode=OneTime}"/>
+                            </ScrollViewer>
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
             </ItemsControl>
         </StackPanel>
     </Grid>

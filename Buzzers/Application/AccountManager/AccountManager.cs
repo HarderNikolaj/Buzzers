@@ -84,6 +84,7 @@ namespace Application
                         FirstName = item.firstname,
                         LastName = item.lastname,
                         Nickname = item.nick,
+                        //Bio = item.Bio,
                         Images = _db.GetImages(item.id)
                     });
                 }
@@ -95,6 +96,7 @@ namespace Application
                         FirstName = item.firstname,
                         LastName = item.lastname,
                         Nickname = item.nick,
+                        //Bio = item.Bio,
                         Images = _db.GetImages(item.id)
                     });
                 }

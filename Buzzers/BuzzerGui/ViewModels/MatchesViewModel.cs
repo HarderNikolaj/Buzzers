@@ -12,8 +12,8 @@ namespace BuzzerGui.ViewModels
     public class MatchesViewModel : ViewModelBase, INavigationViewModel
     {
         private IAccountManager _manger;
-        public List<Hivemember> matches { get; set; }
-        public Hivemember userLoggedIn;
+        public List<Hivemember> Matches { get; set; }
+        public Hivemember UserLoggedIn { get; set; }
         public MatchesViewModel(IAccountManager manager)
         {
             _manger = manager;
@@ -22,8 +22,8 @@ namespace BuzzerGui.ViewModels
 
         private void CurrentUser(Hivemember obj)
         {
-            userLoggedIn = obj;
-            matches = _manger.GetMatches(userLoggedIn);
+            UserLoggedIn = obj;
+            Matches = _manger.GetMatches(UserLoggedIn);
 
         }
     }

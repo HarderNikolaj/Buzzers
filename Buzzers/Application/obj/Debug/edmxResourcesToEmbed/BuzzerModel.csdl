@@ -443,6 +443,47 @@
     <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result1)">
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
+    <EntitySet Name="sysdiagrams" EntityType="buzzerbaseModel.sysdiagram" />
+    <EntitySet Name="match1" EntityType="buzzerbaseModel.match1" />
+    <FunctionImport Name="GetMatch" ReturnType="Collection(buzzerbaseModel.GetMatch_Result)">
+      <Parameter Name="usertypeid" Mode="In" Type="Int32" />
+      <Parameter Name="genderid" Mode="In" Type="Int32" />
+      <Parameter Name="prefmale" Mode="In" Type="Int32" />
+      <Parameter Name="preffemale" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="getmatches2" ReturnType="Collection(buzzerbaseModel.getmatches2_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(buzzerbaseModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(buzzerbaseModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
   </EntityContainer>
   <ComplexType Name="GetPotentialMatch_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
@@ -478,5 +519,65 @@
     <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
     <Property Type="Int32" Name="weight" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="match1">
+    <Key>
+      <PropertyRef Name="id" />
+      <PropertyRef Name="firstname" />
+      <PropertyRef Name="lastname" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" />
+    <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="GetMatch_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="preferenceid" Nullable="true" />
+    <Property Type="Int32" Name="usertypeid" Nullable="true" />
+    <Property Type="Int32" Name="genderid" Nullable="true" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" />
+    <Property Type="DateTime" Name="birthdate" Nullable="false" />
+    <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="id1" Nullable="false" />
+    <Property Type="Int32" Name="haircolorid" Nullable="true" />
+    <Property Type="Int32" Name="eyecolorid" Nullable="true" />
+    <Property Type="Int32" Name="heightmin" Nullable="true" />
+    <Property Type="Int32" Name="heightmax" Nullable="true" />
+    <Property Type="Int32" Name="weightmin" Nullable="true" />
+    <Property Type="Int32" Name="weightmax" Nullable="true" />
+    <Property Type="Boolean" Name="attractionmale" Nullable="false" />
+    <Property Type="Boolean" Name="attractionfemale" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="getmatches2_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
   </ComplexType>
 </Schema>

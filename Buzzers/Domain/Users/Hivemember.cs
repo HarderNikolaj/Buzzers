@@ -11,8 +11,26 @@ namespace Domain.Users
 {
     public abstract class Hivemember : IEditableObject
     {
+        private string _nickname;
         public int Id { get; set; }
-        public string Nickname { get; set; }
+        public string Nickname
+        {
+            get
+            {
+                if (_nickname is null)
+                {
+                    return FirstName + " " + LastName;
+                }
+                return _nickname;
+            }
+            set
+            {
+                if (value != null)
+                {
+                    _nickname = value;
+                }
+            }
+        }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
@@ -24,7 +42,7 @@ namespace Domain.Users
 
         private Hivemember _backup;
 
-        public Hivemember() 
+        public Hivemember()
         {
             Preferences = new Preferences();
         }
@@ -50,7 +68,7 @@ namespace Domain.Users
             _backup = null;
         }
 
-        public int GetAge() 
+        public int GetAge()
         {
             var Age = DateTime.Today.Year - BirthDate.Year;
             return Age;
