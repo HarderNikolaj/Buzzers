@@ -21,6 +21,9 @@
             <DataTemplate DataType="{x:Type vm:SignUpViewModel}">
                 <views:SignUpView />
             </DataTemplate>
+            <DataTemplate DataType="{x:Type vm:DetailsViewModel}">
+                <views:DetailsView />
+            </DataTemplate>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="styles/SignInLabelStyle.xaml"/>
                 <ResourceDictionary Source="styles/SignInTextBoxStyle.xaml"/>

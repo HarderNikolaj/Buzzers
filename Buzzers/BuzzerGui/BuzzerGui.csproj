@@ -98,6 +98,10 @@
     <Compile Include="Startup\ViewModelInstaller.cs" />
     <Compile Include="Startup\ViewModelLocator.cs" />
     <Compile Include="Startup\WindsorInstaller.cs" />
+    <Compile Include="ViewModels\DetailsViewModel.cs" />
+    <Compile Include="Views\DetailsView.xaml.cs">
+      <DependentUpon>DetailsView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\SignUpView.xaml.cs">
       <DependentUpon>SignUpView.xaml</DependentUpon>
     </Compile>
@@ -126,6 +130,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\BrowseView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

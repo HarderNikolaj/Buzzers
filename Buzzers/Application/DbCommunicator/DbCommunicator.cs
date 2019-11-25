@@ -133,6 +133,10 @@ namespace Application.DbCommunicator
 
                 if (queer == null) return null;
 
+                var imgquery = context.images
+                    .Where(w => w.hivememberid == queer.id)
+                    .FirstOrDefault();
+
                 var query = context.userlogins
                     .Where(e => e.userid == queer.id && e.pass == password)
                     .FirstOrDefault();
@@ -142,11 +146,11 @@ namespace Application.DbCommunicator
                 }
                 if (query.hivemember.usertypeid == 1)
                 {
-                    return HivememberEntityMapper.MapHivememberToBee(query.hivemember);
+                    return HivememberEntityMapper.MapHivememberToBee(query.hivemember, imgquery.imagename);
                 }
                 else if (query.hivemember.usertypeid == 2)
                 {
-                    return HivememberEntityMapper.MapHivememberToHoneypot(query.hivemember);
+                    return HivememberEntityMapper.MapHivememberToHoneypot(query.hivemember, imgquery.imagename);
                 }
                 else
                 {

@@ -10,6 +10,7 @@ using BuzzerGui.Utility;
 using Domain.Users;
 using System.Windows.Input;
 using BuzzerGui.Utility.Messages;
+using System.Windows.Media.Imaging;
 
 namespace BuzzerGui.ViewModels
 {
@@ -17,8 +18,18 @@ namespace BuzzerGui.ViewModels
     {
         private List<INavigationViewModel> _viewModels;
         private INavigationViewModel _currentViewModel;
+        private BitmapImage _profilePicture;
 
         public Hivemember UserLoggedIn { get; set; }
+        public BitmapImage ProfilePicture
+        {
+            get => _profilePicture;
+            set
+            {
+                _profilePicture = value;
+                OnPropertyChanged();
+            }
+        }
 
         public List<INavigationViewModel> ViewModels
         {
@@ -42,15 +53,18 @@ namespace BuzzerGui.ViewModels
         }
 
         public ICommand BrowseViewCommand { get; private set; }
+        public ICommand DetailsViewCommand { get; private set; }
 
         public MainWindowViewModel(IAccountManager manager)
         {
             ViewModels.Add(new LoginViewModel(manager));
             ViewModels.Add(new BrowseViewModel(manager));
             ViewModels.Add(new SignUpViewModel(manager));
+            ViewModels.Add(new DetailsViewModel(manager));
             CurrentViewModel = ViewModels[0];
 
             BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
+            DetailsViewCommand = new DelegateCommand(SwitchToDetailsView);
 
             Messenger.Default.Register<SignUpMessage>(this, SwitchToSignUpView);
             Messenger.Default.Register<Hivemember>(this, NewUser);
@@ -59,6 +73,7 @@ namespace BuzzerGui.ViewModels
         private void NewUser(Hivemember obj)
         {
             UserLoggedIn = obj;
+            ProfilePicture = new BitmapImage(new Uri(obj.Images[0]));
             SwitchToBrowseView();           
         }
 
@@ -80,9 +95,18 @@ namespace BuzzerGui.ViewModels
             ChangeViewModel(ViewModels[1]);
             Messenger.Default.Send(new BrowseMessage(UserLoggedIn));
         }
+        private void SwitchToDetailsView()
+        {
+            if (UserLoggedIn == null) return;
+
+            ChangeViewModel(ViewModels[3]);
+            
+        }
+
         private void SwitchToSignUpView(SignUpMessage s)
         {
             CurrentViewModel = ViewModels[2];
         }
+
     }
 }
