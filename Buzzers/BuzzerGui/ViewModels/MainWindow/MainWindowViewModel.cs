@@ -61,6 +61,7 @@ namespace BuzzerGui.ViewModels
             ViewModels.Add(new BrowseViewModel(manager));
             ViewModels.Add(new SignUpViewModel(manager));
             ViewModels.Add(new DetailsViewModel(manager));
+            ViewModels.Add(new MatchesViewModel(manager));
             CurrentViewModel = ViewModels[0];
 
             BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
@@ -108,5 +109,10 @@ namespace BuzzerGui.ViewModels
             CurrentViewModel = ViewModels[2];
         }
 
+        private void SwitchToMatchesView(MatchesMessage s)
+        {
+            ChangeViewModel(ViewModels[4]);
+            Messenger.Default.Send(new MatchesMessage(UserLoggedIn));
+        }
     }
 }
