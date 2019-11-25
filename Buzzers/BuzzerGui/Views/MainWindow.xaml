@@ -31,15 +31,17 @@
               Grid.Column="1">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="20" />
+                <RowDefinition Height="50" />
                 <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
 
             <Image Source="{Binding ProfilePicture}"
                    HorizontalAlignment="Stretch"
                    VerticalAlignment="Stretch" />
+            <Label Content="{Binding UserLoggedIn.Nickname}"
+                       Grid.Row="1"
+                   FontSize="14"/>
             <StackPanel Orientation="Vertical"
-                        Grid.Column="1"
                         Grid.Row="2">
                 <Button Content="Browse Buzzer"
                         Command="{Binding BrowseViewCommand}" />
