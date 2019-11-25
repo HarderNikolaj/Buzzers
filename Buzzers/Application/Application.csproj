@@ -121,9 +121,6 @@
     <Compile Include="match.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="match1.cs">
-      <DependentUpon>BuzzerModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="memberstory.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
@@ -141,9 +138,6 @@
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagrams_Result.cs">
-      <DependentUpon>BuzzerModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="sysdiagram.cs">
       <DependentUpon>BuzzerModel.tt</DependentUpon>
     </Compile>
     <Compile Include="userlogin.cs">

@@ -138,16 +138,6 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="CreateUserWithLogin" FunctionName="buzzerbaseModel.Store.CreateUserWithLogin" />
-    <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
-      <ResultMapping>
-        <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
-          <ScalarProperty Name="id" ColumnName="id" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="nick" ColumnName="nick" />
-        </ComplexTypeMapping>
-      </ResultMapping>
-    </FunctionImportMapping>
     <EntitySetMapping Name="randommemberstories">
       <EntityTypeMapping TypeName="buzzerbaseModel.randommemberstory">
         <MappingFragment StoreEntitySet="randommemberstory">
@@ -171,27 +161,17 @@
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
-    <EntitySetMapping Name="sysdiagrams">
-      <EntityTypeMapping TypeName="buzzerbaseModel.sysdiagram">
-        <MappingFragment StoreEntitySet="sysdiagrams">
-          <ScalarProperty Name="definition" ColumnName="definition" />
-          <ScalarProperty Name="version" ColumnName="version" />
-          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
-          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
-          <ScalarProperty Name="name" ColumnName="name" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="match1">
-      <EntityTypeMapping TypeName="buzzerbaseModel.match1">
-        <MappingFragment StoreEntitySet="match1">
-          <ScalarProperty Name="nick" ColumnName="nick" />
-          <ScalarProperty Name="lastname" ColumnName="lastname" />
-          <ScalarProperty Name="firstname" ColumnName="firstname" />
+    <FunctionImportMapping FunctionImportName="getmatches" FunctionName="buzzerbaseModel.Store.getmatches">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="buzzerbaseModel.getmatches_Result">
           <ScalarProperty Name="id" ColumnName="id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
+          <ScalarProperty Name="firstname" ColumnName="firstname" />
+          <ScalarProperty Name="lastname" ColumnName="lastname" />
+          <ScalarProperty Name="nick" ColumnName="nick" />
+          <ScalarProperty Name="bio" ColumnName="bio" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
     <FunctionImportMapping FunctionImportName="GetMatch" FunctionName="buzzerbaseModel.Store.GetMatch">
       <ResultMapping>
         <ComplexTypeMapping TypeName="buzzerbaseModel.GetMatch_Result">

@@ -41,8 +41,6 @@ namespace Application
         public virtual DbSet<userlogin> userlogins { get; set; }
         public virtual DbSet<usertype> usertypes { get; set; }
         public virtual DbSet<randommemberstory> randommemberstories { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<match1> match1 { get; set; }
     
         public virtual ObjectResult<Nullable<bool>> CreateUserWithLogin(Nullable<int> usertypeid, Nullable<int> genderid, string firstname, string lastname, string email, Nullable<System.DateTime> birthdate, string jobtitle, string pass, string image)
         {

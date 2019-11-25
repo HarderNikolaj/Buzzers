@@ -436,15 +436,13 @@
       <Parameter Name="pass" Mode="In" Type="String" />
       <Parameter Name="image" Mode="In" Type="String" />
     </FunctionImport>
-    <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
-      <Parameter Name="userid" Mode="In" Type="Int32" />
-    </FunctionImport>
     <EntitySet Name="randommemberstories" EntityType="buzzerbaseModel.randommemberstory" />
     <FunctionImport Name="GetPotentialMatch" ReturnType="Collection(buzzerbaseModel.GetPotentialMatch_Result1)">
       <Parameter Name="userid" Mode="In" Type="Int32" />
     </FunctionImport>
-    <EntitySet Name="sysdiagrams" EntityType="buzzerbaseModel.sysdiagram" />
-    <EntitySet Name="match1" EntityType="buzzerbaseModel.match1" />
+    <FunctionImport Name="getmatches" ReturnType="Collection(buzzerbaseModel.getmatches_Result)">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
     <FunctionImport Name="GetMatch" ReturnType="Collection(buzzerbaseModel.GetMatch_Result)">
       <Parameter Name="usertypeid" Mode="In" Type="Int32" />
       <Parameter Name="genderid" Mode="In" Type="Int32" />
@@ -494,12 +492,6 @@
     <Property Type="String" Name="jobtitle" Nullable="true" MaxLength="50" />
     <Property Type="Int32" Name="weight" Nullable="true" />
   </ComplexType>
-  <ComplexType Name="getmatches_Result">
-    <Property Type="Int32" Name="id" Nullable="false" />
-    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
-    <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
-  </ComplexType>
   <EntityType Name="randommemberstory">
     <Key>
       <PropertyRef Name="id" />
@@ -520,27 +512,13 @@
     <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
     <Property Type="Int32" Name="weight" Nullable="true" />
   </ComplexType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
-  <EntityType Name="match1">
-    <Key>
-      <PropertyRef Name="id" />
-      <PropertyRef Name="firstname" />
-      <PropertyRef Name="lastname" />
-    </Key>
-    <Property Name="id" Type="Int32" Nullable="false" />
-    <Property Name="firstname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="lastname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="nick" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
+  <ComplexType Name="getmatches_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="firstname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
+  </ComplexType>
   <ComplexType Name="GetMatch_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
     <Property Type="Int32" Name="preferenceid" Nullable="true" />

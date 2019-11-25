@@ -23,13 +23,14 @@
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="5*"/>
-                                <RowDefinition Height="50"/>
-                                <RowDefinition Height="200"/>
+                                <RowDefinition Height="25
+                                               "/>
+                                <RowDefinition Height="100"/>
                             </Grid.RowDefinitions>
                             <Image Grid.Column="0" Grid.Row="0" Source="{Binding Images[0], Mode=OneTime}" />
                             <Label Grid.Column="0" Grid.Row="1" Content="{Binding Nickname, Mode=OneTime}" />
-                            <ScrollViewer>
-                                <TextBlock Grid.Column="0" Grid.Row="2" Text="{Binding Bio, Mode=OneTime}"/>
+                            <ScrollViewer Grid.Column="0" Grid.Row="2">
+                                <TextBlock TextWrapping="Wrap" Text="{Binding Bio, Mode=OneTime}"/>
                             </ScrollViewer>
                         </Grid>
                     </DataTemplate>
