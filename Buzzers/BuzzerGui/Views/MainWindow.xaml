@@ -43,6 +43,8 @@
                         Grid.Row="2">
                 <Button Content="Browse Buzzer"
                         Command="{Binding BrowseViewCommand}" />
+                <Button Content="Edit Details"
+                        Command="{Binding DetailsViewCommand}" />
             </StackPanel>
         </Grid>
 
