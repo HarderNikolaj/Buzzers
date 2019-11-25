@@ -98,6 +98,7 @@
     <Compile Include="Startup\ViewModelInstaller.cs" />
     <Compile Include="Startup\ViewModelLocator.cs" />
     <Compile Include="Startup\WindsorInstaller.cs" />
+    <Compile Include="Utility\Messages\DetailsMessage.cs" />
     <Compile Include="Utility\Messages\MatchesMessage.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\MatchesViewModel.cs" />

@@ -12,18 +12,19 @@ namespace BuzzerGui.ViewModels
     public class MatchesViewModel : ViewModelBase, INavigationViewModel
     {
         private IAccountManager _manger;
-        public List<Hivemember> matches;
+        public List<Hivemember> matches { get; set; }
         public Hivemember userLoggedIn;
         public MatchesViewModel(IAccountManager manager)
         {
             _manger = manager;
             Messenger.Default.Register<Hivemember>(this, CurrentUser);
-            matches = _manger.GetMatches(userLoggedIn);
         }
 
         private void CurrentUser(Hivemember obj)
         {
             userLoggedIn = obj;
+            matches = _manger.GetMatches(userLoggedIn);
+
         }
     }
 }

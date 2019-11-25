@@ -47,6 +47,8 @@
                         Command="{Binding BrowseViewCommand}" />
                 <Button Content="Edit Details"
                         Command="{Binding DetailsViewCommand}" />
+                <Button Content="View Matches"
+                        Command="{Binding MatchesViewCommand}" />
             </StackPanel>
         </Grid>
 
