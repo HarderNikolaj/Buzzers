@@ -83,7 +83,8 @@ namespace Application
                         Id = item.id,
                         FirstName = item.firstname,
                         LastName = item.lastname,
-                        Nickname = item.nick
+                        Nickname = item.nick,
+                        Images = _db.GetImages(item.id)
                     });
                 }
                 else if (user.GetType().ToString() == "Domain.Users.Bee")
@@ -93,7 +94,8 @@ namespace Application
                         Id = item.id,
                         FirstName = item.firstname,
                         LastName = item.lastname,
-                        Nickname = item.nick
+                        Nickname = item.nick,
+                        Images = _db.GetImages(item.id)
                     });
                 }
             }
