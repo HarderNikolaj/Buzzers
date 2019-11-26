@@ -62,7 +62,7 @@ namespace Domain.Users
             BirthDate = _backup.BirthDate;
             Bio = _backup.Bio;
 
-            _backup = null;
+            _backup = MemberwiseClone() as Hivemember;
         }
 
         public void EndEdit()
