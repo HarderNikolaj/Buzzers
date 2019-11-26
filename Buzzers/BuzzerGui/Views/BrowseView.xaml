@@ -31,10 +31,13 @@
                Grid.Row="1"
                VerticalAlignment="Top"
                Margin="0,0,0.2,0" />
+        <ScrollViewer 
+            Grid.Column="1" 
+            Grid.Row="2">
         <TextBlock Text="{Binding PotentialMatch.Bio, Mode=OneWay}"
-                   Grid.Column="1"
-                   Grid.Row="2"
-                   Background="White" />
+                   Background="White" 
+                   TextWrapping="Wrap"/>
+        </ScrollViewer>
         <Button Content="Buzz Off"
                 Grid.Column="1"
                 Grid.Row="3"
