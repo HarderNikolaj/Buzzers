@@ -114,3 +114,5 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.CopyComplete
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.exe
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MatchesView.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MatchesView.baml
