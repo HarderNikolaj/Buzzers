@@ -19,5 +19,6 @@ namespace Application
         public string nick { get; set; }
         public string bio { get; set; }
         public System.DateTime birthdate { get; set; }
+        public Nullable<int> genderid { get; set; }
     }
 }

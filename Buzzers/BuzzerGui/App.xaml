@@ -27,7 +27,10 @@
             <DataTemplate DataType="{x:Type vm:MatchesViewModel}">
                 <views:MatchesView/>
             </DataTemplate>
-            <ResourceDictionary.MergedDictionaries>
+            <DataTemplate DataType="{x:Type vm:ChatViewModel}">
+                <views:ChatView/>
+                </DataTemplate>
+                <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="styles/SignInLabelStyle.xaml"/>
                 <ResourceDictionary Source="styles/SignInTextBoxStyle.xaml"/>
                 <ResourceDictionary Source="styles/SignInButtonStyle.xaml"/>

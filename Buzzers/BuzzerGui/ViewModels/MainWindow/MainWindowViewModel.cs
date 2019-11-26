@@ -64,7 +64,7 @@ namespace BuzzerGui.ViewModels
         public ICommand BrowseViewCommand { get; private set; }
         public ICommand DetailsViewCommand { get; private set; }
         public ICommand MatchesViewCommand { get; private set; }
-        public ICommand LogOutCommand { get; private set; }
+        public ICommand ChatViewCommand { get; private set; }
         public MainWindowViewModel(IAccountManager manager)
         {
             ViewModels.Add(new LoginViewModel(manager));
@@ -72,29 +72,17 @@ namespace BuzzerGui.ViewModels
             ViewModels.Add(new SignUpViewModel(manager));
             ViewModels.Add(new DetailsViewModel(manager));
             ViewModels.Add(new MatchesViewModel(manager));
+            ViewModels.Add(new ChatViewModel(manager));
             CurrentViewModel = ViewModels[0];
 
             BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
             DetailsViewCommand = new DelegateCommand(SwitchToDetailsView);
             MatchesViewCommand = new DelegateCommand(SwitchToMatchesView);
-            LogOutCommand = new DelegateCommand(SwitchToLoginView);
 
             Messenger.Default.Register<SignUpMessage>(this, SwitchToSignUpView);
             Messenger.Default.Register<Hivemember>(this, NewUser);
-            Messenger.Default.Register<BitmapImage>(this, NewProfilePicture);
-            Messenger.Default.Register<UserCreatedMessage>(this, SwitchToLoginView);
         }
 
-        private void NewProfilePicture(BitmapImage obj)
-        {
-            try
-            {
-                ProfilePicture = obj;
-            }
-            catch (Exception)
-            {
-            }
-        }
 
         private void NewUser(Hivemember obj)
         {
@@ -130,25 +118,19 @@ namespace BuzzerGui.ViewModels
             
         }
 
+        private void SwitchToSignUpView(SignUpMessage s)
+        {
+            CurrentViewModel = ViewModels[2];
+        }
 
         private void SwitchToMatchesView()
         {
             ChangeViewModel(ViewModels[4]);
             Messenger.Default.Send(new MatchesMessage(UserLoggedIn));
         }
-        private void SwitchToLoginView()
+        private void SwitchToChatView(ChatsMessage obj)
         {
-            UserLoggedIn = null;
-            ProfilePicture = null;
-            CurrentViewModel = ViewModels[0];
-        }
-        private void SwitchToLoginView(UserCreatedMessage e)
-        {
-            CurrentViewModel = ViewModels[0];
-        }
-        private void SwitchToSignUpView(SignUpMessage s)
-        {
-            CurrentViewModel = ViewModels[2];
+            ChangeViewModel(ViewModels[5]);
         }
     }
 }

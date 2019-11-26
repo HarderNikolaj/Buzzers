@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BuzzerGui.Utility;
 using Domain;
+using Domain.Enums;
 
 namespace BuzzerGui.ViewModels
 {
@@ -18,6 +19,7 @@ namespace BuzzerGui.ViewModels
         public Hivemember ChatPartner { get; set; }
         public IAccountManager _manager;
         public string NewText { get; set; }
+
 
         public ChatViewModel(IAccountManager manager)
         {

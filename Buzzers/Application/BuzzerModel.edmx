@@ -960,6 +960,7 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
           <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
           <Property Type="DateTime" Name="birthdate" Nullable="false" />
+          <Property Type="Int32" Name="genderid" Nullable="true" />
         </ComplexType>
         <ComplexType Name="GetMatch_Result">
           <Property Type="Int32" Name="id" Nullable="false" />
@@ -1175,6 +1176,7 @@ warning 6002: The table/view 'buzzerbase.dbo.randommemberstory' does not have a 
                 <ScalarProperty Name="nick" ColumnName="nick" />
                 <ScalarProperty Name="bio" ColumnName="bio" />
                 <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+                <ScalarProperty Name="genderid" ColumnName="genderid" />
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
