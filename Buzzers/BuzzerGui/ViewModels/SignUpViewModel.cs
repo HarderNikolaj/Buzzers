@@ -1,5 +1,6 @@
 ﻿using Application;
 using BuzzerGui.Utility;
+using BuzzerGui.Utility.Messages;
 using Domain.Enums;
 using Domain.Users;
 using Microsoft.Win32;
@@ -113,7 +114,8 @@ namespace BuzzerGui.ViewModels
                         
                     };
                     _manager.CreateUser(bee, Password);
-                    Messenger.Default.Send(bee);
+                    Messenger.Default.Send(new UserCreatedMessage());
+
                     break;
                 case UserType.Honeypot:
                     var honeypot = new Honeypot()
@@ -131,7 +133,7 @@ namespace BuzzerGui.ViewModels
                         //jobtitle
                     };
                     _manager.CreateUser(honeypot, Password);
-                    Messenger.Default.Send(honeypot);
+                    Messenger.Default.Send(new UserCreatedMessage());
                     break;
                 default:
                     break;

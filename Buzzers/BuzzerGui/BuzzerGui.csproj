@@ -101,6 +101,7 @@
     <Compile Include="Utility\Messages\ChatsMessage.cs" />
     <Compile Include="Utility\Messages\DetailsMessage.cs" />
     <Compile Include="Utility\Messages\MatchesMessage.cs" />
+    <Compile Include="Utility\Messages\UserCreatedMessage.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\MatchesViewModel.cs" />
@@ -125,10 +126,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Styles\SignInTextBoxStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\BrowseControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -163,9 +160,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="UserControls\BrowseControl.xaml.cs">
-      <DependentUpon>BrowseControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\LoginControl.xaml.cs">
       <DependentUpon>LoginControl.xaml</DependentUpon>

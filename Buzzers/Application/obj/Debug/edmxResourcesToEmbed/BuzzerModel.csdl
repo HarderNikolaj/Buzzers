@@ -519,7 +519,6 @@
     <Property Type="String" Name="nick" Nullable="true" MaxLength="50" />
     <Property Type="String" Name="bio" Nullable="true" MaxLength="1000" />
     <Property Type="DateTime" Name="birthdate" Nullable="false" />
-    <Property Type="Int32" Name="genderid" Nullable="true" />
   </ComplexType>
   <ComplexType Name="GetMatch_Result">
     <Property Type="Int32" Name="id" Nullable="false" />
