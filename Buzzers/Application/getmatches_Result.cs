@@ -18,5 +18,6 @@ namespace Application
         public string lastname { get; set; }
         public string nick { get; set; }
         public string bio { get; set; }
+        public System.DateTime birthdate { get; set; }
     }
 }
