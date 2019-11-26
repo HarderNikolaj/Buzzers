@@ -41,9 +41,11 @@ namespace Domain.Users
         public List<string> Images { get; set; }
 
         private Hivemember _backup;
+        public int Age { get; set; }
 
         public Hivemember()
         {
+            Age = GetAge();
             Preferences = new Preferences();
         }
 

@@ -55,6 +55,8 @@ C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.CopyComplete
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.exe
 C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MatchesView.g.cs
+C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MatchesView.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\BuzzerGui.exe.config
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\BuzzerGui.exe
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\BuzzerGui.pdb
@@ -86,6 +88,7 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\Bro
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.g.cs
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\ChatView.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\DetailsView.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\LoginView.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MainWindow.g.cs
@@ -103,6 +106,7 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\Bro
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.baml
+C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\ChatView.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\DetailsView.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\LoginView.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MainWindow.baml
@@ -114,7 +118,3 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csproj.CopyComplete
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.exe
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.pdb
-C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MatchesView.g.cs
-C:\Users\Anna\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\MatchesView.baml
-C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\ChatView.g.cs
-C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\ChatView.baml

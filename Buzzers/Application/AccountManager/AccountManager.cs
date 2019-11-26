@@ -7,6 +7,7 @@ using Application.DbCommunicator;
 using Domain.Users;
 using Domain;
 using Application.MapperClasses;
+using Domain.Enums;
 
 namespace Application
 {
@@ -86,6 +87,8 @@ namespace Application
                         LastName = item.lastname,
                         Nickname = item.nick,
                         Bio = item.bio,
+                        BirthDate = item.birthdate,
+                        Gender = (Gender) item.genderid,
                         Images = _db.GetImages(item.id)
                     });
                 }
@@ -98,6 +101,8 @@ namespace Application
                         LastName = item.lastname,
                         Nickname = item.nick,
                         Bio = item.bio,
+                        BirthDate = item.birthdate,
+                        Gender = (Gender)item.genderid,
                         Images = _db.GetImages(item.id)
                     });
                 }

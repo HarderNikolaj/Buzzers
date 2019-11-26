@@ -17,7 +17,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Image Grid.Column="0" Grid.Row="0" Source="../beemages/userstoryf5.jpg"/>
+        <Image Grid.Column="0" Grid.Row="0" Source="{Binding ChatPartner.Images[0]}"/>
         <Grid Grid.Column="0" Grid.Row="1" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="25"/>
@@ -25,6 +25,9 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="25"/>
             </Grid.RowDefinitions>
+            <Label Grid.Row="0" Content="{Binding ChatPartner.Nickname}"/>
+            <Label Grid.Row="1" Content="{Binding ChatPartner.Gender}"/>
+            <Label Grid.Row="2" Content="{Binding ChatPartner.Birthdate}"/>
         </Grid>
         <ScrollViewer Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
             <StackPanel>
