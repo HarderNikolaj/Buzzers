@@ -6,7 +6,32 @@
              xmlns:local="clr-namespace:BuzzerGui.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-            
+    <Grid Background="HotPink">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="60" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="60" />
+        </Grid.RowDefinitions>
+
+        <Label Content="Edit bio:"
+               Grid.Row="1"
+               Grid.Column="3" />
+        <TextBox Text="{Binding User.Bio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="2"
+                 Grid.Column="3" />
+
+        <Button Content="Edit profile picture"
+                Grid.Column="1"
+                Grid.Row="2"
+                Command="{Binding ChangeProfilePictureCommand}" />
     </Grid>
 </UserControl>
