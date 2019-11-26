@@ -26,16 +26,26 @@
             <RowDefinition Height="60" />
         </Grid.RowDefinitions>
 
-        <Label Content="Edit bio:"
+        <Label Content="Edit nickname:"
                Grid.Row="1"
-               Grid.Column="4"
-               Margin="0.6,0,0,0" />
-        <TextBox Text="{Binding User.Bio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+               Grid.Column="4" />
+        <TextBox Text="{Binding User.Nickname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                  Grid.Row="2"
                  Grid.Column="4"
-                 Grid.RowSpan="3"
-                 Grid.ColumnSpan="2"
-                 Margin="0.6,0,59,74.8" />
+                 Style="{StaticResource SignInTextBoxStyle}"/>
+
+        <Label Content="Edit bio:"
+               Grid.Row="3"
+               Grid.Column="4"
+               VerticalAlignment="Bottom" />
+        <TextBox Text="{Binding User.Bio, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                 Grid.Row="4"
+                 Grid.Column="4"
+                 Grid.RowSpan="2"
+                 HorizontalScrollBarVisibility="Disabled"
+                 VerticalScrollBarVisibility="Auto"
+                 TextWrapping="Wrap"
+                 AcceptsReturn="True"/>
 
         <Button Content="Edit profile picture"
                 Grid.Column="1"
