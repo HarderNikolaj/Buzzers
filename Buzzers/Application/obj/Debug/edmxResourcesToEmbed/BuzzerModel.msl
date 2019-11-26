@@ -170,6 +170,7 @@
           <ScalarProperty Name="nick" ColumnName="nick" />
           <ScalarProperty Name="bio" ColumnName="bio" />
           <ScalarProperty Name="birthdate" ColumnName="birthdate" />
+          <ScalarProperty Name="genderid" ColumnName="genderid" />
         </ComplexTypeMapping>
       </ResultMapping>
     </FunctionImportMapping>
