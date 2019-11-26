@@ -16,3 +16,4 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\Domain\bin\Debug\Castle.Windsor.xml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\Domain\obj\Debug\Domain.csproj.CopyComplete
 C:\Users\nikol\source\repos\Buzzers\Buzzers\Domain\obj\Debug\Domain.dll
 C:\Users\nikol\source\repos\Buzzers\Buzzers\Domain\obj\Debug\Domain.pdb
+C:\Users\Anna\source\repos\Buzzers\Buzzers\Domain\obj\Debug\Domain.csprojAssemblyReference.cache

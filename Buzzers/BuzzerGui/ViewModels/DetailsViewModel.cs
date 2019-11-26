@@ -64,6 +64,7 @@ namespace BuzzerGui.ViewModels
         private void CancelChanges()
         {
             User.CancelEdit();
+            OnPropertyChanged("User");
         }
 
         private void CurrentUser(DetailsMessage obj)
