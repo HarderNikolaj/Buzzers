@@ -37,6 +37,7 @@ namespace Application.DbCommunicator
                     toChange.nick = hivemember.Nickname;
                     toChange.preference.attractionfemale = hivemember.Preferences.AttracitonFemales;
                     toChange.preference.attractionmale = hivemember.Preferences.AttractionMales;
+                    toChange.images.First().imagename = hivemember.Images[0];
 
                     context.SaveChanges();
                 }
