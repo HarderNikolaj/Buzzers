@@ -16,6 +16,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="25"/>
         </Grid.RowDefinitions>
         <Image Grid.Column="0" Grid.Row="0" Source="{Binding ChatPartner.Images[0]}"/>
         <Grid Grid.Column="0" Grid.Row="1" >
@@ -27,16 +28,11 @@
             </Grid.RowDefinitions>
             <Label Grid.Row="0" Content="{Binding ChatPartner.Nickname}"/>
             <Label Grid.Row="1" Content="{Binding ChatPartner.Gender}"/>
-            <Label Grid.Row="2" Content="{Binding ChatPartner.Birthdate}"/>
         </Grid>
         <ScrollViewer Grid.Column="1" Grid.Row="0" Grid.RowSpan="2">
             <StackPanel>
                 <ItemsControl x:Name="ChatControl" ItemsSource="{Binding ChatMessages}">
-                    <ItemsControl.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="2" />
-                        </ItemsPanelTemplate>
-                    </ItemsControl.ItemsPanel>
+                   
                     <ItemsControl.ItemTemplate>
 
                         <DataTemplate>
@@ -55,6 +51,7 @@
                 </ItemsControl>
             </StackPanel>
         </ScrollViewer>
-        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NewText}"/>
+        <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding NewText, Mode=TwoWay}"/>
+        <Button Grid.Column="1" Grid.Row="3" Content="Send" Command="{Binding SendMessageCommand}"/>
     </Grid>
 </UserControl>

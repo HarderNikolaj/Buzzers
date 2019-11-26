@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using BuzzerGui.Utility;
 using Domain;
 using Domain.Enums;
+using System.Windows.Input;
+using Prism.Commands;
 
 namespace BuzzerGui.ViewModels
 {
@@ -18,11 +20,13 @@ namespace BuzzerGui.ViewModels
         public Hivemember UserLoggedIn { get; set; }
         public Hivemember ChatPartner { get; set; }
         public IAccountManager _manager;
+        public ICommand SendMessageCommand { get; private set; }
         public string NewText { get; set; }
 
 
         public ChatViewModel(IAccountManager manager)
         {
+            SendMessageCommand = new DelegateCommand(SendMessage);
             Messenger.Default.Register<ChatsMessage>(this, NewChat);
             _manager = manager;
         }
@@ -32,6 +36,11 @@ namespace BuzzerGui.ViewModels
             UserLoggedIn = obj.LoggedInUser;
             ChatPartner = obj.ChatPartner;
             ChatMessages = _manager.GetChatMessages(UserLoggedIn, ChatPartner);
+        }
+
+        private void SendMessage()
+        {
+            _manager.SendMessage(UserLoggedIn, ChatPartner, NewText);
         }
     }
 }
