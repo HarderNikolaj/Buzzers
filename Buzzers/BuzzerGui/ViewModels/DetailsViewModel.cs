@@ -31,12 +31,16 @@ namespace BuzzerGui.ViewModels
         }
 
         public ICommand ChangeProfilePictureCommand { get; private set; }
+        public ICommand SaveChangesCommand { get; private set; }
+        public ICommand CancelChangesCommand { get; private set; }
 
         public DetailsViewModel(IAccountManager manager)
         {
             _manager = manager;
 
             ChangeProfilePictureCommand = new DelegateCommand(ChangeProfilePicture);
+            SaveChangesCommand = new DelegateCommand(SaveChanges);
+            CancelChangesCommand = new DelegateCommand(CancelChanges);
 
             Messenger.Default.Register<DetailsMessage>(this, CurrentUser);
         }
@@ -51,10 +55,21 @@ namespace BuzzerGui.ViewModels
             }
         }
 
+        private void SaveChanges()
+        {
+            _manager.Edit(User);
+            User.EndEdit();
+        }
+
+        private void CancelChanges()
+        {
+            User.CancelEdit();
+        }
+
         private void CurrentUser(DetailsMessage obj)
         {
             User = obj.Hivemember;
-            
+            User.BeginEdit();
         }
     }
 }
