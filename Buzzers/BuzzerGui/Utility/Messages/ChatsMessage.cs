@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace BuzzerGui.Utility.Messages
 {
-    class ChatMessage
+    class ChatsMessage
     {
-        Hivemember LoggedInUser { get; set; }
-        Hivemember ChatPartner { get; set; }
-        public ChatMessage(Hivemember loggedInUser, Hivemember chatPartner)
+        public Hivemember LoggedInUser { get; set; }
+        public Hivemember ChatPartner { get; set; }
+        public ChatsMessage(Hivemember loggedInUser, Hivemember chatPartner)
         {
             LoggedInUser = loggedInUser;
             ChatPartner = chatPartner;

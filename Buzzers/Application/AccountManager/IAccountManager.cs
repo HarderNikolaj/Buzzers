@@ -22,5 +22,7 @@ namespace Application
         List<message> GetMessages(Hivemember user, Hivemember chatPartner);
         void SendMessage(Hivemember sender, Hivemember reciever, string message);
         MemberStory GetMemberStory();
+        List<ChatMessage> GetChatMessages(Hivemember user, Hivemember chatPartner);
+
     }
 }

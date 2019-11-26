@@ -87,5 +87,33 @@ namespace Application.MapperClasses
                 AttractionMales = p.attractionmale
             };
         }
+        public static List<ChatMessage> MapEnitityMessageToChatMessage(List<message> messages, Hivemember user, Hivemember chatPartner)
+        {
+            List<ChatMessage> chatMessages = new List<ChatMessage>();
+            foreach (var item in messages)
+            {
+                if (item.senderid == user.Id)
+                {
+                    chatMessages.Add(new ChatMessage()
+                    {
+                        Sender = user,
+                        Reciever = chatPartner,
+                        Message = item.text,
+                        Timestamp = item.timestamp
+                    });
+                }
+                else
+                {
+                    chatMessages.Add(new ChatMessage()
+                    {
+                        Sender = chatPartner,
+                        Reciever = user,
+                        Message = item.text,
+                        Timestamp = item.timestamp
+                    });
+                }
+            }
+            return chatMessages;
+        }
     }
 }

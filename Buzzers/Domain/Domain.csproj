@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChatMessage.cs" />
     <Compile Include="MemberStory.cs" />
     <Compile Include="Enums\Eyecolor.cs" />
     <Compile Include="Enums\Gender.cs" />

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Application.DbCommunicator;
 using Domain.Users;
 using Domain;
+using Application.MapperClasses;
 
 namespace Application
 {
@@ -106,7 +107,12 @@ namespace Application
 
         public List<message> GetMessages(Hivemember user, Hivemember chatPartner)
         {
+            
             return _db.GetMessages(user, chatPartner);
+        }
+        public List<ChatMessage> GetChatMessages(Hivemember user, Hivemember chatPartner)
+        {
+            return HivememberEntityMapper.MapEnitityMessageToChatMessage(_db.GetMessages(user, chatPartner), user, chatPartner);
         }
 
         public void SendMessage(Hivemember sender, Hivemember reciever, string message)

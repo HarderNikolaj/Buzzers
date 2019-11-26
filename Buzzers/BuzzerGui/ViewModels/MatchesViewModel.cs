@@ -28,7 +28,7 @@ namespace BuzzerGui.ViewModels
 
         private void EnterChat(Hivemember chatPartner)
         {
-            throw new NotImplementedException();
+            Messenger.Default.Send(new ChatsMessage(UserLoggedIn, chatPartner));
         }
 
         private void CurrentUser(MatchesMessage obj)
