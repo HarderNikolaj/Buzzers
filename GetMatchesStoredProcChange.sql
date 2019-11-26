@@ -11,11 +11,11 @@ GO
 
 alter procedure [dbo].[getmatches] @userid int
 as
-select hivemember.id, firstname, lastname, nick, bio, birthdate from hivemember
+select hivemember.id, firstname, lastname, nick, bio, genderid, birthdate from hivemember
 join match on match.firstbuzzerid = hivemember.id
 where lastbuzzerid = @userid
 union
-select hivemember.id, firstname, lastname, nick, bio, birthdate from hivemember
+select hivemember.id, firstname, lastname, nick, bio, genderid, birthdate from hivemember
 join match on match.lastbuzzerid= hivemember.id
 where firstbuzzerid = @userid
 
