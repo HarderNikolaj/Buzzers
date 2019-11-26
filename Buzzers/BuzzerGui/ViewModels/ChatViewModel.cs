@@ -17,6 +17,7 @@ namespace BuzzerGui.ViewModels
     class ChatViewModel : ViewModelBase, INavigationViewModel
     {
         private List<ChatMessage> _chatMessages;
+        private string _newText;
         public List<ChatMessage> ChatMessages
         {
             get => _chatMessages;
@@ -30,7 +31,15 @@ namespace BuzzerGui.ViewModels
         public Hivemember ChatPartner { get; set; }
         public IAccountManager _manager;
         public ICommand SendMessageCommand { get; private set; }
-        public string NewText { get; set; }
+        public string NewText
+        {
+            get => _newText;
+            set
+            {
+                _newText = value;
+                OnPropertyChanged();
+            }
+        }
 
 
         public ChatViewModel(IAccountManager manager)
@@ -51,6 +60,7 @@ namespace BuzzerGui.ViewModels
         {
             _manager.SendMessage(UserLoggedIn, ChatPartner, NewText);
             ChatMessages = _manager.GetChatMessages(UserLoggedIn, ChatPartner);
+            NewText = null;
         }
     }
 }

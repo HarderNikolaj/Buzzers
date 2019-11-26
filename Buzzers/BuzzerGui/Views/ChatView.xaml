@@ -4,9 +4,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:BuzzerGui.Views"
+             xmlns:converter="clr-namespace:BuzzerGui.Utility.Converters"
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
+    <UserControl.Resources>
+        <converter:MessageToHorizontalAlignmentConverter x:Key="converter" />
+    </UserControl.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -52,13 +56,21 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <Label Grid.Column="0"
+                                <!--<Label Grid.Column="0"
                                        Grid.Row="1"
                                        Content="{Binding Sender, Mode=OneTime}"
-                                       Background="WhiteSmoke" />
+                                       Background="WhiteSmoke" />-->
                                 <TextBlock TextWrapping="Wrap"
+                                           Width="250"
                                            Text="{Binding Message, Mode=OneTime}"
-                                           Background="WhiteSmoke" />
+                                           Background="WhiteSmoke">
+                                    <TextBlock.HorizontalAlignment>
+                                        <MultiBinding Converter="{StaticResource converter}">
+                                            <Binding Path="Sender" />
+                                            <Binding Path="DataContext.UserLoggedIn" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}" />
+                                        </MultiBinding> 
+                                    </TextBlock.HorizontalAlignment>
+                                </TextBlock>
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>

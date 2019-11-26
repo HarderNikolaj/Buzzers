@@ -98,6 +98,7 @@
     <Compile Include="Startup\ViewModelInstaller.cs" />
     <Compile Include="Startup\ViewModelLocator.cs" />
     <Compile Include="Startup\WindsorInstaller.cs" />
+    <Compile Include="Utility\Converters\MessageToHorizontalAlignmentConverter.cs" />
     <Compile Include="Utility\Messages\ChatsMessage.cs" />
     <Compile Include="Utility\Messages\DetailsMessage.cs" />
     <Compile Include="Utility\Messages\MatchesMessage.cs" />
