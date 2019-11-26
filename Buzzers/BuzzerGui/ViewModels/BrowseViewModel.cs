@@ -33,10 +33,15 @@ namespace BuzzerGui.ViewModels
         {
             Messenger.Default.Register<BrowseMessage>(this, CurrentUser);
 
-            BuzzOffCommand = new DelegateCommand(BuzzOff);
-            BuzzOnCommand = new DelegateCommand(BuzzOn);
+            BuzzOffCommand = new DelegateCommand(BuzzOff, CanBuzz).ObservesProperty(()=> PotentialMatch);
+            BuzzOnCommand = new DelegateCommand(BuzzOn, CanBuzz).ObservesProperty(() => PotentialMatch);
 
             _manager = accountManager;
+        }
+
+        private bool CanBuzz()
+        {
+            return PotentialMatch != null;
         }
 
         public void FindPotentialMatch()

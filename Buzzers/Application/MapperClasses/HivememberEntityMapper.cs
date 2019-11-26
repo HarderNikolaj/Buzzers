@@ -38,7 +38,8 @@ namespace Application.MapperClasses
                 BirthDate = hivemember.birthdate,
                 Gender = (Gender)hivemember.genderid,
                 Preferences = MapEntityToDomainPreferences(hivemember.preference),
-                Images = new List<string> { image }
+                Images = new List<string> { image },
+                Bio = hivemember.bio
             };
             return converted;
         }
@@ -72,8 +73,8 @@ namespace Application.MapperClasses
                 Gender = (Gender)hivemember.genderid,
                 JobTitle = hivemember.jobtitle,
                 Preferences = MapEntityToDomainPreferences(hivemember.preference),
-                Images = new List<string> { image }
-
+                Images = new List<string> { image },
+                Bio = hivemember.bio
             };
             return converted;
         }

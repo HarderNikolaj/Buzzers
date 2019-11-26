@@ -265,6 +265,15 @@
   <ItemGroup>
     <Resource Include="Beemages\honeycomp2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beemages\BeeAd7.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beemages\BeeBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Beemages\BeeBackground2.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

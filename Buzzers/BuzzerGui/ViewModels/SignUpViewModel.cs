@@ -52,7 +52,13 @@ namespace BuzzerGui.ViewModels
             set
             {
                 _profilePicturePath = value;
-                ProfilePicture = new BitmapImage(new Uri(_profilePicturePath, UriKind.Absolute));    
+                try
+                {
+                    ProfilePicture = new BitmapImage(new Uri(_profilePicturePath, UriKind.Absolute));
+                }
+                catch (Exception)
+                {
+                }
             }
         }
 
