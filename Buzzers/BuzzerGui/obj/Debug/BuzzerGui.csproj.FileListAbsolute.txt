@@ -80,7 +80,6 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\Prism.Wpf.pdb
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\Prism.Wpf.xml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\bin\Debug\System.ValueTuple.xml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\BuzzerGui.csprojAssemblyReference.cache
-C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\BrowseControl.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.g.cs
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.g.cs
@@ -97,7 +96,6 @@ C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\App.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInButtonStyle.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInLabelStyle.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Styles\SignInTextBoxStyle.baml
-C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\BrowseControl.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\LoginControl.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\UserControls\UserStoryControl.baml
 C:\Users\nikol\source\repos\Buzzers\Buzzers\BuzzerGui\obj\Debug\Views\BrowseView.baml
