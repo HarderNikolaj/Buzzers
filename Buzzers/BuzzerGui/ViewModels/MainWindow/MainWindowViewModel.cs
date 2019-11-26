@@ -85,6 +85,7 @@ namespace BuzzerGui.ViewModels
             Messenger.Default.Register<Hivemember>(this, NewUser);
             Messenger.Default.Register<BitmapImage>(this, NewProfilePicture);
             Messenger.Default.Register<UserCreatedMessage>(this, SwitchToLoginView);
+            Messenger.Default.Register<ChatsMessage>(this, SwitchToChatView);
         }
 
         private void NewProfilePicture(BitmapImage obj)
