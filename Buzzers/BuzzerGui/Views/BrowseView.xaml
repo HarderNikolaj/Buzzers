@@ -7,40 +7,53 @@
              mc:Ignorable="d"
              d:DesignHeight="450"
              d:DesignWidth="800">
-    <Grid Background="Red">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="../Beemages/BeeBackground2.jpg"/>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="60" />
+            <ColumnDefinition Width="150" />
             <ColumnDefinition Width="227*" />
-            <ColumnDefinition Width="84*" />
-            <ColumnDefinition Width="369*" />
+            <ColumnDefinition Width="110" />
+            <ColumnDefinition Width="186*" />
+            <ColumnDefinition Width="183*" />
             <ColumnDefinition Width="60" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="60" />
-            <RowDefinition Height="5*" />
-            <RowDefinition Height="1.5*" />
+            <RowDefinition Height="181*" />
+            <RowDefinition Height="103*" />
+            <RowDefinition Height="86*" />
             <RowDefinition Height="20" />
         </Grid.RowDefinitions>
         <Image Source="{Binding PotentialMatch.Images[0]}"
                Grid.Column="1"
                Grid.Row="1"
-               VerticalAlignment="Top"/>
-        <TextBlock Text="{Binding PotentialMatch.Bio, Mode=OneWay}" 
-                   Grid.Column="3"
-                   Grid.Row="1"/>
+               VerticalAlignment="Top"
+               Margin="0,0,0.2,0" />
+        <TextBlock Text="{Binding PotentialMatch.Bio, Mode=OneWay}"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   Background="White" />
         <Button Content="Buzz Off"
                 Grid.Column="1"
-                Grid.Row="2"
-                Height="80"
-                Width="200"
+                Grid.Row="3"
                 HorizontalAlignment="Left"
-                Command="{Binding BuzzOffCommand}" />
+                Width="140"
+                Command="{Binding BuzzOffCommand}"
+                Style="{StaticResource SignInButtonStyle}"/>
         <Button Content="Buzz On"
-                Grid.Column="3"
-                Grid.Row="2"
-                Height="80"
-                Width="200"
-                HorizontalAlignment="Left"
-                Command="{Binding BuzzOnCommand}" />
+                Grid.Column="1"
+                Grid.Row="3"
+                Width="140"
+                HorizontalAlignment="Right"
+                Command="{Binding BuzzOnCommand}"
+                Style="{StaticResource SignInButtonStyle}"/>
+        <Image Source="../Beemages/BeeAd1.jpg"
+               Grid.Column="3"
+               Grid.RowSpan="5"
+               Grid.ColumnSpan="3" 
+               HorizontalAlignment="Right"/>
+
     </Grid>
 </UserControl>
