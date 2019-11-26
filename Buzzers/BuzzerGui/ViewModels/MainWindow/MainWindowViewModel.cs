@@ -64,6 +64,7 @@ namespace BuzzerGui.ViewModels
         public ICommand BrowseViewCommand { get; private set; }
         public ICommand DetailsViewCommand { get; private set; }
         public ICommand MatchesViewCommand { get; private set; }
+        public ICommand LogOutCommand { get; private set; }
         public MainWindowViewModel(IAccountManager manager)
         {
             ViewModels.Add(new LoginViewModel(manager));
@@ -76,6 +77,7 @@ namespace BuzzerGui.ViewModels
             BrowseViewCommand = new DelegateCommand(SwitchToBrowseView);
             DetailsViewCommand = new DelegateCommand(SwitchToDetailsView);
             MatchesViewCommand = new DelegateCommand(SwitchToMatchesView);
+            LogOutCommand = new DelegateCommand(SwitchToLoginView);
 
             Messenger.Default.Register<SignUpMessage>(this, SwitchToSignUpView);
             Messenger.Default.Register<Hivemember>(this, NewUser);
@@ -134,13 +136,19 @@ namespace BuzzerGui.ViewModels
             ChangeViewModel(ViewModels[4]);
             Messenger.Default.Send(new MatchesMessage(UserLoggedIn));
         }
-        private void SwitchToSignUpView(SignUpMessage s)
+        private void SwitchToLoginView()
         {
-            CurrentViewModel = ViewModels[2];
+            UserLoggedIn = null;
+            ProfilePicture = null;
+            CurrentViewModel = ViewModels[0];
         }
         private void SwitchToLoginView(UserCreatedMessage e)
         {
             CurrentViewModel = ViewModels[0];
+        }
+        private void SwitchToSignUpView(SignUpMessage s)
+        {
+            CurrentViewModel = ViewModels[2];
         }
     }
 }

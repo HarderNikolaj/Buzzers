@@ -55,6 +55,8 @@
                         Command="{Binding DetailsViewCommand}" />
                 <Button Content="View Matches"
                         Command="{Binding MatchesViewCommand}" />
+                <Button Content="Log Out"
+                        Command="{Binding LogOutCommand}" />
             </StackPanel>
         </Grid>
 
