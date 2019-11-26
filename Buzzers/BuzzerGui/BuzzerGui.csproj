@@ -101,6 +101,7 @@
     <Compile Include="Utility\Messages\ChatsMessage.cs" />
     <Compile Include="Utility\Messages\DetailsMessage.cs" />
     <Compile Include="Utility\Messages\MatchesMessage.cs" />
+    <Compile Include="Utility\Messages\UserCreatedMessage.cs" />
     <Compile Include="ViewModels\ChatViewModel.cs" />
     <Compile Include="ViewModels\DetailsViewModel.cs" />
     <Compile Include="ViewModels\MatchesViewModel.cs" />

@@ -80,6 +80,7 @@ namespace BuzzerGui.ViewModels
             Messenger.Default.Register<SignUpMessage>(this, SwitchToSignUpView);
             Messenger.Default.Register<Hivemember>(this, NewUser);
             Messenger.Default.Register<BitmapImage>(this, NewProfilePicture);
+            Messenger.Default.Register<UserCreatedMessage>(this, SwitchToLoginView);
         }
 
         private void NewProfilePicture(BitmapImage obj)
@@ -127,15 +128,19 @@ namespace BuzzerGui.ViewModels
             
         }
 
-        private void SwitchToSignUpView(SignUpMessage s)
-        {
-            CurrentViewModel = ViewModels[2];
-        }
 
         private void SwitchToMatchesView()
         {
             ChangeViewModel(ViewModels[4]);
             Messenger.Default.Send(new MatchesMessage(UserLoggedIn));
+        }
+        private void SwitchToSignUpView(SignUpMessage s)
+        {
+            CurrentViewModel = ViewModels[2];
+        }
+        private void SwitchToLoginView(UserCreatedMessage e)
+        {
+            CurrentViewModel = ViewModels[0];
         }
     }
 }
