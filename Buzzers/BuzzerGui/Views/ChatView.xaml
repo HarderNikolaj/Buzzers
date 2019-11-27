@@ -79,7 +79,8 @@
         </ScrollViewer>
         <TextBox Grid.Column="1"
                  Grid.Row="2"
-                 Text="{Binding NewText, Mode=TwoWay}" />
+                 Text="{Binding NewText, Mode=TwoWay}"
+                 TextWrapping="Wrap"/>
         <Button Grid.Column="1"
                 Grid.Row="3"
                 Content="Send"
