@@ -15,6 +15,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="25" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -35,13 +36,18 @@
                 <RowDefinition Height="25" />
             </Grid.RowDefinitions>
             <Label Grid.Row="0"
-                   Content="{Binding ChatPartner.Nickname}" />
+                   Content="{Binding ChatPartner.Nickname}"
+                   HorizontalContentAlignment="Center"
+                   Background="Wheat"/>
             <Label Grid.Row="1"
-                   Content="{Binding ChatPartner.Gender}" />
+                   Background="Wheat"
+                   Content="{Binding ChatPartner.Gender}" 
+                   HorizontalContentAlignment="Center"/>
         </Grid>
         <ScrollViewer Grid.Column="1"
                       Grid.Row="0"
-                      Grid.RowSpan="2">
+                      Grid.RowSpan="2"
+                      Background="WhiteSmoke">
             <StackPanel>
                 <ItemsControl x:Name="ChatControl"
                               ItemsSource="{Binding ChatMessages}">
@@ -56,19 +62,16 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition Height="*" />
                                 </Grid.RowDefinitions>
-                                <!--<Label Grid.Column="0"
-                                       Grid.Row="1"
-                                       Content="{Binding Sender, Mode=OneTime}"
-                                       Background="WhiteSmoke" />-->
                                 <TextBlock TextWrapping="Wrap"
                                            Width="250"
                                            Text="{Binding Message, Mode=OneTime}"
-                                           Background="WhiteSmoke">
+                                           Background="White">
                                     <TextBlock.HorizontalAlignment>
                                         <MultiBinding Converter="{StaticResource converter}">
                                             <Binding Path="Sender" />
-                                            <Binding Path="DataContext.UserLoggedIn" RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}" />
-                                        </MultiBinding> 
+                                            <Binding Path="DataContext.UserLoggedIn"
+                                                     RelativeSource="{RelativeSource Mode=FindAncestor, AncestorType={x:Type ItemsControl}}" />
+                                        </MultiBinding>
                                     </TextBlock.HorizontalAlignment>
                                 </TextBlock>
                             </Grid>
@@ -79,10 +82,17 @@
         </ScrollViewer>
         <TextBox Grid.Column="1"
                  Grid.Row="2"
-                 Text="{Binding NewText, Mode=TwoWay}" />
+                 Text="{Binding NewText, Mode=TwoWay}"
+                 TextWrapping="Wrap" />
         <Button Grid.Column="1"
                 Grid.Row="3"
                 Content="Send"
                 Command="{Binding SendMessageCommand}" />
+        <Image Source="../Beemages/BeeAd8.jpg"
+               Grid.Column="3"
+               Grid.Row="0"
+               Grid.RowSpan="4"
+               HorizontalAlignment="Right"
+               Stretch="Fill"/>
     </Grid>
 </UserControl>
