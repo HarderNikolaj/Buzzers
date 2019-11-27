@@ -32,6 +32,7 @@
                VerticalAlignment="Top"
                Margin="0,0,0.2,0" />
         <ScrollViewer 
+            VerticalScrollBarVisibility="Auto"
             Grid.Column="1" 
             Grid.Row="2">
         <TextBlock Text="{Binding PotentialMatch.Bio, Mode=OneWay}"
