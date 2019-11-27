@@ -50,13 +50,17 @@
             <StackPanel Orientation="Vertical"
                         Grid.Row="2">
                 <Button Content="Browse Buzzer"
-                        Command="{Binding BrowseViewCommand}" />
+                        Command="{Binding BrowseViewCommand}"
+                        Height="50"/>
                 <Button Content="Edit Details"
-                        Command="{Binding DetailsViewCommand}" />
+                        Command="{Binding DetailsViewCommand}"
+                        Height="50"/>
                 <Button Content="View Matches"
-                        Command="{Binding MatchesViewCommand}" />
+                        Command="{Binding MatchesViewCommand}"
+                        Height="50"/>
                 <Button Content="Log Out"
-                        Command="{Binding LogOutCommand}" />
+                        Command="{Binding LogOutCommand}"
+                        Height="50" />
             </StackPanel>
         </Grid>
 
